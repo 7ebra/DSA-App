@@ -1,0 +1,12 @@
+.choose-weapon-modal
+  .modal-header
+    %h3 Waffe wechseln
+
+  .modal-body
+    .list-group
+      %a.list-group-item{ng_repeat: "weapon in weapons", ng_click: "setWeapon(weapon)"} {{ weapon.name }}
+
+    Selected: {{ select.name }}
+  .modal-footer
+    %button.btn.btn-primary{ng_click: "ok()"} Waffe wählen
+    %button.btn.btn-warning{ng_click: "cancel()"} Abrechen

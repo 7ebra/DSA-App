@@ -1,0 +1,60 @@
+<h2>Kampf</h2>
+<div class='bars-box'>
+  <div class='row no-spacing'>
+    <div class='col-xs-4 thumbnail'>
+      <div class='lep-slider animate'>
+        <div max='{{lep.actual}}' min='0' ng-model='lep.currentValue' step='1' ui-slider="{value:'{{lep.currentValue}}', orientation: 'vertical', range: 'min'}">
+          <p class='stats-value'>{{ lep.currentValue | number:0}}</p>
+          <small class='stats-text'>Lebenspunkte</small>
+        </div>
+      </div>
+      <button class='btn bars' ng-click='lepMinus()'>-</button>
+      <button class='btn bars' ng-click='lepPlus()'>+</button>
+    </div>
+    <div class='col-xs-4 thumbnail'>
+      <div class='asp-slider animate'>
+        <div max='{{asp.actual}}' min='0' ng-model='asp.currentValue' step='1' ui-slider="{value:'{{asp.currentValue}}', orientation: 'vertical', range: 'min'}">
+          <p class='stats-value'>{{ asp.currentValue | number:0}}</p>
+          <small class='stats-text'>Astalpunkte</small>
+        </div>
+      </div>
+      <button class='btn bars' ng-click='aspMinus()'>-</button>
+      <button class='btn bars' ng-click='aspPlus()'>+</button>
+    </div>
+    <div class='col-xs-4 thumbnail'>
+      <div class='aup-slider animate'>
+        <div max='{{aus.actual}}' min='0' ng-model='aus.currentValue' step='1' ui-slider="{value:'{{aus.currentValue}}', orientation: 'vertical', range: 'min'}">
+          <p class='stats-value'>{{ aus.currentValue | number:0}}</p>
+          <small class='stats-text'>Ausdauer</small>
+        </div>
+        <button class='btn bars' ng-click='ausMinus()'>-</button>
+        <button class='btn bars' ng-click='ausPlus()'>+</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-sm-6'>
+    <div class='weapon-box'>
+      <h3>Waffen</h3>
+      <button class='btn weapon' ng-click='openWeapon(weapon)' ng-repeat='weapon in weapons'>{{weapon.name}}</button>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div class='weapon-box'>
+      <h3>
+        {{weaponChoosed.name}}
+        <small>{{weaponChoosed.DK}}</small>
+      </h3>
+      <div class='weapon-info' ng-if='weaponChoosed.FK'>
+        Fernkampfwert: {{weaponChoosed.FK}}
+      </div>
+      <div class='weapon-info' ng-if='weaponChoosed.BF'>
+        Attacke: {{weaponChoosed.AT}}
+      </div>
+      <div class='weapon-info' ng-if="weaponChoosed.DK === 'NK'">
+        Attacke: {{weaponChoosed.AT}}
+      </div>
+    </div>
+  </div>
+</div>

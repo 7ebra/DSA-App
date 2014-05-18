@@ -1,0 +1,109 @@
+#!/usr/bin/env ruby
+require 'listen'
+require 'haml'
+
+module Haml
+  class Compiler
+    class << self
+      def build_attributes_with_dasherize(is_html, attr_wrapper, escape_attrs, hyphenate_data_attrs, attributes = {})
+        new_attributes = {}.tap do |dasherized|
+          attributes.keys.each do |key|
+            dasherized[key.to_s.gsub("_", "-").to_sym] = attributes[key]
+          end
+        end
+
+        build_attributes_without_dasherize(
+          is_html,
+          attr_wrapper,
+          escape_attrs,
+          hyphenate_data_attrs,
+          new_attributes
+        )
+      end
+
+      alias_method :build_attributes_without_dasherize, :build_attributes
+      alias_method :build_attributes, :build_attributes_with_dasherize
+    end
+  end
+end
+
+
+begin
+  require 'haml/filters/php'
+rescue LoadError
+  puts "Please install needed dependency: "
+  puts "gem install haml-contrib"
+  exit 1
+end
+
+if ARGV[0] == "--help"
+  puts "usage #{$0} [path]"
+  exit
+end
+
+path = ARGV[0] || "."
+puts "listening to #{path} (for other pathes see: #{$0} --help for help)"
+
+listener = Listen.to(path) do |modified, added, removed|
+  puts "check ..."
+
+  removed -= added  
+  removed -= modified
+
+  (removed).each do | file |
+    if file.end_with?(".html.haml")
+      File.delete(file.gsub(".html.haml",".html"))
+      puts "#{file} # deleted"
+    end
+    if file.end_with?(".php.haml")
+      File.delete(file.gsub(".php.haml",".php"))
+      puts "#{file} # deleted"
+    end
+  end
+
+  (modified + added).each do | file |
+    template = nil
+    generate = nil
+    if file.end_with?(".html.haml") 
+      template = File.read(file)
+      generate = file.gsub(".html.haml",".html")
+    end
+    if file.end_with?(".php.haml")
+      template = File.read(file)
+      generate = file.gsub(".php.haml",".php")
+    end
+    if template
+      begin
+        haml_engine = Haml::Engine.new(template)
+        File.open(generate, mode="w+") do |f|
+          f.write(haml_engine.render)
+        end
+      rescue Exception => e
+        puts "### Error compiling #{file}"
+        puts e.inspect
+        # puts "Error on line #{e.line}:" if e.line
+        # puts "#{e.message}" if e.message
+      end
+
+      puts "#{file} # compiled"
+    end
+  end
+end
+
+begin
+  running = true
+  listener.start
+
+  Signal.trap("INT", proc { 
+    puts "Terminating: #{$$}"
+
+    listener.stop
+    running = false
+  })
+
+  while listener.listen? and running
+    sleep 0.5
+  end  
+rescue Exception => e
+  puts e
+end

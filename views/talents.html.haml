@@ -1,0 +1,22 @@
+%h2 Talente
+.row
+  .col-sm-6
+    .talent-box{"ng-repeat" => "(label,category) in talents", "ng-if" => "$odd == true"} 
+      %h3 {{label}}
+      %ul
+        %li{"ng-repeat" => "talent in category"} 
+          .row
+            .col-sm-2
+              .talent-value{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.value}}  
+            .col-sm-10  
+              .talent-name{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.name}} 
+  .col-sm-6
+    .talent-box{"ng-repeat" => "(label,category) in talents", "ng-if" => "$even == true"} 
+      %h3 {{label}}
+      %ul
+        %li{"ng-repeat" => "talent in category"}
+          .row
+            .col-sm-2
+              .talent-value{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.value}}  
+            .col-sm-10  
+              .talent-name{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.name}} 

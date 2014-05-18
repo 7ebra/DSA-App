@@ -1,0 +1,53 @@
+!!!
+%html.no-js{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1.0, user-scalable=0", name: "viewport"}/
+    %title DSA APP
+    %link{href: "style/app", type: "text/css", rel: "stylesheet"}/
+
+  %body{"ng-app" => "DSA"}
+    .container
+      #main-container{"ui-view" => "main"}
+
+    / .navbar.navbar-inverse.navbar-default.navbar-fixed-bottom{role: "navigation"}
+    /   .container
+    /     .row
+    /       .col-xs-3
+    /         %a.nav-icon.btn.navbar-btn{href: "#/"}
+    /           %span.glyphicon.glyphicon-user
+    /           %p.nav-icon-text Profil
+    /       .col-xs-3
+    /         %a.nav-icon.btn.navbar-btn{href: "#/talent"}
+    /           %span.glyphicon.glyphicon-eye-open
+    /           %p.nav-icon-text Talente
+    /       .col-xs-3
+    /         %a.nav-icon.btn.navbar-btn{href: "#/kampf"}
+    /           %span.glyphicon.glyphicon-fire 
+    /           %p.nav-icon-text Kampf
+    /       .col-xs-3
+    /         %a.nav-icon.btn.navbar-btn{href: "#/einstellungen"}
+    /           %span.glyphicon.glyphicon-user
+    /           %p.nav-icon-text User 
+
+
+    
+    
+    %script{src: "bower_components/jquery/jquery.min.js"}
+    %script{src: "bower_components/jquery-ui/ui/minified/jquery-ui.min.js"}
+    %script{src: "bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js"}
+    %script{src: "bower_components/angular/angular.min.js"}
+    %script{src: "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"}
+    %script{src: "bower_components/angular-ui-slider/src/slider.js"}
+    %script{src: "bower_components/angular-ui-router/release/angular-ui-router.js"}
+    %script{src: "bower_components/angular-ui-router.stateHelper/statehelper.min.js"}
+    %script{src: "js/app.js"}
+    %script{src: "js/states.js"}
+    %script{src: "js/mockups/hero.js"}
+    %script{src: "js/mockups/talents.js"}
+    %script{src: "js/controllers/mainCtrl.js"}
+    %script{src: "js/controllers/leftMenuCtrl.js"}
+    %script{src: "js/controllers/profileCtrl.js"}
+    %script{src: "js/controllers/talentsCtrl.js"}
+    %script{src: "js/controllers/fightCtrl.js"}
+    %script{src: "js/controllers/topbarCtrl.js"}

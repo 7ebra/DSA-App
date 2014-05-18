@@ -1,0 +1,60 @@
+<div class='choose-weapon-modal'>
+  <div class='modal-header'>
+    <h3 ng-if='!probeResult'>Nahkampf Parade --> {{currentWeapon.PA}}</h3>
+    <h3 ng-if='!patzerWurf'>{{ probe }} + {{ mod }} = {{ probeResult }}</h3>
+    <h3 ng-if='patzerWurf'>{{ patzerHeader }}</h3>
+  </div>
+  <div class='modal-body'>
+    <div ng-if='!probeResult'>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <span class='currentWeaponFirst'>{{ currentWeapon.name }}</span>
+        </div>
+        <div class='row'>
+          <div class='col-xs-5'>
+            <span class='currentWeaponSecond'>Distanzklasse: {{currentWeapon.DK}}</span>
+          </div>
+          <div class='col-xs-7'>
+            <span class='currentWeaponSecond'>Bruchfaktor: {{currentWeapon.BF}}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-5'>
+            <span class='currentWeaponSecond'>Initiative: {{currentWeapon.eINI}}</span>
+          </div>
+          <div class='col-xs-7'>
+            <span class='currentWeaponSecond'>Behinderung: {{currentWeapon.eBE}}</span>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <form>
+            <label>Probe erschwert/ erleichtert um: {{mod}}</label>
+            <input ng-model='$parent.$parent.mod' style='color: black;'>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div ng-if='!patzerWurf'>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <span class='currentWeaponFirst'>{{probeResultString}}</span>
+        </div>
+      </div>
+    </div>
+    <div ng-if='patzerWurf'>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <span class='currentWaeponSecond'>{{patzerText}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button class='btn btn-primary' ng-click='ok()' ng-hide='!success'>Ok</button>
+    <button class='btn btn-primary' ng-click='nkPatzer()' ng-hide='!patzer'>Patzer auswürfeln!</button>
+    <button class='btn btn-primary' ng-click='nkParade()' ng-hide='probeResult'>Würfeln!</button>
+    <button class='btn btn-warning' ng-click='cancel()' ng-hide='probeResult'>Abrechen</button>
+  </div>
+</div>

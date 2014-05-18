@@ -1,0 +1,96 @@
+.profile-head
+  %h2 
+    {{profile.name}}
+    %small {{profile.rasse}} // {{profile.profession}} // {{profile.kultur}}
+
+
+.row
+  .col-sm-4.columns
+    .profile-box
+      %h3 
+        Aussehen
+        %small Generell
+      .row
+        .col-sm-4
+          .profile-text
+            Geschlecht
+        .col-sm-8
+          .profile-text
+            {{profile.geschlecht}}
+      .row
+        .col-sm-4
+          .profile-text
+            Geburtsdatum
+        .col-sm-8
+          .profile-text
+            {{profile.geburtstag}}
+      .row
+        .col-sm-4
+          .profile-text
+            Größe
+        .col-sm-8
+          .profile-text
+            {{profile.groesse}}
+      .row
+        .col-sm-4
+          .profile-text
+            Gewicht
+        .col-sm-8
+          .profile-text
+            {{profile.gewicht}}
+      .row
+        .col-sm-4
+          .profile-text
+            Augenfarbe
+        .col-sm-8
+          .profile-text
+            {{profile.augenfarbe}}
+      .row
+        .col-sm-4
+          .profile-text
+            Haarfarbe
+        .col-sm-8
+          .profile-text
+            {{profile.haarefarbe}}
+
+  .col-sm-8
+    .profile-box
+      .row
+        .col-sm-6
+          %h3 Vorteile
+          .row{{"ng-repeat" => "text in profile.vorteile"}}
+            .col-sm-12  
+              .profile-text
+                {{text}}
+        .col-sm-6
+          %h3 Nachteile
+          .row{{"ng-repeat" => "text in profile.nachteile"}}
+            .col-sm-12
+              .profile-text
+                {{text}}
+.row
+  .col-sm-6
+    .profile-box
+      %h3
+        Eigenschaften
+      .row{{"ng-repeat" => "attribute in currentHero.attributes" }}
+        .col-sm-6
+          .profile-text
+            {{attribute.name}}
+        .col-sm-6
+          .profile-text
+            {{attribute.value}}
+  .col-sm-6
+    .profile-box
+      %h3
+        Basiswerte
+      .row{{"ng-repeat" => "(label,value) in currentHero.basics" }}
+        .col-sm-6
+          .profile-text
+            {{label}}
+        .col-sm-6
+          .profile-text
+            {{value.actual}}
+
+
+

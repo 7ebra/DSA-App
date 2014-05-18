@@ -1,0 +1,52 @@
+.choose-weapon-modal
+  .modal-header
+    %h3{ng_if: "!probeResult"} Fernkampf Probe --> {{currentWeapon.FK}}
+    %h3{ng_if: "probeResult" && "!patzerWurf"} {{ probe }} + {{ mod }} = {{ probeResult }} 
+    %h3{ng_if: "patzerWurf"} {{ patzerHeader }} 
+
+  .modal-body
+    %div{ng_if: "!probeResult"}
+      .row
+        .col-xs-12
+          %span.currentWeaponFirst {{ currentWeapon.name }} 
+      .row
+        .col-xs-5
+          %span.currentWeaponSecond Entfernung: 
+        .col-xs-7
+          %span.currentWeaponSecond {{currentWeapon.range[0]}} / {{currentWeapon.range[1]}} / {{currentWeapon.range[2]}} / {{currentWeapon.range[3]}} / {{currentWeapon.range[4]}}
+      .row
+        .col-xs-5
+          %span.currentWeaponRangeThird TP/ Entfernung: 
+        .col-xs-7
+          %span.currentWeaponSecond {{currentWeapon.rangeDamage[0]}} / {{currentWeapon.rangeDamage[1]}} / {{currentWeapon.rangeDamage[2]}} / {{currentWeapon.rangeDamage[3]}} / {{currentWeapon.rangeDamage[4]}}
+      .row
+        .col-xs-5
+          %span.currentWeaponSecond Schaden:
+        .col-xs-7
+          %span.currentWeaponSecond {{currentWeapon.damageFunc[0]}} W{{currentWeapon.damageFunc[1]}} + {{currentWeapon.damageFunc[2]}}
+      .row
+        .col-xs-12
+          %form
+            %label Probe erschwert/ erleichtert um: {{mod}}
+            %input{style: "color: black;", ng_model: "$parent.$parent.mod"}
+
+    %div{ng_if: "probeResult" && "!patzerWurf"}
+      .row
+        .col-xs-12
+          %span.currentWeaponFirst {{probeResultString}} 
+    %div{ng_if: "patzerWurf"}
+      .row
+        .col-xs-12
+          %span.currentWaeponSecond {{patzerText}}
+    %div{ng_if: "result"} 
+      .row
+        .col-xs-12
+          %span.currentWeaponFirst Du machst {{result}} TP Schaden.
+
+
+  .modal-footer
+    %button.btn.btn-primary{ng_click: "ok()", ng_hide: "!fail"} Ok
+    %button.btn.btn-primary{ng_click: "fkPatzer()", ng_hide: "!patzer"} Patzer auswürfeln!
+    %button.btn.btn-primary{ng_click: "fkSchaden()", ng_hide: "!success"} Schaden auswürfeln!
+    %button.btn.btn-primary{ng_click: "fkProbe()", ng_hide: "probeResult"} Würfeln!
+    %button.btn.btn-warning{ng_click: "cancel()", ng_hide: "probeResult"} Abrechen

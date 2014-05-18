@@ -1,0 +1,192 @@
+<div class='container' ng-controller='kampfCtrl'>
+  <div class='row no-spacing'>
+    <div class='col-xs-4'>
+      <div class='lep-slider' ng-class='{animate: animate}'>
+        <!-- %button.btn.expand{ng_click: "lepPlus()"} + -->
+        <div max='{{currentHero.basics.lebenspunkte.actual}}' min='0' ng-model='currentHero.basics.lebenspunkte.currentValue' step='1' ui-slider="{value:'{{currentHero.basics.lebenspunkte.currentValue}}', orientation: 'vertical', range: 'min'}">
+          <p class='stats-value'>
+            {{ currentHero.basics.lebenspunkte.currentValue | number:0}}
+            <small class='stats-text'>Lebensp.</small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class='col-xs-4'>
+      <div class='asp-slider' ng-class='{animate: animate}'>
+        <!-- %button.btn.expand{ng_click: "lepPlus()"} + -->
+        <div max='{{currentHero.basics.astralenegrie.actual}}' min='0' ng-model='currentHero.basics.astralenegrie.currentValue' step='1' ui-slider="{value:'{{currentHero.basics.astralenegrie.currentValue}}', orientation: 'vertical', range: 'min'}">
+          <p class='stats-value'>{{ currentHero.basics.astralenegrie.currentValue | number:0}}</p>
+          <small class='stats-text'>Lebensp.</small>
+        </div>
+      </div>
+    </div>
+    <div class='col-xs-4'>
+      <div class='aup-slider' ng-class='{animate: animate}'>
+        <!-- %button.btn.expand{ng_click: "lepPlus()"} + -->
+        <div max='{{currentHero.basics.ausdauer.actual}}' min='0' ng-model='currentHero.basics.ausdauer.currentValue' step='1' ui-slider="{value:'{{currentHero.basics.ausdauer.currentValue}}', orientation: 'vertical', range: 'min'}">
+          <p class='stats-value'>{{ currentHero.basics.ausdauer.currentValue | number:0}}</p>
+          <small class='stats-text'>Lebensp.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='row no-spacing' ng-if="currentWeapon.DK === 'FK'">
+    <div class='col-xs-12'>
+      <button class='btn btn-default expand' ng-click='openWeapon()'>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <span class='currentWeaponFirst'>{{ currentWeapon.name }}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <span class='currentWeaponSecond'>Entfernung:</span>
+          </div>
+          <div class='col-xs-8'>
+            <span class='currentWeaponSecond'>{{currentWeapon.range[0]}} / {{currentWeapon.range[1]}} / {{currentWeapon.range[2]}} / {{currentWeapon.range[3]}} / {{currentWeapon.range[4]}}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <span class='currentWeaponRangeThird'>TP/ Entfernung:</span>
+          </div>
+          <div class='col-xs-8'>
+            <span class='currentWeaponSecond'>{{currentWeapon.rangeDamage[0]}} / {{currentWeapon.rangeDamage[1]}} / {{currentWeapon.rangeDamage[2]}} / {{currentWeapon.rangeDamage[3]}} / {{currentWeapon.rangeDamage[4]}}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <span class='currentWeaponSecond'>Schaden:</span>
+          </div>
+          <div class='col-xs-8'>
+            <span class='currentWeaponSecond'>{{currentWeapon.damageFunc[0]}} W{{currentWeapon.damageFunc[1]}} + {{currentWeapon.damageFunc[2]}}</span>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class='row no-spacing' ng-if='currentWeapon.BF'>
+    <div class='col-xs-12'>
+      <button class='btn btn-default expand' ng-click='openWeapon()'>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <span class='currentWeaponFirst'>{{ currentWeapon.name }}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <span class='currentWeaponSecond'>Distanzklasse: {{currentWeapon.DK}}</span>
+          </div>
+          <div class='col-xs-8'>
+            <span class='currentWeaponSecond'>Bruchfaktor: {{currentWeapon.BF}}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <span class='currentWeaponSecond'>Initiative: {{currentWeapon.eINI}}</span>
+          </div>
+          <div class='col-xs-8'>
+            <span class='currentWeaponSecond'>Behinderung: {{currentWeapon.eBE}}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <span class='currentWeaponRangeThird'>Schaden: {{currentWeapon.damageFunc[0]}} W{{currentWeapon.damageFunc[1]}} + {{currentWeapon.damageFunc[2]}}</span>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class='row no-spacing' ng-if="currentWeapon.weaponType === 'Waffenloser Kampf'">
+    <div class='col-xs-12'>
+      <button class='btn btn-default expand' ng-click='openWeapon()'>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <span class='currentWeaponFirst'>{{ currentWeapon.name }}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <span class='currentWeaponSecond'>{{currentWeapon.weaponType}}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <span class='currentWeaponSecond'>INI:</span>
+          </div>
+          <div class='col-xs-8'>
+            <span class='currentWeaponSecond'>{{currentWeapon.eINI}}</span>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <span class='currentWeaponSecond'>Schaden:</span>
+          </div>
+          <div class='col-xs-8'>
+            <span class='currentWeaponSecond'>{{currentWeapon.damageFunc[0]}} W{{currentWeapon.damageFunc[1]}} + {{currentWeapon.damageFunc[2]}}</span>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class='row no-spacing' ng-if="currentWeapon.DK === 'FK'">
+    <div class='col-xs-12'>
+      <button class='btn btn-default probe' ng-click='openFkProbe()'>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <span class='currentWeaponFirst'>FK: {{ currentWeapon.FK }}</span>
+          </div>
+          <div class='col-xs-8'>
+            <span class='currentWeaponFirst'>Schießen!</span>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class='row no-spacing' ng-if='currentWeapon.BF'>
+    <div class='col-xs-6'>
+      <button class='btn btn-default probe' ng-click='openNkAttacke()'>
+        <span class='currentWeaponFirst'>AT: {{ currentWeapon.AT }}</span>
+      </button>
+    </div>
+    <div class='col-xs-6'>
+      <button class='btn btn-default probe' ng-click='openNkParade()'>
+        <span class='currentWeaponFirst'>PA: {{currentWeapon.PA}}</span>
+      </button>
+    </div>
+  </div>
+  <div class='row no-spacing' ng-if="currentWeapon.weaponType === 'Waffenloser Kampf'">
+    <div class='col-xs-6'>
+      <button class='btn btn-default probe' ng-click='openWlAttacke()'>
+        <span class='currentWeaponFirst'>AT: {{ currentWeapon.AT }}</span>
+      </button>
+    </div>
+    <div class='col-xs-6'>
+      <button class='btn btn-default probe' ng-click='openWlParade()'>
+        <span class='currentWeaponFirst'>PA: {{currentWeapon.PA}}</span>
+      </button>
+    </div>
+  </div>
+  <div class='row no-spacing'>
+    <div class='col-xs-4'>
+      <span class='currentWeaponSecond' ng-hide='ini'>Initiative + W6</span>
+      <span class='currentWeaponSecond' ng-show='ini'>Initiative</span>
+      <button class='btn btn-default probe' ng-click='rollIni()' ng-ig='!ini'>
+        <span class='currentWeaponFirst'>{{ currentHero.basics.ini_basis.currentValue}}</span>
+        <span class='currentWeaponSecond'></span>
+      </button>
+    </div>
+    <div class='col-xs-4'>
+      <span class='currentWeaponSecond'>Geschwindikeit</span>
+      <button class='btn btn-default probe'>
+        <span class='currentWeaponFirst'>{{ currentHero.attributes.geschwindigkeit.value }}</span>
+      </button>
+    </div>
+    <div class='col-xs-4'>
+      <span class='currentWeaponSecond'>Ausweichen</span>
+      <button class='btn btn-default probe' ng-click='ausweichen()'>
+        <span class='currentWeaponFirst'>{{ ausweichen }}</span>
+      </button>
+    </div>
+  </div>
+</div>

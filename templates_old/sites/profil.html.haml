@@ -1,0 +1,28 @@
+.container{ng_controller: "profileCtrl"}
+  .hero-info
+    .row
+      .col-xs-12
+        %p{style: "color: white;"} {{ currentHero.profile.name }}
+        %p{style: "color: white;"} {{ currentHero.profile.rasse }}
+        %p{style: "color: white;"} {{ currentHero.profile.kultur }}
+        %p{style: "color: white;"} {{ currentHero.profile.profession }}
+    .row{ng_repeat: "attribute in currentHero.attributes"}
+      .col-xs-5
+        %span {{ attribute.short }}:
+      .col-xs-7.hero-info-type
+        %span.hero-info-text {{ attribute.value }}  
+
+    %hr
+    .row{ng_repeat: "(name, basic) in currentHero.basics.values"}
+      .col-xs-5
+        {{name}}
+      .col-xs-2.hero-info-type
+        %span {{ basic.start }}
+      .col-xs-2.hero-info-type
+        %span {{ basic.mod }}
+      .col-xs-2.hero-info-type
+        %span {{ basic.actual }}
+      .col-xs-1
+        / blub
+
+

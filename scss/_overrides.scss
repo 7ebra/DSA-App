@@ -1,0 +1,389 @@
+///////////////////////////////////////////////////////////
+// variables //////////////////////////////////////////////
+
+$darkbasic: #333;
+$lightbasic: #fff;
+$highlight: #00FF48;
+
+
+
+///////////////////////////////////////////////////////////
+// typo ///////////////////////////////////////////////////
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,700,300);
+
+h2 {
+  font-weight: 300; 
+  small {
+    display: inline-block;
+    font-weight: 100;
+  }
+}
+
+h3 {
+  font-weight: 300;
+  margin-top: 0;
+  small {
+    display: inline-block;
+    font-weight: 100;
+  }
+}
+
+
+///////////////////////////////////////////////////////////
+// topbar /////////////////////////////////////////////////
+
+.topbar {
+  width: 100%;
+  padding-top: 15px;
+
+  border-bottom: solid 1px lighten($darkbasic, 10%);
+}
+
+
+///////////////////////////////////////////////////////////
+// left-menu //////////////////////////////////////////////
+
+#left-menu-container {
+  background-color: lighten($darkbasic, 10%);
+  color: $lightbasic;
+  height: 100vh;
+
+  button.btn {
+    font-size: 24px;
+    font-weight: 300;
+
+    width: 100%;
+    margin-bottom: 2px;
+    border-radius: 0;
+
+    background-color: $darkbasic;
+
+    &:hover {
+      background-color: $highlight;
+    }
+  }
+}
+
+.logo {
+  padding: 15px;
+
+  text-align: center;
+  width: 100%;
+
+  i {
+    font-size: 100px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+///////////////////////////////////////////////////////////
+// shared /////////////////////////////////////////////////
+
+body {
+  background-color: $darkbasic;
+  color: $lightbasic;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 100%;
+}
+
+#content-container {
+  background-color: $darkbasic;
+  color: $lightbasic;
+}
+.content-container 
+{
+  padding-top: 40px;
+  padding-bottom: 81px;
+  min-height: 100%;
+}
+
+
+///////////////////////////////////////////////////////////
+// kampf //////////////////////////////////////////////////
+
+.bars-box {
+  padding: 15px;
+}
+
+.weapon-box {
+  display: block;
+  background-color: none;
+  border: solid 1px lighten($darkbasic, 10%);
+  margin-bottom: 30px;
+  border-radius: 5px;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+
+  h3 {
+    padding: 15px 15px 0 15px;
+  }
+  button.btn.weapon {
+    width: 100%;
+    border-radius: 0;
+    background-color: $darkbasic;
+    border-top: solid 1px lighten($darkbasic, 10%);
+
+    &:hover {
+      background-color: $highlight;
+      color: $darkbasic;
+    }
+  }
+}
+
+.weapon-info {
+  padding: 15px;
+}
+
+button.btn.bars {
+  width: 49%;
+  background-color: $darkbasic;
+  border-radius: 0;
+  border: solid 1px lighten($darkbasic, 10%);
+}
+
+.dropdown-toggle {
+  color: $darkbasic;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: $lightbasic;
+  border-radius: 4px;
+  padding: 12px;
+  display: block;
+
+  &:hover {
+    color: $darkbasic;
+  }
+}
+.dropdown-menu {
+  width: 100%;
+  opacity: 0.9;
+}
+.stats-value {
+  text-align: center;
+  color: black;
+  font-size: 300%;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif
+}
+.stats-text {
+  text-align: center;
+  display: block;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif
+}
+.lep-slider, .asp-slider, .aup-slider
+{
+  padding: 0;
+}
+
+.lep-slider .ui-slider-vertical 
+{ 
+  width: 100%;
+  height: 200px ;
+  background-image: none;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.asp-slider .ui-slider-vertical 
+{ 
+  height: 200px ;
+  width: 100%;
+  background-image: none;
+}
+
+.aup-slider .ui-slider-vertical 
+{ 
+  height: 200px ;
+  width: 100%;
+  background-image: none;
+}
+
+.lep-slider .ui-slider-range
+{
+  background-color: red;
+  background-image: none;
+  opacity: 0.7;
+}
+
+.asp-slider .ui-slider-range
+{
+  background-color: blue;
+  background-image: none;
+  opacity: 0.7;
+}
+
+.aup-slider .ui-slider-range
+{
+  background-color: green;
+  background-image: none;
+  opacity: 0.7;
+}
+
+.animate .ui-slider-range
+{
+  transition: height 1s ease;
+}
+
+.animate .ui-slider-handle
+{
+  transition: bottom 1s ease;
+}
+
+.lep-slider .ui-slider-handle, .asp-slider .ui-slider-handle, .aup-slider .ui-slider-handle {
+  left:0;
+  width: 100%;
+  height: 0.5em;
+  background-image: none;
+  opacity: 0.8;
+  margin: 0;
+  border: 0;
+}
+.lep-slider .ui-slider-handle {
+  background-color: red ;
+  opacity: 0;
+}
+.asp-slider .ui-slider-handle {
+  background-color: blue ;
+  opacity: 0;
+}
+.aup-slider .ui-slider-handle {
+  background-color: green ;
+  opacity: 0;
+}
+.ui-widget-content {
+  border: 0;
+  background-image: none; 
+}
+.ui-corner-all {
+  border-radius: 0;
+}
+.row.no-spacing div[class*='col-'] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.row.no-spacing .thumbnail {
+  margin-bottom: 0;
+  padding: 0;
+  margin-right: 0;
+  margin-left: 0;
+
+  border: none;
+  background-color: transparent;
+}
+
+a#ini {
+  display: block;
+  padding: 12px;
+  font-size: 16;
+  font-weight: 500;
+  background-color: $lightbasic;
+  color: $darkbasic;
+  margin-top: 5px;
+}
+
+span.currentWeaponFirst {
+  display: block;
+  font-size: 24px;
+  text-align: middle;
+  padding-left: 15px;
+  text-align: left;
+}
+span.currentWeaponSecond {
+  display: block;
+  font-size: 12px;
+  text-align: left;
+  padding-left: 15px;
+}
+span.currentWeaponRangeThird {
+  display: block;
+  font-size: 12px;
+  text-align: left;
+  padding-left: 15px;
+}
+////// Choose Weapon Modal ////////////////////////////////
+
+.choose-weapon-modal {
+  background-color: $darkbasic;
+}
+
+.modal-header {
+  background-color: $darkbasic;
+}
+
+//// Talents ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+.talent-box {
+  display: block;
+  padding: 15px;
+  background-color: none;
+  border: solid 1px lighten($darkbasic, 10%);
+  margin-bottom: 30px;
+  border-radius: 5px;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+.talent-value {
+  font-weight: 300;
+  line-height: 24px;
+  text-align: center;
+
+  display: inline-block;  
+  width: 100%;
+  &.high {
+    color: $highlight;
+  }
+  &.middle {
+    color: yellow;
+  }
+}
+
+.talent-name {
+  font-weight: 100;
+  line-height: 24px;
+  &.high {
+    color: $highlight;
+  }
+  &.middle {
+    color: yellow;
+  }
+}
+
+//// Profil /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+.profile-box {
+  display: block;
+  padding: 15px;
+  background-color: none;
+  border: solid 1px lighten($darkbasic, 10%);
+  margin-bottom: 30px;
+  border-radius: 5px;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+.profile-head {
+  border-bottom: solid 1px lighten($darkbasic, 10%);
+  margin-bottom: 30px;
+}
+.profile-text {
+  font-weight: 100;
+  line-height: 24px;
+}

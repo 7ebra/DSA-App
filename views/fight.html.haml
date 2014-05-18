@@ -1,0 +1,50 @@
+%h2 Kampf
+
+.bars-box
+  .row.no-spacing
+    .col-xs-4.thumbnail
+      .lep-slider.animate
+        %div{ui_slider: "{value:'{{lep.currentValue}}', orientation: 'vertical', range: 'min'}", min: "0", max: "{{lep.actual}}", step: "1", ng_model: "lep.currentValue"}
+
+          %p.stats-value {{ lep.currentValue | number:0}} 
+          %small.stats-text Lebenspunkte
+      %button.btn.bars{ng_click: "lepMinus()"} -
+      %button.btn.bars{ng_click: "lepPlus()"} +
+
+    .col-xs-4.thumbnail
+      .asp-slider.animate
+        %div{ui_slider: "{value:'{{asp.currentValue}}', orientation: 'vertical', range: 'min'}", min: "0", max: "{{asp.actual}}", step: "1", ng_model: "asp.currentValue"}
+
+          %p.stats-value {{ asp.currentValue | number:0}} 
+          %small.stats-text Astalpunkte 
+      %button.btn.bars{ng_click: "aspMinus()"} -
+      %button.btn.bars{ng_click: "aspPlus()"} +
+
+    .col-xs-4.thumbnail
+      .aup-slider.animate
+        %div{ui_slider: "{value:'{{aus.currentValue}}', orientation: 'vertical', range: 'min'}", min: "0", max: "{{aus.actual}}", step: "1", ng_model: "aus.currentValue"}
+
+          %p.stats-value {{ aus.currentValue | number:0}} 
+          %small.stats-text Ausdauer
+      
+        %button.btn.bars{ng_click: "ausMinus()"} -
+        %button.btn.bars{ng_click: "ausPlus()"} +
+
+.row
+  .col-sm-6
+    .weapon-box
+      %h3 Waffen
+      %button.btn.weapon{"ng-repeat" => "weapon in weapons", "ng-click" => "openWeapon(weapon)"} {{weapon.name}}
+  .col-sm-6
+    .weapon-box
+      %h3 
+        {{weaponChoosed.name}} 
+        %small {{weaponChoosed.DK}} 
+      .weapon-info{"ng-if" => "weaponChoosed.FK"}
+        Fernkampfwert: {{weaponChoosed.FK}}
+      .weapon-info{"ng-if" => "weaponChoosed.BF"}
+        Attacke: {{weaponChoosed.AT}}
+      .weapon-info{"ng-if" => "weaponChoosed.DK === 'NK'"}
+        Attacke: {{weaponChoosed.AT}}
+
+        

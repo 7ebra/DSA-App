@@ -1,0 +1,132 @@
+.container{ng_controller: "kampfCtrl"}
+  .row.no-spacing
+    .col-xs-4
+      .lep-slider{ng_class: "{animate: animate}"}
+        / %button.btn.expand{ng_click: "lepPlus()"} +
+        %div{ui_slider: "{value:'{{currentHero.basics.lebenspunkte.currentValue}}', orientation: 'vertical', range: 'min'}", min: "0", max: "{{currentHero.basics.lebenspunkte.actual}}", step: "1", ng_model: "currentHero.basics.lebenspunkte.currentValue"}
+
+          %p.stats-value 
+            {{ currentHero.basics.lebenspunkte.currentValue | number:0}} 
+            %small.stats-text Lebensp.
+
+    .col-xs-4
+      .asp-slider{ng_class: "{animate: animate}"}
+        / %button.btn.expand{ng_click: "lepPlus()"} +
+        %div{ui_slider: "{value:'{{currentHero.basics.astralenegrie.currentValue}}', orientation: 'vertical', range: 'min'}", min: "0", max: "{{currentHero.basics.astralenegrie.actual}}", step: "1", ng_model: "currentHero.basics.astralenegrie.currentValue"}
+
+          %p.stats-value {{ currentHero.basics.astralenegrie.currentValue | number:0}} 
+          %small.stats-text Lebensp.
+
+    .col-xs-4
+      .aup-slider{ng_class: "{animate: animate}"}
+        / %button.btn.expand{ng_click: "lepPlus()"} +
+        %div{ui_slider: "{value:'{{currentHero.basics.ausdauer.currentValue}}', orientation: 'vertical', range: 'min'}", min: "0", max: "{{currentHero.basics.ausdauer.actual}}", step: "1", ng_model: "currentHero.basics.ausdauer.currentValue"}
+
+          %p.stats-value {{ currentHero.basics.ausdauer.currentValue | number:0}} 
+          %small.stats-text Lebensp.
+
+  .row.no-spacing{ng_if: "currentWeapon.DK === 'FK'"}
+    .col-xs-12
+      %button.btn.btn-default.expand{ng_click: "openWeapon()"} 
+        .row
+          .col-xs-12
+            %span.currentWeaponFirst {{ currentWeapon.name }} 
+        .row
+          .col-xs-4
+            %span.currentWeaponSecond Entfernung: 
+          .col-xs-8
+            %span.currentWeaponSecond {{currentWeapon.range[0]}} / {{currentWeapon.range[1]}} / {{currentWeapon.range[2]}} / {{currentWeapon.range[3]}} / {{currentWeapon.range[4]}}
+        .row
+          .col-xs-4
+            %span.currentWeaponRangeThird TP/ Entfernung: 
+          .col-xs-8
+            %span.currentWeaponSecond {{currentWeapon.rangeDamage[0]}} / {{currentWeapon.rangeDamage[1]}} / {{currentWeapon.rangeDamage[2]}} / {{currentWeapon.rangeDamage[3]}} / {{currentWeapon.rangeDamage[4]}}
+        .row
+          .col-xs-4
+            %span.currentWeaponSecond Schaden:
+          .col-xs-8
+            %span.currentWeaponSecond {{currentWeapon.damageFunc[0]}} W{{currentWeapon.damageFunc[1]}} + {{currentWeapon.damageFunc[2]}}
+
+  .row.no-spacing{ng_if: "currentWeapon.BF"}
+    .col-xs-12
+      %button.btn.btn-default.expand{ng_click: "openWeapon()"} 
+        .row
+          .col-xs-12
+            %span.currentWeaponFirst {{ currentWeapon.name }}
+        .row
+          .col-xs-4
+            %span.currentWeaponSecond Distanzklasse: {{currentWeapon.DK}} |
+          .col-xs-8
+            %span.currentWeaponSecond Bruchfaktor: {{currentWeapon.BF}}
+        .row
+          .col-xs-4
+            %span.currentWeaponSecond Initiative: {{currentWeapon.eINI}} | 
+          .col-xs-8
+            %span.currentWeaponSecond Behinderung: {{currentWeapon.eBE}}
+        .row
+          .col-xs-12
+            %span.currentWeaponRangeThird Schaden: {{currentWeapon.damageFunc[0]}} W{{currentWeapon.damageFunc[1]}} + {{currentWeapon.damageFunc[2]}}
+
+  .row.no-spacing{ng_if: "currentWeapon.weaponType === 'Waffenloser Kampf'"}
+    .col-xs-12
+      %button.btn.btn-default.expand{ng_click: "openWeapon()"} 
+        .row
+          .col-xs-12
+            %span.currentWeaponFirst {{ currentWeapon.name }}
+        .row
+          .col-xs-12 
+            %span.currentWeaponSecond {{currentWeapon.weaponType}} 
+        .row
+          .col-xs-4
+            %span.currentWeaponSecond INI:
+          .col-xs-8 
+            %span.currentWeaponSecond {{currentWeapon.eINI}}
+        .row
+          .col-xs-4 
+            %span.currentWeaponSecond Schaden:
+          .col-xs-8
+            %span.currentWeaponSecond {{currentWeapon.damageFunc[0]}} W{{currentWeapon.damageFunc[1]}} + {{currentWeapon.damageFunc[2]}}
+
+  .row.no-spacing{ng_if: "currentWeapon.DK === 'FK'"}
+    .col-xs-12
+      %button.btn.btn-default.probe{ng_click: "openFkProbe()"} 
+        .row  
+          .col-xs-4  
+            %span.currentWeaponFirst FK: {{ currentWeapon.FK }}
+          .col-xs-8
+            %span.currentWeaponFirst Schießen!
+
+  .row.no-spacing{ng_if: "currentWeapon.BF"}
+    .col-xs-6
+      %button.btn.btn-default.probe{ng_click: "openNkAttacke()"}
+        %span.currentWeaponFirst AT: {{ currentWeapon.AT }}
+    .col-xs-6 
+      %button.btn.btn-default.probe{ng_click: "openNkParade()"}              
+        %span.currentWeaponFirst PA: {{currentWeapon.PA}}
+
+  .row.no-spacing{ng_if: "currentWeapon.weaponType === 'Waffenloser Kampf'"}
+    .col-xs-6
+      %button.btn.btn-default.probe{ng_click: "openWlAttacke()"} 
+        %span.currentWeaponFirst AT: {{ currentWeapon.AT }}
+    .col-xs-6
+      %button.btn.btn-default.probe{ng_click: "openWlParade()"} 
+        %span.currentWeaponFirst PA: {{currentWeapon.PA}}
+
+  .row.no-spacing
+    .col-xs-4
+      %span.currentWeaponSecond{ng_hide: "ini"} Initiative + W6
+      %span.currentWeaponSecond{ng_show: "ini"} Initiative
+      %button.btn.btn-default.probe{ng_click: "rollIni()", ng_ig: "!ini"}
+        %span.currentWeaponFirst {{ currentHero.basics.ini_basis.currentValue}}
+        %span.currentWeaponSecond
+    .col-xs-4
+      %span.currentWeaponSecond Geschwindikeit
+      %button.btn.btn-default.probe
+        %span.currentWeaponFirst {{ currentHero.attributes.geschwindigkeit.value }}
+    .col-xs-4
+      %span.currentWeaponSecond Ausweichen
+      %button.btn.btn-default.probe{ng_click: "ausweichen()"}
+        %span.currentWeaponFirst {{ ausweichen }} 
+
+
+        

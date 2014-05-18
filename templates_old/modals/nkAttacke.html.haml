@@ -1,0 +1,50 @@
+.choose-weapon-modal
+  .modal-header
+    %h3{ng_if: "!probeResult"} Nahkampf Attacke --> {{currentWeapon.AT}}
+    %h3{ng_if: "probeResult" && "!patzerWurf"} {{ probe }} + {{ mod }} = {{ probeResult }} 
+    %h3{ng_if: "patzerWurf"} {{ patzerHeader }} 
+
+  .modal-body
+    %div{ng_if: "!probeResult"}
+      .row
+        .col-xs-12
+          %span.currentWeaponFirst {{ currentWeapon.name }}
+        .row
+          .col-xs-5
+            %span.currentWeaponSecond Distanzklasse: {{currentWeapon.DK}} |
+          .col-xs-7
+            %span.currentWeaponSecond Bruchfaktor: {{currentWeapon.BF}}
+        .row
+          .col-xs-5
+            %span.currentWeaponSecond Initiative: {{currentWeapon.eINI}} | 
+          .col-xs-7
+            %span.currentWeaponSecond Behinderung: {{currentWeapon.eBE}}
+        .row
+          .col-xs-12
+            %span.currentWeaponRangeThird Schaden: {{currentWeapon.damageFunc[0]}} W{{currentWeapon.damageFunc[1]}} + {{currentWeapon.damageFunc[2]}}
+      .row
+        .col-xs-12
+          %form
+            %label Probe erschwert/ erleichtert um: {{mod}}
+            %input{style: "color: black;", ng_model: "$parent.$parent.mod"}
+
+    %div{ng_if: "probeResult" && "!patzerWurf"}
+      .row
+        .col-xs-12
+          %span.currentWeaponFirst {{probeResultString}} 
+    %div{ng_if: "patzerWurf"}
+      .row
+        .col-xs-12
+          %span.currentWaeponSecond {{patzerText}}
+    %div{ng_if: "result"} 
+      .row
+        .col-xs-12
+          %span.currentWeaponFirst Du machst {{result}} TP Schaden.
+
+
+  .modal-footer
+    %button.btn.btn-primary{ng_click: "ok()", ng_hide: "!fail"} Ok
+    %button.btn.btn-primary{ng_click: "nkPatzer()", ng_hide: "!patzer"} Patzer auswürfeln!
+    %button.btn.btn-primary{ng_click: "nkSchaden()", ng_hide: "!success"} Schaden auswürfeln!
+    %button.btn.btn-primary{ng_click: "nkAttacke()", ng_hide: "probeResult"} Würfeln!
+    %button.btn.btn-warning{ng_click: "cancel()", ng_hide: "probeResult"} Abrechen

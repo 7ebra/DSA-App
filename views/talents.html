@@ -1,0 +1,37 @@
+<h2>Talente</h2>
+<div class='row'>
+  <div class='col-sm-6'>
+    <div class='talent-box' ng-if='$odd == true' ng-repeat='(label,category) in talents'>
+      <h3>{{label}}</h3>
+      <ul>
+        <li ng-repeat='talent in category'>
+          <div class='row'>
+            <div class='col-sm-2'>
+              <div class='talent-value' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.value}}</div>
+            </div>
+            <div class='col-sm-10'>
+              <div class='talent-name' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.name}}</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div class='talent-box' ng-if='$even == true' ng-repeat='(label,category) in talents'>
+      <h3>{{label}}</h3>
+      <ul>
+        <li ng-repeat='talent in category'>
+          <div class='row'>
+            <div class='col-sm-2'>
+              <div class='talent-value' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.value}}</div>
+            </div>
+            <div class='col-sm-10'>
+              <div class='talent-name' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.name}}</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

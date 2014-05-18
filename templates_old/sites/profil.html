@@ -1,0 +1,38 @@
+<div class='container' ng-controller='profileCtrl'>
+  <div class='hero-info'>
+    <div class='row'>
+      <div class='col-xs-12'>
+        <p style='color: white;'>{{ currentHero.profile.name }}</p>
+        <p style='color: white;'>{{ currentHero.profile.rasse }}</p>
+        <p style='color: white;'>{{ currentHero.profile.kultur }}</p>
+        <p style='color: white;'>{{ currentHero.profile.profession }}</p>
+      </div>
+    </div>
+    <div class='row' ng-repeat='attribute in currentHero.attributes'>
+      <div class='col-xs-5'>
+        <span>{{ attribute.short }}:</span>
+      </div>
+      <div class='col-xs-7 hero-info-type'>
+        <span class='hero-info-text'>{{ attribute.value }}</span>
+      </div>
+    </div>
+    <hr>
+    <div class='row' ng-repeat='(name, basic) in currentHero.basics.values'>
+      <div class='col-xs-5'>
+        {{name}}
+      </div>
+      <div class='col-xs-2 hero-info-type'>
+        <span>{{ basic.start }}</span>
+      </div>
+      <div class='col-xs-2 hero-info-type'>
+        <span>{{ basic.mod }}</span>
+      </div>
+      <div class='col-xs-2 hero-info-type'>
+        <span>{{ basic.actual }}</span>
+      </div>
+      <div class='col-xs-1'>
+        <!-- blub -->
+      </div>
+    </div>
+  </div>
+</div>

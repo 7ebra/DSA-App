@@ -1,0 +1,24 @@
+<div ng-controller='talentsCtrl'>
+  <div class='container'>
+    <accordion close-others='true'>
+      <accordion-group is-open='false' ng-repeat="(key, category) in talentCategory | orderBy:'key'">
+        <accordion-heading>
+          <!-- %i.glyphicon{ng_class: "{'glyphicon-fire': group == 'Kampf', 'glyphicon-user': group == 'Gesellschaft'}"} -->
+          {{ category.name }}
+        </accordion-heading>
+        <ul class='list-group talent-list'>
+          <li class='list-group-item' ng-repeat="talent in currentHero.talents[key] | orderBy:'name'">
+            <div class='row'>
+              <div class='col-xs-2'>
+                <span class='tValue'>{{talent.value}}</span>
+              </div>
+              <div class='col-xs-10'>
+                <span class='tName'>{{talent.name}}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </accordion-group>
+    </accordion>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+<div class='profile-head'>
+  <h2>
+    {{profile.name}}
+    <small>{{profile.rasse}} // {{profile.profession}} // {{profile.kultur}}</small>
+  </h2>
+</div>
+<div class='row'>
+  <div class='col-sm-4 columns'>
+    <div class='profile-box'>
+      <h3>
+        Aussehen
+        <small>Generell</small>
+      </h3>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <div class='profile-text'>
+            Geschlecht
+          </div>
+        </div>
+        <div class='col-sm-8'>
+          <div class='profile-text'>
+            {{profile.geschlecht}}
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <div class='profile-text'>
+            Geburtsdatum
+          </div>
+        </div>
+        <div class='col-sm-8'>
+          <div class='profile-text'>
+            {{profile.geburtstag}}
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <div class='profile-text'>
+            Größe
+          </div>
+        </div>
+        <div class='col-sm-8'>
+          <div class='profile-text'>
+            {{profile.groesse}}
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <div class='profile-text'>
+            Gewicht
+          </div>
+        </div>
+        <div class='col-sm-8'>
+          <div class='profile-text'>
+            {{profile.gewicht}}
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <div class='profile-text'>
+            Augenfarbe
+          </div>
+        </div>
+        <div class='col-sm-8'>
+          <div class='profile-text'>
+            {{profile.augenfarbe}}
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <div class='profile-text'>
+            Haarfarbe
+          </div>
+        </div>
+        <div class='col-sm-8'>
+          <div class='profile-text'>
+            {{profile.haarefarbe}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-8'>
+    <div class='profile-box'>
+      <div class='row'>
+        <div class='col-sm-6'>
+          <h3>Vorteile</h3>
+          <div class='row' ng-repeat='text in profile.vorteile'>
+            <div class='col-sm-12'>
+              <div class='profile-text'>
+                {{text}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-6'>
+          <h3>Nachteile</h3>
+          <div class='row' ng-repeat='text in profile.nachteile'>
+            <div class='col-sm-12'>
+              <div class='profile-text'>
+                {{text}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-sm-6'>
+    <div class='profile-box'>
+      <h3>
+        Eigenschaften
+      </h3>
+      <div class='row' ng-repeat='attribute in currentHero.attributes'>
+        <div class='col-sm-6'>
+          <div class='profile-text'>
+            {{attribute.name}}
+          </div>
+        </div>
+        <div class='col-sm-6'>
+          <div class='profile-text'>
+            {{attribute.value}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div class='profile-box'>
+      <h3>
+        Basiswerte
+      </h3>
+      <div class='row' ng-repeat='(label,value) in currentHero.basics'>
+        <div class='col-sm-6'>
+          <div class='profile-text'>
+            {{label}}
+          </div>
+        </div>
+        <div class='col-sm-6'>
+          <div class='profile-text'>
+            {{value.actual}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

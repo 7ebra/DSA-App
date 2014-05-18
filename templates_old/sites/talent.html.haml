@@ -1,0 +1,15 @@
+%div{ng_controller: "talentsCtrl"}
+  .container
+    %accordion{close_others: "true"}
+
+      %accordion-group{ng_repeat: "(key, category) in talentCategory | orderBy:'key'", is_open: "false"}
+        %accordion-heading
+          / %i.glyphicon{ng_class: "{'glyphicon-fire': group == 'Kampf', 'glyphicon-user': group == 'Gesellschaft'}"}
+          {{ category.name }}
+        %ul.list-group.talent-list
+          %li.list-group-item{ng_repeat: "talent in currentHero.talents[key] | orderBy:'name'"}
+            .row
+              .col-xs-2
+                %span.tValue {{talent.value}}
+              .col-xs-10
+                %span.tName {{talent.name}}
