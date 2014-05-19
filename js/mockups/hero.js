@@ -197,13 +197,19 @@ function fkWeapon(name, type, x, y, z, r1, r2, r3, r4, r5, d1, d2, d3, d4, d5, f
   this.arrows = 0;
 }
 
-function Weapons() {
+function wlWeapons() {
   this.raufen = new wlWeapon("Raufen", 1, 6, 0, 0, 0, 0);
   this.ringen = new wlWeapon("Ringen", 1, 6, 0, 0, 0, 0);
 }
+function fkWeapons() {
+}
+function nkWeapons() {
+}
 
 function Baggage() {
-  this.weapons = new Weapons();
+  this.wlWeapons = new wlWeapons();
+  this.fkWeapons = new fkWeapons();
+  this.nkWeapons = new nkWeapons();
 }
 
 function Hero(name) {
@@ -219,21 +225,21 @@ function Hero(name) {
   }
 };
 
-Gilion = function() {
-  gilion = new Hero("Gilion Nebelsucher");    
-  gilion.attributes.mut.value = 11;
-  gilion.attributes.charisma.value = 9;
-  gilion.attributes.fingerfertigkeit.value = 14;
-  gilion.attributes.gewandtheit.value = 12;
-  gilion.attributes.koerperkraft.value = 14;
-  gilion.attributes.klugheit.value = 14;
-  gilion.attributes.intuition.value = 10;
-  gilion.attributes.konstitution.value = 11;
-  gilion.attributes.geschwindigkeit.value = 9;
+// Gilion = function() {
+//   gilion = new Hero("Gilion Nebelsucher");    
+//   gilion.attributes.mut.value = 11;
+//   gilion.attributes.charisma.value = 9;
+//   gilion.attributes.fingerfertigkeit.value = 14;
+//   gilion.attributes.gewandtheit.value = 12;
+//   gilion.attributes.koerperkraft.value = 14;
+//   gilion.attributes.klugheit.value = 14;
+//   gilion.attributes.intuition.value = 10;
+//   gilion.attributes.konstitution.value = 11;
+//   gilion.attributes.geschwindigkeit.value = 9;
 
-  gilion.setup();
-  return gilion;
-}
+//   gilion.setup();
+//   return gilion;
+// }
 
 Ohaia = function() {
 
@@ -390,11 +396,11 @@ Ohaia = function() {
   //Gepäck (baggage)
 
     //Waffen (weapons)
-  ohaia.baggage.weapons.raufen          = new wlWeapon("Raufen", 1, 6, 0, 7, 8, 0);
-  ohaia.baggage.weapons.ringen          = new wlWeapon("Ringen", 1, 6, 0, 7, 8, 0);
-  ohaia.baggage.weapons.wolfsmesser     = new nkWeapon("Wolfsmesser (elf. Rapier)", "Fe", 1, 6, 3, 13, 12, "N", 1, 1, 1)
-  ohaia.baggage.weapons.dolch           = new nkWeapon("Dolch", "Do", 1, 6, 1, 10, 8, "H", 1, 0, 2)
-  ohaia.baggage.weapons.elfenbogen      = new fkWeapon("Elfenbogen", "Bo", 1, 6, 5, 10, 25, 50, 100, 200, 3, 2, 1, 1, 0, 23, -3);
+  ohaia.baggage.wlWeapons.raufen          = new wlWeapon("Raufen", 1, 6, 0, 7, 8, 0);
+  ohaia.baggage.wlWeapons.ringen          = new wlWeapon("Ringen", 1, 6, 0, 7, 8, 0);
+  ohaia.baggage.nkWeapons.wolfsmesser     = new nkWeapon("Wolfsmesser (elf. Rapier)", "Fe", 1, 6, 3, 13, 12, "N", 1, 1, 1)
+  ohaia.baggage.nkWeapons.dolch           = new nkWeapon("Dolch", "Do", 1, 6, 1, 10, 8, "H", 1, 0, 2)
+  ohaia.baggage.fkWeapons.elfenbogen      = new fkWeapon("Elfenbogen", "Bo", 1, 6, 5, 10, 25, 50, 100, 200, 3, 2, 1, 1, 0, 23, -3);
 
   return ohaia;
 

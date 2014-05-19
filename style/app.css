@@ -7771,60 +7771,43 @@ button.btn.bars {
 }
 
 /* line 186, ../scss/_overrides.scss */
-.lep-slider .ui-slider-vertical {
+.ui-slider-vertical {
   width: 100%;
   height: 200px;
-  background-image: none;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* line 195, ../scss/_overrides.scss */
-.asp-slider .ui-slider-vertical {
-  height: 200px;
-  width: 100%;
-  background-image: none;
-}
-
-/* line 202, ../scss/_overrides.scss */
-.aup-slider .ui-slider-vertical {
-  height: 200px;
-  width: 100%;
-  background-image: none;
-}
-
-/* line 209, ../scss/_overrides.scss */
+/* line 192, ../scss/_overrides.scss */
 .lep-slider .ui-slider-range {
   background-color: red;
   background-image: none;
   opacity: 0.7;
 }
 
-/* line 216, ../scss/_overrides.scss */
+/* line 199, ../scss/_overrides.scss */
 .asp-slider .ui-slider-range {
   background-color: blue;
   background-image: none;
   opacity: 0.7;
 }
 
-/* line 223, ../scss/_overrides.scss */
+/* line 206, ../scss/_overrides.scss */
 .aup-slider .ui-slider-range {
   background-color: green;
   background-image: none;
   opacity: 0.7;
 }
 
-/* line 230, ../scss/_overrides.scss */
+/* line 213, ../scss/_overrides.scss */
 .animate .ui-slider-range {
   transition: height 1s ease;
 }
 
-/* line 235, ../scss/_overrides.scss */
+/* line 218, ../scss/_overrides.scss */
 .animate .ui-slider-handle {
   transition: bottom 1s ease;
 }
 
-/* line 239, ../scss/_overrides.scss */
+/* line 222, ../scss/_overrides.scss */
 .lep-slider .ui-slider-handle, .asp-slider .ui-slider-handle, .aup-slider .ui-slider-handle {
   left: 0;
   width: 100%;
@@ -7835,42 +7818,42 @@ button.btn.bars {
   border: 0;
 }
 
-/* line 248, ../scss/_overrides.scss */
+/* line 231, ../scss/_overrides.scss */
 .lep-slider .ui-slider-handle {
   background-color: red;
   opacity: 0;
 }
 
-/* line 252, ../scss/_overrides.scss */
+/* line 235, ../scss/_overrides.scss */
 .asp-slider .ui-slider-handle {
   background-color: blue;
   opacity: 0;
 }
 
-/* line 256, ../scss/_overrides.scss */
+/* line 239, ../scss/_overrides.scss */
 .aup-slider .ui-slider-handle {
   background-color: green;
   opacity: 0;
 }
 
-/* line 260, ../scss/_overrides.scss */
+/* line 243, ../scss/_overrides.scss */
 .ui-widget-content {
   border: 0;
   background-image: none;
 }
 
-/* line 264, ../scss/_overrides.scss */
+/* line 247, ../scss/_overrides.scss */
 .ui-corner-all {
   border-radius: 0;
 }
 
-/* line 267, ../scss/_overrides.scss */
+/* line 250, ../scss/_overrides.scss */
 .row.no-spacing div[class*='col-'] {
   padding-left: 0;
   padding-right: 0;
 }
 
-/* line 272, ../scss/_overrides.scss */
+/* line 255, ../scss/_overrides.scss */
 .row.no-spacing .thumbnail {
   margin-bottom: 0;
   padding: 0;
@@ -7880,7 +7863,7 @@ button.btn.bars {
   background-color: transparent;
 }
 
-/* line 282, ../scss/_overrides.scss */
+/* line 265, ../scss/_overrides.scss */
 a#ini {
   display: block;
   padding: 12px;
@@ -7891,7 +7874,7 @@ a#ini {
   margin-top: 5px;
 }
 
-/* line 292, ../scss/_overrides.scss */
+/* line 275, ../scss/_overrides.scss */
 span.currentWeaponFirst {
   display: block;
   font-size: 24px;
@@ -7900,7 +7883,7 @@ span.currentWeaponFirst {
   text-align: left;
 }
 
-/* line 299, ../scss/_overrides.scss */
+/* line 282, ../scss/_overrides.scss */
 span.currentWeaponSecond {
   display: block;
   font-size: 12px;
@@ -7908,7 +7891,7 @@ span.currentWeaponSecond {
   padding-left: 15px;
 }
 
-/* line 305, ../scss/_overrides.scss */
+/* line 288, ../scss/_overrides.scss */
 span.currentWeaponRangeThird {
   display: block;
   font-size: 12px;
@@ -7916,17 +7899,17 @@ span.currentWeaponRangeThird {
   padding-left: 15px;
 }
 
-/* line 313, ../scss/_overrides.scss */
+/* line 296, ../scss/_overrides.scss */
 .choose-weapon-modal {
   background-color: #333333;
 }
 
-/* line 317, ../scss/_overrides.scss */
+/* line 300, ../scss/_overrides.scss */
 .modal-header {
   background-color: #333333;
 }
 
-/* line 324, ../scss/_overrides.scss */
+/* line 307, ../scss/_overrides.scss */
 .talent-box {
   display: block;
   padding: 15px;
@@ -7937,13 +7920,13 @@ span.currentWeaponRangeThird {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
-/* line 335, ../scss/_overrides.scss */
+/* line 318, ../scss/_overrides.scss */
 .talent-box ul {
   list-style: none;
   padding: 0;
 }
 
-/* line 341, ../scss/_overrides.scss */
+/* line 324, ../scss/_overrides.scss */
 .talent-value {
   font-weight: 300;
   line-height: 24px;
@@ -7951,30 +7934,30 @@ span.currentWeaponRangeThird {
   display: inline-block;
   width: 100%;
 }
-/* line 348, ../scss/_overrides.scss */
+/* line 331, ../scss/_overrides.scss */
 .talent-value.high {
   color: #00ff48;
 }
-/* line 351, ../scss/_overrides.scss */
+/* line 334, ../scss/_overrides.scss */
 .talent-value.middle {
   color: yellow;
 }
 
-/* line 356, ../scss/_overrides.scss */
+/* line 339, ../scss/_overrides.scss */
 .talent-name {
   font-weight: 100;
   line-height: 24px;
 }
-/* line 359, ../scss/_overrides.scss */
+/* line 342, ../scss/_overrides.scss */
 .talent-name.high {
   color: #00ff48;
 }
-/* line 362, ../scss/_overrides.scss */
+/* line 345, ../scss/_overrides.scss */
 .talent-name.middle {
   color: yellow;
 }
 
-/* line 371, ../scss/_overrides.scss */
+/* line 354, ../scss/_overrides.scss */
 .profile-box {
   display: block;
   padding: 15px;
@@ -7986,13 +7969,13 @@ span.currentWeaponRangeThird {
   font-weight: 300;
 }
 
-/* line 382, ../scss/_overrides.scss */
+/* line 365, ../scss/_overrides.scss */
 .profile-head {
   border-bottom: solid 1px #4d4d4d;
   margin-bottom: 30px;
 }
 
-/* line 386, ../scss/_overrides.scss */
+/* line 369, ../scss/_overrides.scss */
 .profile-text {
   font-weight: 100;
   line-height: 24px;

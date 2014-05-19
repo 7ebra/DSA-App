@@ -39,7 +39,7 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
             topbar: {
               templateUrl: 'views/topbar.html',
               controller: 'TopbarCtrl'
-            } 
+            }
           }
         },
         {
@@ -58,10 +58,38 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
               templateUrl: 'views/topbar.html',
               controller: 'TopbarCtrl'
             }
-          }
+          },
+          children: [
+            {
+              name: 'FK',
+              views: {
+                weaponDetail: {
+                  templateUrl: 'views/fkDetail.html',
+                  controller: 'FightCtrl',
+                }
+              }
+            },
+            {
+              name: 'NK',
+              views: {
+                activeWeapon: {
+                  templateUrl: 'views/activeWeapon.html',
+                  controller: 'FightCtrl',
+                }
+              }
+            },
+            {
+              name: 'WL',
+              views: {
+                activeWeapon: {
+                  templateUrl: 'views/activeWeapon.html',
+                  controller: 'FightCtrl',
+                }
+              }
+            }
+          ]
         }
       ]
     });
-
   }
 ]);

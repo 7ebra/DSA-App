@@ -1,4 +1,4 @@
-app.controller('FightCtrl', function($scope) {
+app.controller('FightCtrl', function($scope, $state) {
 
   $scope.lep = $scope.currentHero.basics.lebenspunkte;
   $scope.asp = $scope.currentHero.basics.astralenegrie;
@@ -23,14 +23,20 @@ app.controller('FightCtrl', function($scope) {
     $scope.aus.currentValue = $scope.aus.currentValue - 1; 
   }
 
-  $scope.weapons = $scope.currentHero.baggage.weapons
+  $scope.nkWeapons = $scope.currentHero.baggage.nkWeapons
+  $scope.fkWeapons = $scope.currentHero.baggage.fkWeapons
+  $scope.wlWeapons = $scope.currentHero.baggage.wlWeapons
 
-  $scope.weaponChoosed = $scope.weapons.raufen;
+  $scope.weaponChoosed = $scope.fkWeapons.elfenbogen;
 
   $scope.openWeapon = function(weapon) {
     $scope.weaponChoosed = weapon;
   }
+  
+  $scope.fkShut = function() {
+    $state.go('main.fight.FK');
+    console.log("hallo");
+  }
 
   console.log($scope.weaponChoosed);
-  console.log($scope.weapons.dolch);
 });
