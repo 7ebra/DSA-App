@@ -347,6 +347,14 @@ span.currentWeaponRangeThird {
   }
 }
 
+.option {
+  width: 100%;
+  cursor: pointer;
+  &.active {
+    color: $highlight;
+  }
+}
+
 //// Profil /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 

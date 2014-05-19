@@ -34,7 +34,7 @@ app.controller('FightCtrl', function($scope, $state) {
   }
   
   $scope.fkShut = function() {
-    $state.go('main.fight.FK');
+    $state.go('^.fkDetail');
     console.log("hallo");
   }
 

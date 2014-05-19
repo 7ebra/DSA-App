@@ -7957,7 +7957,17 @@ span.currentWeaponRangeThird {
   color: yellow;
 }
 
-/* line 354, ../scss/_overrides.scss */
+/* line 350, ../scss/_overrides.scss */
+.option {
+  width: 100%;
+  cursor: pointer;
+}
+/* line 353, ../scss/_overrides.scss */
+.option.active {
+  color: #00ff48;
+}
+
+/* line 362, ../scss/_overrides.scss */
 .profile-box {
   display: block;
   padding: 15px;
@@ -7969,13 +7979,13 @@ span.currentWeaponRangeThird {
   font-weight: 300;
 }
 
-/* line 365, ../scss/_overrides.scss */
+/* line 373, ../scss/_overrides.scss */
 .profile-head {
   border-bottom: solid 1px #4d4d4d;
   margin-bottom: 30px;
 }
 
-/* line 369, ../scss/_overrides.scss */
+/* line 377, ../scss/_overrides.scss */
 .profile-text {
   font-weight: 100;
   line-height: 24px;

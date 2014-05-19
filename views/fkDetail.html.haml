@@ -1,2 +1,93 @@
-%label Erschwert um: 
-%input{"type" => "text", "ng-model" => "buff"}
+.weapon-box{"ng-if" => "!roll"}
+  %h3 
+    Fernkampf Probe 
+    %small {{weaponChoosed.FK}} 
+  .weapon-info
+    .row
+      .col-sm-2
+        Entf: 
+      .col-sm-2
+        .option{"ng-click" => "chooseRange(1)", "ng-class" => "{active: range === 1}"} {{weaponChoosed.range[0]}}  
+      .col-sm-2
+        .option{"ng-click" => "chooseRange(2)", "ng-class" => "{active: range === 2}"} {{weaponChoosed.range[1]}}
+      .col-sm-2
+        .option{"ng-click" => "chooseRange(3)", "ng-class" => "{active: range === 3}"} {{weaponChoosed.range[2]}}
+      .col-sm-2
+        .option{"ng-click" => "chooseRange(4)", "ng-class" => "{active: range === 4}"} {{weaponChoosed.range[3]}}
+      .col-sm-2
+        .option{"ng-click" => "chooseRange(5)", "ng-class" => "{active: range === 5}"} {{weaponChoosed.range[4]}}
+    .row
+      .col-sm-2
+        Größe: 
+      .col-sm-2
+        .option{"ng-click" => "chooseSize(1)", "ng-class" => "{active: size === 1}"} XS  
+      .col-sm-2
+        .option{"ng-click" => "chooseSize(2)", "ng-class" => "{active: size === 2}"} S
+      .col-sm-2
+        .option{"ng-click" => "chooseSize(3)", "ng-class" => "{active: size === 3}"} M
+      .col-sm-2
+        .option{"ng-click" => "chooseSize(4)", "ng-class" => "{active: size === 4}"} L
+      .col-sm-2
+        .option{"ng-click" => "chooseSize(5)", "ng-class" => "{active: size === 5}"} XL
+    .row
+      .col-sm-2 
+        Bewg: 
+      .col-sm-2
+        .option{"ng-click" => "chooseMove(1)", "ng-class" => "{active: move === 1}"} ausw. 
+      .col-sm-2
+        .option{"ng-click" => "chooseMove(2)", "ng-class" => "{active: move === 2}"} bewegt.
+      .col-sm-2
+        .option{"ng-click" => "chooseMove(3)", "ng-class" => "{active: move === 3}"} leicht
+      .col-sm-4
+        .option{"ng-click" => "chooseMove(4)", "ng-class" => "{active: move === 4}"} steht
+    .row
+      .col-sm-6
+        %span{"ng-if" => "buff >= 0"} erschert um
+        %span{"ng-if" => "buff < 0"} erleichtert um
+      .col-sm-2
+        {{buff}}
+      .col-sm-2
+        %button.btn.weapon{"ng-click" => "buffMinus()"} -
+      .col-sm-2
+        %button.btn.weapon{"ng-click" => "buffPlus()"} +
+    .row
+      .col-sm-12
+        %button.btn.weapon{"ng-click" => "fkTest()"} Würfeln
+
+.weapon-box{"ng-if" => "roll && !damage"}
+  %h3 
+    {{string}} 
+    %small {{weaponChoosed.FK - result}} 
+  .weapon-info
+    .row
+      .col-sm-4
+        Wurf 
+      .col-sm-4
+        Erschwernis 
+      .col-sm-4
+        Ergebnis
+    .row
+      .col-sm-2
+        {{roll}}
+      .col-sm-2
+        %span +
+      .col-sm-2
+        {{buff}}
+      .col-sm-2
+        %span =  
+      .col-sm-4
+        {{result}}
+    .row
+      .col-sm-12
+        %button.btn.weapon{"ng-click" => "fkDamage()", "ng-if" => "hit"}
+          Schaden auswürfeln
+
+.weapon-box{"ng-if" => "damage"}
+  %h3 
+    {{damage}} Schaden
+    %small {{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}
+  .weapon-info
+    .row
+      .col-sm-12
+        %button.btn.weapon{"ng-click" => "Ok()"}
+          Ok

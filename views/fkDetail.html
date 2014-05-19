@@ -1,2 +1,143 @@
-<label>Erschwert um:</label>
-<input ng-model='buff' type='text'>
+<div class='weapon-box' ng-if='!roll'>
+  <h3>
+    Fernkampf Probe
+    <small>{{weaponChoosed.FK}}</small>
+  </h3>
+  <div class='weapon-info'>
+    <div class='row'>
+      <div class='col-sm-2'>
+        Entf:
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: range === 1}' ng-click='chooseRange(1)'>{{weaponChoosed.range[0]}}</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: range === 2}' ng-click='chooseRange(2)'>{{weaponChoosed.range[1]}}</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: range === 3}' ng-click='chooseRange(3)'>{{weaponChoosed.range[2]}}</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: range === 4}' ng-click='chooseRange(4)'>{{weaponChoosed.range[3]}}</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: range === 5}' ng-click='chooseRange(5)'>{{weaponChoosed.range[4]}}</div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        Größe:
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: size === 1}' ng-click='chooseSize(1)'>XS</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: size === 2}' ng-click='chooseSize(2)'>S</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: size === 3}' ng-click='chooseSize(3)'>M</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: size === 4}' ng-click='chooseSize(4)'>L</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: size === 5}' ng-click='chooseSize(5)'>XL</div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        Bewg:
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: move === 1}' ng-click='chooseMove(1)'>ausw.</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: move === 2}' ng-click='chooseMove(2)'>bewegt.</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: move === 3}' ng-click='chooseMove(3)'>leicht</div>
+      </div>
+      <div class='col-sm-4'>
+        <div class='option' ng-class='{active: move === 4}' ng-click='chooseMove(4)'>steht</div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <span ng-if='buff &gt;= 0'>erschert um</span>
+        <span ng-if='buff &lt; 0'>erleichtert um</span>
+      </div>
+      <div class='col-sm-2'>
+        {{buff}}
+      </div>
+      <div class='col-sm-2'>
+        <button class='btn weapon' ng-click='buffMinus()'>-</button>
+      </div>
+      <div class='col-sm-2'>
+        <button class='btn weapon' ng-click='buffPlus()'>+</button>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='fkTest()'>Würfeln</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='weapon-box' ng-if='roll &amp;&amp; !damage'>
+  <h3>
+    {{string}}
+    <small>{{weaponChoosed.FK - result}}</small>
+  </h3>
+  <div class='weapon-info'>
+    <div class='row'>
+      <div class='col-sm-4'>
+        Wurf
+      </div>
+      <div class='col-sm-4'>
+        Erschwernis
+      </div>
+      <div class='col-sm-4'>
+        Ergebnis
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        {{roll}}
+      </div>
+      <div class='col-sm-2'>
+        <span>+</span>
+      </div>
+      <div class='col-sm-2'>
+        {{buff}}
+      </div>
+      <div class='col-sm-2'>
+        <span>=</span>
+      </div>
+      <div class='col-sm-4'>
+        {{result}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='fkDamage()' ng-if='hit'>
+          Schaden auswürfeln
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='weapon-box' ng-if='damage'>
+  <h3>
+    {{damage}} Schaden
+    <small>{{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}</small>
+  </h3>
+  <div class='weapon-info'>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='Ok()'>
+          Ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
