@@ -1,9 +1,9 @@
-<div class='weapon-box' ng-if="weaponChoosed.DK == 'FK'">
+<div class='weapon-box'>
   <h3>
     {{weaponChoosed.name}}
     <small>{{weaponChoosed.DK}}</small>
   </h3>
-  <div class='weapon-info'>
+  <div class='weapon-info' ng-if="weaponChoosed.DK == 'FK'">
     <div class='row'>
       <div class='col-sm-2'>
         FK:
@@ -78,14 +78,59 @@
       </div>
     </div>
   </div>
-</div>
-<div class='weapon-box' ng-if='weaponChoosed.BF'>
-  <div class='weapon-info'>
-    Attacke: {{weaponChoosed.AT}}
+  <div class='weapon-info' ng-if='weaponChoosed.BF'>
+    <div class='row'>
+      <div class='col-sm-2'>
+        AT:
+      </div>
+      <div class='col-sm-4'>
+        {{weaponChoosed.AT}}
+      </div>
+      <div class='col-sm-2'>
+        PA:
+      </div>
+      <div class='col-sm-4'>
+        {{weaponChoosed.PA}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        TP:
+      </div>
+      <div class='col-sm-4'>
+        {{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}
+      </div>
+      <div class='col-sm-2'>
+        BF:
+      </div>
+      <div class='col-sm-4'>
+        {{weaponChoosed.BF}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        eBE:
+      </div>
+      <div class='col-sm-4'>
+        {{weaponChoosed.eBE}}
+      </div>
+      <div class='col-sm-2'>
+        INI:
+      </div>
+      <div class='col-sm-4'>
+        {{weaponChoosed.eINI}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <button class='btn weapon' ng-click='nkAttack()'>Attacke</button>
+      </div>
+      <div class='col-sm-6'>
+        <button class='btn weapon' ng-click='nkParade()'>Parade</button>
+      </div>
+    </div>
   </div>
-</div>
-<div class='weapon-box' ng-if="weaponChoosed.weaponType == 'Waffenloser Kampf'">
-  <div class='weapon-info'>
+  <div class='weapon-info' ng-if="weaponChoosed.weaponType == 'Waffenloser Kampf'">
     Attacke: {{weaponChoosed.AT}}
   </div>
 </div>

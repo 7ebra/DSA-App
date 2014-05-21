@@ -1,8 +1,8 @@
-.weapon-box{"ng-if" => "weaponChoosed.DK == 'FK'"}
+.weapon-box
   %h3 
     {{weaponChoosed.name}} 
     %small {{weaponChoosed.DK}} 
-  .weapon-info
+  .weapon-info{"ng-if" => "weaponChoosed.DK == 'FK'"}
     .row
       .col-sm-2
         FK: 
@@ -47,14 +47,43 @@
         {{weaponChoosed.rangeDamage[3]}}
       .col-sm-2
         {{weaponChoosed.rangeDamage[4]}}
-
     .row
       .col-sm-12
         %button.btn.weapon{"ng-click" => "fkShut()"} Schießen
 
-.weapon-box{"ng-if" => "weaponChoosed.BF"}
-  .weapon-info
-    Attacke: {{weaponChoosed.AT}}
-.weapon-box{"ng-if" => "weaponChoosed.weaponType == 'Waffenloser Kampf'"}
-  .weapon-info
+  .weapon-info{"ng-if" => "weaponChoosed.BF"}
+    .row
+      .col-sm-2
+        AT: 
+      .col-sm-4 
+        {{weaponChoosed.AT}}
+      .col-sm-2
+        PA: 
+      .col-sm-4 
+        {{weaponChoosed.PA}}
+    .row
+      .col-sm-2
+        TP: 
+      .col-sm-4 
+        {{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}
+      .col-sm-2
+        BF: 
+      .col-sm-4 
+        {{weaponChoosed.BF}}
+    .row
+      .col-sm-2
+        eBE: 
+      .col-sm-4 
+        {{weaponChoosed.eBE}}
+      .col-sm-2
+        INI: 
+      .col-sm-4 
+        {{weaponChoosed.eINI}}
+    .row
+      .col-sm-6
+        %button.btn.weapon{"ng-click" => "nkAttack()"} Attacke
+      .col-sm-6
+        %button.btn.weapon{"ng-click" => "nkParade()"} Parade
+
+  .weapon-info{"ng-if" => "weaponChoosed.weaponType == 'Waffenloser Kampf'"}
     Attacke: {{weaponChoosed.AT}}

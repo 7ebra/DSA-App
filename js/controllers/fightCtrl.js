@@ -27,16 +27,29 @@ app.controller('FightCtrl', function($scope, $state) {
   $scope.fkWeapons = $scope.currentHero.baggage.fkWeapons
   $scope.wlWeapons = $scope.currentHero.baggage.wlWeapons
 
-  $scope.weaponChoosed = $scope.fkWeapons.elfenbogen;
+  // $scope.weaponChoosed = $scope.fkWeapons.dolch;
 
   $scope.openWeapon = function(weapon) {
     $scope.weaponChoosed = weapon;
+    console.log($scope.weaponChoosed);
+    $state.go('main.fight.weaponDefault');
   }
   
   $scope.fkShut = function() {
     $state.go('^.fkDetail');
-    console.log("hallo");
+  }
+  $scope.nkAttack = function() {
+    $state.go('^.nkAttack'); 
+  }
+  $scope.nkParade = function() {
+    $state.go('^.nkParade'); 
   }
 
+  $scope.disableWeaponChoose = function() {
+    $scope.disabled = true; 
+  }
+  $scope.ableWeaponChoose = function() {
+    $scope.disabled = false; 
+  }
   console.log($scope.weaponChoosed);
 });

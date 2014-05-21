@@ -7,6 +7,6 @@ app.controller('LeftMenuCtrl', function($scope, $state) {
     $state.go('main.talents');
   };
   $scope.goToFight = function() {
-    $state.go('main.fight');
+    $state.go('main.fight.weaponDefault');
   };
 });

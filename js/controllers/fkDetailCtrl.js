@@ -104,29 +104,105 @@ app.controller('FkDetailCtrl', function($scope, $state) {
 
   $scope.fkTest = function() {
 
+    $scope.disableWeaponChoose();
+
     $scope.roll = Math.floor(Math.random() * 20) + 1;
+
     $scope.result = $scope.roll + $scope.buff;
-    console.log($scope.weaponChoosed.FK);
+
+    $scope.meister = false;
+    $scope.hit = false;
+    $scope.patzer = false;
+    $scope.patzerText = false;
+    $scope.fail = false;
+
+    console.log($scope.roll);
 
     if($scope.roll === 1) {
-      $scope.string = "Meisterschuß! Schaden x2";
-      $scope.meister = true;
+      $scope.secondRoll = Math.floor(Math.random() * 20) + 1;
+      $scope.secondResult = $scope.secondRoll + $scope.buff;   
+      if($scope.secondResult <= $scope.weaponChoosed.FK) {
+        $scope.string = "Volltreffer!";
+        $scope.meister = true;
+        $scope.hit = true;
+      }else {
+        $scope.string = "Du triffst!";
+        $scope.hit = true;
+      }
     }else if($scope.result <= $scope.weaponChoosed.FK && $scope.roll !== 20) {
       $scope.string = "Du triffst!";
       $scope.hit = true;
     }else if($scope.roll === 20) {
-      $scope.string = "Patzer!";
-      $scope.patzer = true;
+      $scope.secondRoll = Math.floor(Math.random() * 20) + 1;  
+      $scope.secondResult = $scope.secondRoll + $scope.buff;    
+      if($scope.secondResult <= $scope.weaponChoosed.FK) {
+        $scope.string = "Du hast dein Ziel verfehlt!";
+        $scope.fail = true;
+      }else {
+        $scope.string = "Patzer!";
+        $scope.patzer = true;
+      }
     }else {
       $scope.string = "Du hast dein Ziel verfehlt!";
+      $scope.fail = true;
+      console.log($scope.hit);
     }
   }
   $scope.fkDamage = function() {
-    $scope.damage = $scope.weaponChoosed.damageFunc[0] * (Math.floor(Math.random() * $scope.weaponChoosed.damageFunc[1]) + 1) + $scope.weaponChoosed.damageFunc[2];
+    if($scope.meister) {
+      $scope.damage = 2 * ($scope.weaponChoosed.damageFunc[0] * (Math.floor(Math.random() * $scope.weaponChoosed.damageFunc[1]) + 1) + $scope.weaponChoosed.damageFunc[2]);
+    }else {
+      $scope.damage = $scope.weaponChoosed.damageFunc[0] * (Math.floor(Math.random() * $scope.weaponChoosed.damageFunc[1]) + 1) + $scope.weaponChoosed.damageFunc[2];
+    }
+  }
+  $scope.patzerTest = function() {
+    $scope.patzerRoll = 2 * (Math.floor(Math.random() * 6) + 1);
+    console.log($scope.patzerRoll); 
+
+    switch($scope.patzerRoll) {
+      case 2: 
+        $scope.string = "Waffe zerstört: ";
+        $scope.patzerText = "INI-4; der Schuss geht ungezielt daneben, und von irgendwo hört man ein hässliches ‚Krack’. \
+          Bogen, Armbrust oder Speer sind so schwer beschädigt, dass eine Reparatur nicht lohnt. Der Schütze verliert alle verbleibenden \
+          Aktionen und Reaktionen dieser Runde."
+        break;
+      case 3:
+        $scope.string = "Waffe beschädigt: "
+        $scope.patzerText = "INI -3; der Schuss geht ungezielt daneben, das Projektil landet vor den Füßen des Schützen. \
+          Die Sehne des Bogens ist gerissen, die Mechanik der Armbrust ernsthaft verklemmt – es sind mindestens 30 Aktionen nötig, um die Waffe \
+          wieder schussfähig zu machen. Bei einer Wurfwaffe bedeutet dieses Resultat dasselbe wie eine 2– Messer, Diskus oder Speer sind zerbrochen. \
+          Der Schütze verliert alle verbleibenden Aktionen und Reaktionen dieser Runde."
+        break;
+      case 4: case 5: case 6: case 7: case 8: case 9: case 10:
+        $scope.string = "Fehlschuss: "
+        $scope.patzerText = "INI -2; der Schuss geht ungezielt daneben, das Projektil ist verloren; die \
+          Mechanik der Armbrust blockiert oder die Sehne droht vom Bogen zu rutschen – der Schütze \
+          benötigt zwei Aktionen, um die Waffe wieder schussfähig zu machen. Bei Wurfwaffen gilt, \
+          dass das Projektil ebenfalls verloren ist und der Werfer zwei Aktionen benötigt, um sein \
+          verlorenes Gleichgewicht wieder zu finden. "
+        break;
+      case 11: case 12:
+        $scope.string = "Freund getroffen: "
+        $scope.patzerText = "INI -3; der Schuss löst sich unbeabsichtigt und trifft den am nächsten an der geplanten Flugbahn stehenden \
+          befreundeten Charakter. Würfeln Sie für diesen Trefferpunkte gemäß der Entfernung aus; Ansagen kommen jedoch nicht zum Tragen. Ist \
+          kein Kamerad in der Nähe, der getroffen werden könnte, hat der Schütze sich selbst verletzt."
+        break;
+    };
   }
   $scope.Ok = function() {
+
+    $scope.ableWeaponChoose();
+
     $scope.roll = false;
     $scope.damage = false;
-  }
+    $scope.meister = false;
+    $scope.hit = false;
+    $scope.patzer = false;
+    $scope.patzerText = false;
+    $scope.patzerRoll = false;
+    $scope.fail = false;
+    $scope.string = false;
 
+    $state.go('^.weaponDefault');
+  }
 });

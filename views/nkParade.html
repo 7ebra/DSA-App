@@ -1,0 +1,143 @@
+<div class='weapon-box' ng-if='!roll'>
+  <h3>
+    Nahkampf Parade
+    <small>{{weaponChoosed.PA}}</small>
+  </h3>
+  <div class='weapon-info'>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <span ng-if='buff &gt;= 0'>erschert um</span>
+        <span ng-if='buff &lt; 0'>erleichtert um</span>
+      </div>
+      <div class='col-sm-2'>
+        {{buff}}
+      </div>
+      <div class='col-sm-2'>
+        <button class='btn weapon' ng-click='buffMinus()'>-</button>
+      </div>
+      <div class='col-sm-2'>
+        <button class='btn weapon' ng-click='buffPlus()'>+</button>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='nkTest()'>
+          Würfeln
+          <small>gelungen bei {{weaponChoosed.AT - buff}}</small>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='weapon-box' ng-if='roll'>
+  <h3>
+    {{string}}
+    <small ng-if='!secondRoll'>{{weaponChoosed.AT - result}}</small>
+    <small ng-if='secondRoll &amp;&amp; !patzerText'>Wurf: {{roll}}</small>
+    <small ng-if='patzerText'>{{patzerRoll}}</small>
+  </h3>
+  <div class='weapon-info' ng-if='!secondRoll'>
+    <div class='row'>
+      <div class='col-sm-4'>
+        Wurf
+      </div>
+      <div class='col-sm-4'>
+        Erschwernis
+      </div>
+      <div class='col-sm-4'>
+        Ergebnis
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        {{roll}}
+      </div>
+      <div class='col-sm-2'>
+        <span>+</span>
+      </div>
+      <div class='col-sm-2'>
+        {{buff}}
+      </div>
+      <div class='col-sm-2'>
+        <span>=</span>
+      </div>
+      <div class='col-sm-4'>
+        {{result}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='Ok()' ng-if='end'>
+          Ok
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class='weapon-info' ng-if='secondRoll &amp;&amp; !patzerRoll'>
+    <div class='row'>
+      <div class='col-sm-6'>
+        1. Wurf
+      </div>
+      <div class='col-sm-6'>
+        {{roll}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-4'>
+        Bestätigung
+      </div>
+      <div class='col-sm-4'>
+        Erschwernis
+      </div>
+      <div class='col-sm-4'>
+        Ergebnis
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        {{secondRoll}}
+      </div>
+      <div class='col-sm-2'>
+        <span>+</span>
+      </div>
+      <div class='col-sm-2'>
+        {{buff}}
+      </div>
+      <div class='col-sm-2'>
+        <span>=</span>
+      </div>
+      <div class='col-sm-4'>
+        {{secondResult}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='Ok()' ng-if='end'>
+          Ok
+        </button>
+        <button class='btn weapon' ng-click='patzerTest()' ng-if='patzer'>
+          Patzer auswürfeln
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class='weapon-info' ng-if='patzerRoll'>
+    <div class='weapon-info'>
+      <div class='row'>
+        <div class='col-sm-12'>
+          {{patzerText}}
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <button class='btn weapon' ng-click='Ok()' ng-if='patzerRoll &lt; 11'>
+            Ok
+          </button>
+          <button class='btn weapon' ng-click='nkDamage()' ng-if='patzerRoll &gt;= 11'>
+            Schaden auswürfeln
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

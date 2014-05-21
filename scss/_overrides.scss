@@ -122,6 +122,13 @@ body {
 
   h3 {
     padding: 15px 15px 0 15px;
+    &.disabled {
+      color: lighten($darkbasic, 10%);
+      &:hover {
+        background-color: $darkbasic;
+        color: lighten($darkbasic, 10%);
+      }
+    }
   }
   button.btn.weapon {
     width: 100%;
@@ -129,9 +136,22 @@ body {
     background-color: $darkbasic;
     border-top: solid 1px lighten($darkbasic, 10%);
 
+    small {
+      font-size: 100%;
+      font-weight: normal;
+      color: lighten($darkbasic, 10%);
+    }
+
     &:hover {
       background-color: $highlight;
       color: $darkbasic;
+    }
+    &.disabled {
+      color: lighten($darkbasic, 10%);
+      &:hover {
+        background-color: $darkbasic;
+        color: lighten($darkbasic, 10%);
+      }
     }
   }
 }
