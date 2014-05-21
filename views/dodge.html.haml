@@ -1,0 +1,90 @@
+%div{"ng-if" => "!roll"}
+  %h3
+    Ausgeweichen
+  .weapon-info
+    .row
+      .col-sm-12
+        %input{"type" => "checkbox", "ng-model" => "geziehlt"} 
+        %label geziehlt ausweichen {{geziehlt}}
+    .row
+      .col-sm-4
+        Gegner: 
+      .col-sm-2
+        .option{"ng-click" => "chooseNumber(1)", "ng-class" => "{active: number === 1}"} 1  
+      .col-sm-2
+        .option{"ng-click" => "chooseNumber(2)", "ng-class" => "{active: number === 2}"} 2
+      .col-sm-2
+        .option{"ng-click" => "chooseNumber(3)", "ng-class" => "{active: number === 3}"} 3
+      .col-sm-2
+        .option{"ng-click" => "chooseNumber(4)", "ng-class" => "{active: number === 4}"} 4
+    .row
+      .col-sm-6
+        %span{"ng-if" => "buff >= 0"} erschert um
+        %span{"ng-if" => "buff < 0"} erleichtert um
+      .col-sm-2
+        {{buff}}
+      .col-sm-2
+        %button.btn.weapon{"ng-click" => "buffMinus()"} -
+      .col-sm-2
+        %button.btn.weapon{"ng-click" => "buffPlus()"} +
+    .row
+      .col-sm-12
+        %button.btn.weapon{"ng-click" => "dodgeTest(geziehlt)"} 
+          Würfeln
+          %small gelungen bei {{ausweichen.actual - buff}}
+
+%div{"ng-if" => "roll && result <=  ausweichen.actual"}
+  %h3
+    Ausgewichen
+    %small ini - 4
+  .weapon-info
+    .row
+      .col-sm-4
+        Wurf 
+      .col-sm-4
+        Erschwernis 
+      .col-sm-4
+        Ergebnis
+    .row
+      .col-sm-2
+        {{roll}}
+      .col-sm-2
+        %span +
+      .col-sm-2
+        {{buff}}
+      .col-sm-2
+        %span =  
+      .col-sm-4
+        {{result}}
+    .row
+      .col-sm-12
+        %button.btn.weapon{"ng-click" => "Ok()"} 
+          ok
+
+%div{"ng-if" => "roll && result >  ausweichen.actual"}
+  %h3
+    Du wirst getroffen
+    %small ini - 4
+  .weapon-info
+    .row
+      .col-sm-4
+        Wurf 
+      .col-sm-4
+        Erschwernis 
+      .col-sm-4
+        Ergebnis
+    .row
+      .col-sm-2
+        {{roll}}
+      .col-sm-2
+        %span +
+      .col-sm-2
+        {{buff}}
+      .col-sm-2
+        %span =  
+      .col-sm-4
+        {{result}}
+    .row
+      .col-sm-12
+        %button.btn.weapon{"ng-click" => "Ok()"} 
+          ok

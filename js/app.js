@@ -1,1 +1,1 @@
-var app = angular.module('DSA', ['ui.slider', 'ui.bootstrap', 'ui.router', 'ui.router.stateHelper']);
+var app = angular.module('DSA', ['ngTouch', 'ngAnimate','ui.slider', 'ui.bootstrap', 'ui.router', 'ui.router.stateHelper']);

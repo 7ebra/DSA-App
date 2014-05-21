@@ -34,6 +34,38 @@
   </div>
 </div>
 <div class='row'>
+  <div class='col-sm-3'>
+    <div class='weapon-box'>
+      <h3>
+        <div class='row'>
+          <div class='col-sm-4'>
+            <button class='btn weapon' ng-click='ini()' ng-if='!iniValue'>?</button>
+            <span ng-if='iniValue'>{{currentHero.basics.ini_basis.currentValue}}</span>
+          </div>
+          <div class='col-sm-8'>
+            <small>
+              Initiative
+            </small>
+          </div>
+        </div>
+      </h3>
+      <button class='btn weapon' ng-click='orientaion()'>orientieren</button>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div class='weapon-box' ng-if='!dodgeAction'>
+      <h3>
+        {{currentHero.basics.ausweichen.actual}}
+        <small>
+          Ausweichen
+        </small>
+      </h3>
+      <button class='btn weapon' ng-click='dodge()'>ausweichen</button>
+    </div>
+    <div class='weapon-box' ng-if='dodgeAction' ui-view='dodge'></div>
+  </div>
+</div>
+<div class='row'>
   <div class='col-sm-6'>
     <div class='weapon-box'>
       <h3 ng-class='{disabled: disabled}'>
@@ -46,6 +78,144 @@
     </div>
   </div>
   <div class='col-sm-6'>
-    <div class='weapon-detail' ui-view='weaponDetail'></div>
+    <div class='weapon-detail' ng-if='weaponAction' ui-view='weaponDetail'></div>
+    <div class='weapon-detail' ng-if='!weaponAction'>
+      <div class='weapon-box'>
+        <h3>
+          {{weaponChoosed.name}}
+          <small>{{weaponChoosed.DK}}</small>
+        </h3>
+        <div class='weapon-info' ng-if="weaponChoosed.DK == 'FK'">
+          <div class='row'>
+            <div class='col-sm-2'>
+              FK:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.FK}}
+            </div>
+            <div class='col-sm-2'>
+              TP:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-2'>
+              eBE:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.eBE}}
+            </div>
+            <div class='col-sm-2'>
+              Pf:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.arrows}}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-2'>
+              Entf:
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.range[0]}}
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.range[1]}}
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.range[2]}}
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.range[3]}}
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.range[4]}}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-2'>
+              +TP:
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.rangeDamage[0]}}
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.rangeDamage[1]}}
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.rangeDamage[2]}}
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.rangeDamage[3]}}
+            </div>
+            <div class='col-sm-2'>
+              {{weaponChoosed.rangeDamage[4]}}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <button class='btn weapon' ng-click='fkShut()'>Schießen</button>
+            </div>
+          </div>
+        </div>
+        <div class='weapon-info' ng-if='weaponChoosed.BF'>
+          <div class='row'>
+            <div class='col-sm-2'>
+              AT:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.AT}}
+            </div>
+            <div class='col-sm-2'>
+              PA:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.PA}}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-2'>
+              TP:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}
+            </div>
+            <div class='col-sm-2'>
+              BF:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.BF}}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-2'>
+              eBE:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.eBE}}
+            </div>
+            <div class='col-sm-2'>
+              INI:
+            </div>
+            <div class='col-sm-4'>
+              {{weaponChoosed.eINI}}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <button class='btn weapon' ng-click='nkAttack()'>Attacke</button>
+            </div>
+            <div class='col-sm-6'>
+              <button class='btn weapon' ng-click='nkParade()'>Parade</button>
+            </div>
+          </div>
+        </div>
+        <div class='weapon-info' ng-if="weaponChoosed.weaponType == 'Waffenloser Kampf'">
+          Attacke: {{weaponChoosed.AT}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>

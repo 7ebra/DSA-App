@@ -44,6 +44,7 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
         },
         {
           name: 'fight',
+          url: '/',
           views: {
            leftMenu:{
               templateUrl: 'views/left-menu.html',
@@ -59,16 +60,6 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
             }
           },
           children: [
-            {
-              name: 'weaponDefault',
-              url: '/',
-              views: {
-                weaponDetail: {
-                  templateUrl: 'views/weaponDefault.html',
-                  controller: 'FightCtrl',
-                }
-              }
-            },
             {
               name: 'fkDetail',
               views: {
@@ -93,6 +84,15 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
                 weaponDetail: {
                   templateUrl: 'views/nkParade.html',
                   controller: 'NkParadeCtrl',
+                }
+              }
+            },
+            {
+              name: 'dodge',
+              views: {
+                dodge: {
+                  templateUrl: 'views/Dodge.html',
+                  controller: 'DodgeCtrl',
                 }
               }
             }

@@ -1,0 +1,139 @@
+<div ng-if='!roll'>
+  <h3>
+    Ausgeweichen
+  </h3>
+  <div class='weapon-info'>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <input ng-model='geziehlt' type='checkbox'>
+        <label>geziehlt ausweichen {{geziehlt}}</label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-4'>
+        Gegner:
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: number === 1}' ng-click='chooseNumber(1)'>1</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: number === 2}' ng-click='chooseNumber(2)'>2</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: number === 3}' ng-click='chooseNumber(3)'>3</div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='option' ng-class='{active: number === 4}' ng-click='chooseNumber(4)'>4</div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <span ng-if='buff &gt;= 0'>erschert um</span>
+        <span ng-if='buff &lt; 0'>erleichtert um</span>
+      </div>
+      <div class='col-sm-2'>
+        {{buff}}
+      </div>
+      <div class='col-sm-2'>
+        <button class='btn weapon' ng-click='buffMinus()'>-</button>
+      </div>
+      <div class='col-sm-2'>
+        <button class='btn weapon' ng-click='buffPlus()'>+</button>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='dodgeTest(geziehlt)'>
+          Würfeln
+          <small>gelungen bei {{ausweichen.actual - buff}}</small>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-if='roll &amp;&amp; result &lt;=  ausweichen.actual'>
+  <h3>
+    Ausgewichen
+    <small>ini - 4</small>
+  </h3>
+  <div class='weapon-info'>
+    <div class='row'>
+      <div class='col-sm-4'>
+        Wurf
+      </div>
+      <div class='col-sm-4'>
+        Erschwernis
+      </div>
+      <div class='col-sm-4'>
+        Ergebnis
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        {{roll}}
+      </div>
+      <div class='col-sm-2'>
+        <span>+</span>
+      </div>
+      <div class='col-sm-2'>
+        {{buff}}
+      </div>
+      <div class='col-sm-2'>
+        <span>=</span>
+      </div>
+      <div class='col-sm-4'>
+        {{result}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='Ok()'>
+          ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-if='roll &amp;&amp; result &gt;  ausweichen.actual'>
+  <h3>
+    Du wirst getroffen
+    <small>ini - 4</small>
+  </h3>
+  <div class='weapon-info'>
+    <div class='row'>
+      <div class='col-sm-4'>
+        Wurf
+      </div>
+      <div class='col-sm-4'>
+        Erschwernis
+      </div>
+      <div class='col-sm-4'>
+        Ergebnis
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        {{roll}}
+      </div>
+      <div class='col-sm-2'>
+        <span>+</span>
+      </div>
+      <div class='col-sm-2'>
+        {{buff}}
+      </div>
+      <div class='col-sm-2'>
+        <span>=</span>
+      </div>
+      <div class='col-sm-4'>
+        {{result}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <button class='btn weapon' ng-click='Ok()'>
+          ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

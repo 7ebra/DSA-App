@@ -86,6 +86,7 @@ function BasicValues() {
     this.pa_basis.setup(attr);
     this.fk_basis.setup(attr);
     this.behinderung.setup(attr);
+    this.ausweichen.setup(attr);
 
   };
   this.lebenspunkte = new BasicValue(function(attr){
@@ -118,6 +119,10 @@ function BasicValues() {
     return Math.round((attr.intuition.value + attr.gewandtheit.value + attr.koerperkraft.value)/5);
   });
 
+  this.ausweichen = new BasicValue(function(attr){
+    return Math.round((attr.intuition.value + attr.gewandtheit.value + attr.koerperkraft.value)/5);
+  });
+
   this.fk_basis = new BasicValue(function(attr){
     return Math.round((attr.intuition.value + attr.fingerfertigkeit.value + attr.koerperkraft.value)/4);
   });
@@ -127,18 +132,19 @@ function BasicValues() {
   });
 
 
-  this.values = {
-    lebenspunkte: this.lebenspunkte,
-    ausdauer: this.ausdauer,
-    astralenegrie: this.astralenegrie,
-    magieresistenz: this.magieresistenz,
-    ini_basis: this.ini_basis,
-    at_basis: this.at_basis,
-    pa_basis: this.pa_basis,
-    fk_basis: this.fk_basis,
-    behinderung: this.behinderung
+  // this.values = {
+  //   lebenspunkte: this.lebenspunkte,
+  //   ausdauer: this.ausdauer,
+  //   astralenegrie: this.astralenegrie,
+  //   magieresistenz: this.magieresistenz,
+  //   ini_basis: this.ini_basis,
+  //   at_basis: this.at_basis,
+  //   pa_basis: this.pa_basis,
+  //   fk_basis: this.fk_basis,
+  //   behinderung: this.behinderung,
+  //   ausweichen: this.ausweichen
 
-  }
+  // }
 }
 
 // function HeroTalent(talent, value, category) {
@@ -300,6 +306,7 @@ Ohaia = function() {
   ohaia.basics.at_basis.setMod(0);
   ohaia.basics.pa_basis.setMod(0);
   ohaia.basics.behinderung.setMod(0);
+  ohaia.basics.ausweichen.setMod(7);
 
 
   ohaia.setup();

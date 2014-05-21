@@ -192,6 +192,7 @@ app.controller('FkDetailCtrl', function($scope, $state) {
   $scope.Ok = function() {
 
     $scope.ableWeaponChoose();
+    $scope.ableWeaponAction();
 
     $scope.roll = false;
     $scope.damage = false;
@@ -203,6 +204,6 @@ app.controller('FkDetailCtrl', function($scope, $state) {
     $scope.fail = false;
     $scope.string = false;
 
-    $state.go('^.weaponDefault');
+    $state.go('^');
   }
 });

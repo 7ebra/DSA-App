@@ -111,6 +111,7 @@ app.controller('NkParadeCtrl', function($scope, $state) {
   $scope.Ok = function() {
 
     $scope.ableWeaponChoose();
+    $scope.ableWeaponAction();
 
     $scope.roll = false;
     $scope.meister = false;
@@ -120,6 +121,6 @@ app.controller('NkParadeCtrl', function($scope, $state) {
     $scope.patzerRoll = false;
     $scope.string = false;
 
-    $state.go('^.weaponDefault');
+    $state.go('^');
   }
 });

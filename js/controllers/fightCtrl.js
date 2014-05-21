@@ -27,7 +27,20 @@ app.controller('FightCtrl', function($scope, $state) {
   $scope.fkWeapons = $scope.currentHero.baggage.fkWeapons
   $scope.wlWeapons = $scope.currentHero.baggage.wlWeapons
 
-  // $scope.weaponChoosed = $scope.fkWeapons.dolch;
+  $scope.weaponChoosed = $scope.nkWeapons.dolch;
+
+  $scope.ini = function() {
+    $scope.currentHero.basics.ini_basis.currentValue = $scope.currentHero.basics.ini_basis.actual + Math.floor(Math.random() * 6) + 1;
+    $scope.iniValue = true;
+  }
+  $scope.orientaion = function() {
+    $scope.currentHero.basics.ini_basis.currentValue = $scope.currentHero.basics.ini_basis.actual + 6;
+  }
+  $scope.dodge = function() {
+    $state.go('.dodge');
+    $scope.dodgeAction = true;
+    $scope.disabled = true;
+  }
 
   $scope.openWeapon = function(weapon) {
     $scope.weaponChoosed = weapon;
@@ -36,13 +49,16 @@ app.controller('FightCtrl', function($scope, $state) {
   }
   
   $scope.fkShut = function() {
-    $state.go('^.fkDetail');
+    $state.go('.fkDetail');
+    $scope.weaponAction = true;
   }
   $scope.nkAttack = function() {
-    $state.go('^.nkAttack'); 
+    $state.go('.nkAttack'); 
+    $scope.weaponAction = true;
   }
   $scope.nkParade = function() {
-    $state.go('^.nkParade'); 
+    $state.go('.nkParade'); 
+    $scope.weaponAction = true;
   }
 
   $scope.disableWeaponChoose = function() {
@@ -50,6 +66,18 @@ app.controller('FightCtrl', function($scope, $state) {
   }
   $scope.ableWeaponChoose = function() {
     $scope.disabled = false; 
+  }
+  $scope.disableWeaponAction = function() { 
+    $scope.weaponAction = true; 
+  }
+  $scope.ableWeaponAction = function() {
+    $scope.weaponAction = false; 
+  }
+  $scope.disableDodgeAction = function() { 
+    $scope.dodgeAction = true; 
+  }
+  $scope.ableDodgeAction = function() {
+    $scope.dodgeAction = false; 
   }
   console.log($scope.weaponChoosed);
 });
