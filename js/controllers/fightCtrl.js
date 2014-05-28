@@ -1,4 +1,7 @@
-app.controller('FightCtrl', function($scope, $state) {
+app.controller('FightCtrl', function($scope, $state, HeroService) {
+
+  $scope.current = HeroService.Current();
+  $scope.currentHero = $scope.current.currentHero;
 
   $scope.lep = $scope.currentHero.basics.lebenspunkte;
   $scope.asp = $scope.currentHero.basics.astralenegrie;
@@ -44,10 +47,11 @@ app.controller('FightCtrl', function($scope, $state) {
 
   $scope.openWeapon = function(weapon) {
     $scope.weaponChoosed = weapon;
+    $scope.weaponAction = false;
     console.log($scope.weaponChoosed);
-    $state.go('main.fight.weaponDefault');
+    $state.go('main.fight');
   }
-  
+    
   $scope.fkShut = function() {
     $state.go('.fkDetail');
     $scope.weaponAction = true;

@@ -20,18 +20,6 @@ function Profile(name) {
   this.nachteile = "";
 }
 
-// attributes = {
-//   mut: "mut",
-//   charisma: "charisma",
-//   fingerfertigkeit: "fingerfertigkeit",
-//   gewandtheit: "gewandtheit",
-//   koerperkraft: "koerperkraft",
-//   klugheit: "klugheit",
-//   intuition: "intuition",
-//   konstitution: "konstitution",
-//   geschwindigkeit: "gewandtheit"
-// };
-
 function Attribute(name, short) {
   this.value = 0;
   this.name = name;

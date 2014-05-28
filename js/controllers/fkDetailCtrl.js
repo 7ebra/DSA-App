@@ -107,6 +107,7 @@ app.controller('FkDetailCtrl', function($scope, $state) {
     $scope.disableWeaponChoose();
 
     $scope.roll = Math.floor(Math.random() * 20) + 1;
+    // $scope.roll = 20;
 
     $scope.result = $scope.roll + $scope.buff;
 
