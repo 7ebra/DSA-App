@@ -5,6 +5,7 @@ app.controller('FkDetailCtrl', function($scope, $state) {
   $scope.rangeBuff = 0;
   $scope.sizeBuff = 0;
   $scope.moveBuff = 0;
+  $scope.rangeDamage = 0;
 
   $scope.buffPlus = function() {
     $scope.buff++;
@@ -19,27 +20,39 @@ app.controller('FkDetailCtrl', function($scope, $state) {
     switch(range) {
       case 1:
         $scope.range = 1;
+        $scope.rangeDamage = $scope.weaponChoosed.rangeDamage[0];
         $scope.rangeBuff = -2;
+        console.log($scope.rangeDamage);  
         break;
       case 2:
         $scope.range = 2;
+        $scope.rangeDamage = $scope.weaponChoosed.rangeDamage[1];
         $scope.rangeBuff = 0;
+        console.log($scope.rangeDamage);
         break;
       case 3:
         $scope.range = 3;
+        $scope.rangeDamage = $scope.weaponChoosed.rangeDamage[2];
         $scope.rangeBuff = 4;
+        console.log($scope.rangeDamage);
         break;
       case 4:
         $scope.range = 4;
+        $scope.rangeDamage = $scope.weaponChoosed.rangeDamage[3];
         $scope.rangeBuff = 8;
+        console.log($scope.rangeDamage);
         break;
       case 5:
         $scope.range = 5;
+        $scope.rangeDamage = $scope.weaponChoosed.rangeDamage[4];
         $scope.rangeBuff = 12;
+        console.log($scope.rangeDamage);
         break;
       default: 
         $scope.rangeBuff = 0;
+        $scope.rangeDamage = $scope.weaponChoosed.rangeDamage[1];
     }
+    console.log($scope.rangeDamage);
     $scope.buff = $scope.buff + $scope.rangeBuff;
   }
 
@@ -151,9 +164,9 @@ app.controller('FkDetailCtrl', function($scope, $state) {
   }
   $scope.fkDamage = function() {
     if($scope.meister) {
-      $scope.damage = 2 * ($scope.weaponChoosed.damageFunc[0] * (Math.floor(Math.random() * $scope.weaponChoosed.damageFunc[1]) + 1) + $scope.weaponChoosed.damageFunc[2]);
+      $scope.damage = 2 * ($scope.weaponChoosed.damageFunc[0] * (Math.floor(Math.random() * $scope.weaponChoosed.damageFunc[1]) + 1) + $scope.weaponChoosed.damageFunc[2] + $scope.rangeDamage);
     }else {
-      $scope.damage = $scope.weaponChoosed.damageFunc[0] * (Math.floor(Math.random() * $scope.weaponChoosed.damageFunc[1]) + 1) + $scope.weaponChoosed.damageFunc[2];
+      $scope.damage = $scope.weaponChoosed.damageFunc[0] * (Math.floor(Math.random() * $scope.weaponChoosed.damageFunc[1]) + 1) + $scope.weaponChoosed.damageFunc[2] + $scope.rangeDamage;
     }
   }
   $scope.patzerTest = function() {

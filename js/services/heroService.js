@@ -1,6 +1,9 @@
 'use strict';
 
-app.service('HeroService', function HeroService(TalentService) {
+app.service('HeroService', function HeroService(TalentService, BaggageService) {
+
+  console.log(BaggageService);
+  console.log(TalentService);
 
   function Profile(name) {
     this.name = name;
@@ -122,21 +125,6 @@ app.service('HeroService', function HeroService(TalentService) {
     this.behinderung = new BasicValue(function(attr){
       return 0;
     });
-
-
-    // this.values = {
-    //   lebenspunkte: this.lebenspunkte,
-    //   ausdauer: this.ausdauer,
-    //   astralenegrie: this.astralenegrie,
-    //   magieresistenz: this.magieresistenz,
-    //   ini_basis: this.ini_basis,
-    //   at_basis: this.at_basis,
-    //   pa_basis: this.pa_basis,
-    //   fk_basis: this.fk_basis,
-    //   behinderung: this.behinderung,
-    //   ausweichen: this.ausweichen
-
-    // }
   }
 
   // function HeroTalent(talent, value, category) {
@@ -160,54 +148,19 @@ app.service('HeroService', function HeroService(TalentService) {
 
   };
 
-
-  function wlWeapon(name, x, y, z, at, pa, ini) {
-    this.name = name;
-    this.weaponType = "Waffenloser Kampf";
-    this.damageFunc = [x, y, z];
-    this.AT = at;
-    this.PA = pa;
-    this.DK = "NK";
-    this.eINI = ini;
+  function HeroWeapons() {
+    this.wlWeapons = {};
+    this.nkWeapons = {};
+    this.fkWeapons = {};
+  }
+  function HeroArmory() {
+    this.shields = {};
+    this.components = {};
   }
 
-  function nkWeapon(name, type, x, y, z, at, pa, dk, ebe, ini, bf) {
-    this.name = name;
-    this.weaponType = type;
-    this.damageFunc = [x, y, z];
-    this.AT = at;
-    this.PA = pa;
-    this.DK = dk;
-    this.eBE = ebe;
-    this.eINI = ini;
-    this.BF = bf;
-  }
-
-  function fkWeapon(name, type, x, y, z, r1, r2, r3, r4, r5, d1, d2, d3, d4, d5, fk, be) {
-    this.name = name;
-    this.weaponType = type;
-    this.damageFunc = [x, y, z];
-    this.range = [r1, r2, r3, r4, r5];
-    this.rangeDamage = [d1, d2, d3, d4, d5];
-    this.FK = fk;
-    this.DK = "FK";
-    this.eBE = be;
-    this.arrows = 0;
-  }
-
-  function wlWeapons() {
-    this.raufen = new wlWeapon("Raufen", 1, 6, 0, 0, 0, 0);
-    this.ringen = new wlWeapon("Ringen", 1, 6, 0, 0, 0, 0);
-  }
-  function fkWeapons() {
-  }
-  function nkWeapons() {
-  }
-
-  function Baggage() {
-    this.wlWeapons = new wlWeapons();
-    this.fkWeapons = new fkWeapons();
-    this.nkWeapons = new nkWeapons();
+  function HeroBaggage() {
+    this.weapons = new HeroWeapons();
+    this.armory = new HeroArmory();  
   }
 
   function Hero(name) {
@@ -215,7 +168,7 @@ app.service('HeroService', function HeroService(TalentService) {
     this.attributes = new Attributes();
     this.basics = new BasicValues();
     this.talents = new HeroTalents();
-    this.baggage = new Baggage();
+    this.baggage = new HeroBaggage();
 
     this.setup = function() {
       // first set all attributes
@@ -238,172 +191,6 @@ app.service('HeroService', function HeroService(TalentService) {
   //   gilion.setup();
   //   return gilion;
   // }
-
-  this.Ohaia = function() {
-
-    this.ohaia = new Hero("Ohaia Sternenreiterin");  
-
-    
-  //Profil (profile)
-
-    this.ohaia.profile.rasse = "Auelfe";
-    this.ohaia.profile.kultur = "Steppenelfische Sippe";
-    this.ohaia.profile.profession = "Wildnisläuferin, Steppenreiterin";
-    this.ohaia.profile.geschlecht = "weiblich";
-    this.ohaia.profile.geburtstag = "5. Rondra 1003 BF";
-    this.ohaia.profile.groesse = "102 Finger (204cm)";
-    this.ohaia.profile.gewicht = "84 Stein";
-    this.ohaia.profile.haarefarbe = "hellblond";
-    this.ohaia.profile.augenfarbe = "goldgesprenkelt";
-    this.ohaia.profile.sozialstatus = 4;
-    this.ohaia.profile.vorteile = [
-      "Altersresistenz", 
-      "Dämmerungssicht", 
-      "Flink: 1", 
-      "Gutaussehend", 
-      "Herausragender Sinn Gehör", 
-      "Resistenz gegen Krankheiten",
-      "Wohlklang" 
-    ];
-    this.ohaia.profile.nachteile = [
-      "Arroganz: 5", 
-      "Nahrungsrestiktion", 
-      "Raumangst: 4", 
-      "Sensibler Geruchssinn", 
-      "Unfähingkeit für Talent: Zechen", 
-      "Weldfremd bzgl. Adel/Hierarchien: 6",
-      "Weldfremd bzgl. Geld/Besitz: 4",
-      "Weldfremd bzgl. Götter/Religion: 6",
-    ];
-
-  //Eigenschaften (attributes)
-
-    this.ohaia.attributes.mut.value = 11;
-    this.ohaia.attributes.charisma.value = 10;
-    this.ohaia.attributes.fingerfertigkeit.value = 11;
-    this.ohaia.attributes.gewandtheit.value = 15;
-    this.ohaia.attributes.koerperkraft.value = 11;
-    this.ohaia.attributes.klugheit.value = 10;
-    this.ohaia.attributes.intuition.value = 13;
-    this.ohaia.attributes.konstitution.value = 12;
-    this.ohaia.attributes.geschwindigkeit.value = 9;
-
-  //Basiswerte (basic values)
-
-    this.ohaia.basics.lebenspunkte.setMod(6);
-    this.ohaia.basics.ausdauer.setMod(13);
-    this.ohaia.basics.astralenegrie.setMod(13);
-    this.ohaia.basics.magieresistenz.setMod(-2);
-    this.ohaia.basics.ini_basis.setMod(0);
-    this.ohaia.basics.at_basis.setMod(0);
-    this.ohaia.basics.pa_basis.setMod(0);
-    this.ohaia.basics.behinderung.setMod(0);
-    this.ohaia.basics.ausweichen.setMod(7);
-
-
-    this.ohaia.setup();
-    this.ohaia.talents.setBasisTalents(TalentService.talents);
-
-    //Talente (talents)
-    
-    this.ohaia.talents.kampf.bogen = TalentService.talents.bogen;
-    this.ohaia.talents.kampf.fechtwaffen = TalentService.talents.fechtwaffen;
-    this.ohaia.talents.kampf.speere = TalentService.talents.speere;
-    
-    this.ohaia.talents.kampf.dolche.value            = 4;
-    this.ohaia.talents.kampf.bogen.value             = 14;  
-    this.ohaia.talents.kampf.fechtwaffen.value       = 10;  
-    this.ohaia.talents.kampf.speere.value            = 2;  
-
-
-    this.ohaia.talents.koerper.reiten = TalentService.talents.reiten;
-    this.ohaia.talents.koerper.stimmen_imitieren = TalentService.talents.stimmen_imitieren;
-    this.ohaia.talents.koerper.zechen = TalentService.talents.zechen;
-     
-    this.ohaia.talents.koerper.athletik.value                    = 10; 
-    this.ohaia.talents.koerper.klettern.value                    = 8; 
-    this.ohaia.talents.koerper.koerperbeherrschung.value         = 10; 
-    this.ohaia.talents.koerper.schleichen.value                  = 12; 
-    this.ohaia.talents.koerper.schwimmen.value                   = 3; 
-    this.ohaia.talents.koerper.selbstbeherrschung.value          = 2;   
-    this.ohaia.talents.koerper.sich_verstecken.value             = 5; 
-    this.ohaia.talents.koerper.singen.value                      = 7; 
-    this.ohaia.talents.koerper.sinnenschaerfe.value              = 11; 
-    this.ohaia.talents.koerper.tanzen.value                      = 3; 
-    this.ohaia.talents.koerper.reiten.value                      = 11; 
-    this.ohaia.talents.koerper.stimmen_imitieren.value           = 5; 
-    this.ohaia.talents.koerper.zechen.value                      = 5; 
-
-
-    this.ohaia.talents.gesellschaft.gassenwissen = TalentService.talents.gassenwissen;
-     
-    this.ohaia.talents.gesellschaft.menschenkenntnis.value        = 4; 
-    this.ohaia.talents.gesellschaft.ueberreden.value              = 3; 
-    this.ohaia.talents.gesellschaft.gassenwissen.value            = -2; 
-
-
-    this.ohaia.talents.natur.fallenstellen = TalentService.talents.fallenstellen;
-    this.ohaia.talents.natur.fesseln_entfesseln = TalentService.talents.fesseln_entfesseln;
-    this.ohaia.talents.natur.fischen_angeln = TalentService.talents.fischen_angeln;
-    this.ohaia.talents.natur.wettervorhersage = TalentService.talents.wettervorhersage;
-     
-    this.ohaia.talents.natur.faehrtensuchen.value           = 12; 
-    this.ohaia.talents.natur.orientierung.value              = 9; 
-    this.ohaia.talents.natur.wildnisleben.value              = 11;   
-    this.ohaia.talents.natur.fallenstellen.value             = 5; 
-    this.ohaia.talents.natur.fesseln_entfesseln.value        = 3; 
-    this.ohaia.talents.natur.fischen_angeln.value            = 2; 
-    this.ohaia.talents.natur.wettervorhersage.value          = 5; 
-
-
-    this.ohaia.talents.wissen.magiekunde = TalentService.talents.magiekunde;
-    this.ohaia.talents.wissen.pflanzenkunde = TalentService.talents.pflanzenkunde;
-    this.ohaia.talents.wissen.rechtskunde = TalentService.talents.rechtskunde;
-    this.ohaia.talents.wissen.sternkunde = TalentService.talents.sternkunde;
-    this.ohaia.talents.wissen.tierkunde = TalentService.talents.tierkunde;
-     
-    this.ohaia.talents.wissen.goetter_kulte.value        = 0; 
-    this.ohaia.talents.wissen.rechnen.value              = 0; 
-    this.ohaia.talents.wissen.sagen_legenden.value       = 2; 
-    this.ohaia.talents.wissen.magiekunde.value           = 5; 
-    this.ohaia.talents.wissen.pflanzenkunde.value        = 11; 
-    this.ohaia.talents.wissen.rechtskunde.value          = 0; 
-    this.ohaia.talents.wissen.sternkunde.value           = 6; 
-    this.ohaia.talents.wissen.tierkunde.value            = 12; 
-
-    // this.ohaia.talents.sprache.sprachen_kennen_m.value             = 7;
-
-    this.ohaia.talents.handwerk.abrichten = TalentService.talents.abrichten;
-    this.ohaia.talents.handwerk.bogenbau = TalentService.talents.bogenbau;
-    this.ohaia.talents.handwerk.heilkunde_gift = TalentService.talents.heilkunde_gift;
-    this.ohaia.talents.handwerk.heilkunde_krankheiten = TalentService.talents.heilkunde_krankheiten;
-    this.ohaia.talents.handwerk.musizieren = TalentService.talents.musizieren;
-
-    this.ohaia.talents.handwerk.heilkunde_wunden.value       = 13;
-    this.ohaia.talents.handwerk.holzbearbeitung.value        = 2;
-    this.ohaia.talents.handwerk.kochen.value                 = 6;
-    this.ohaia.talents.handwerk.lederarbeiten.value          = 6;
-    this.ohaia.talents.handwerk.malen_zeichnen.value         = 0;
-    this.ohaia.talents.handwerk.schneidern.value             = 2;
-    this.ohaia.talents.handwerk.abrichten.value              = 5;
-    this.ohaia.talents.handwerk.bogenbau.value               = 5;
-    this.ohaia.talents.handwerk.heilkunde_gift.value         = 8;
-    this.ohaia.talents.handwerk.heilkunde_krankheiten.value  = 7;
-    this.ohaia.talents.handwerk.musizieren.value             = 9;
-
-
-    //Gepäck (baggage)
-
-    //Waffen (weapons)
-    this.ohaia.baggage.wlWeapons.raufen          = new wlWeapon("Raufen", 1, 6, 0, 7, 8, 0);
-    this.ohaia.baggage.wlWeapons.ringen          = new wlWeapon("Ringen", 1, 6, 0, 7, 8, 0);
-    this.ohaia.baggage.nkWeapons.wolfsmesser     = new nkWeapon("Wolfsmesser (elf. Rapier)", "Fe", 1, 6, 3, 13, 12, "N", 1, 1, 1)
-    this.ohaia.baggage.nkWeapons.dolch           = new nkWeapon("Dolch", "Do", 1, 6, 1, 10, 8, "H", 1, 0, 2)
-    this.ohaia.baggage.fkWeapons.elfenbogen      = new fkWeapon("Elfenbogen", "Bo", 1, 6, 5, 10, 25, 50, 100, 200, 3, 2, 1, 1, 0, 23, -3);
-
-    
-    return this.ohaia;
-  }
 
   this.Shanarion = function() {
 
@@ -556,15 +343,18 @@ app.service('HeroService', function HeroService(TalentService) {
     this.shanarion.talents.handwerk.schneidern.value             = 2;
 
 
-    //Gepäck (baggage)
+    // Gepäck (baggage)
 
-    //Waffen (weapons)
-    this.shanarion.baggage.wlWeapons.raufen          = new wlWeapon("Raufen", 1, 6, 0, 7, 8, 0);
-    this.shanarion.baggage.wlWeapons.ringen          = new wlWeapon("Ringen", 1, 6, 0, 7, 8, 0);
-    this.shanarion.baggage.nkWeapons.wolfsmesser     = new nkWeapon("Wolfsmesser (elf. Rapier)", "Fe", 1, 6, 3, 15, 11, "N", 1, 1, 1);
-    this.shanarion.baggage.nkWeapons.dolch           = new nkWeapon("Elfisches Jagdmesser", "Do", 1, 6, 2, 11, 7, "H", 1, 0, 2);
-    this.shanarion.baggage.fkWeapons.elfenbogen      = new fkWeapon("Elfenbogen", "Bo", 1, 6, 5, 10, 25, 50, 100, 200, 3, 2, 1, 1, 0, 25, -3);
+      // Waffen (weapons)
+      this.shanarion.baggage.weapons.wlWeapons.raufen          = BaggageService.weapons.wlWeapons.raufen;
+      this.shanarion.baggage.weapons.wlWeapons.ringen          = BaggageService.weapons.wlWeapons.ringen;
+      this.shanarion.baggage.weapons.nkWeapons.wolfsmesser     = BaggageService.weapons.nkWeapons.wolfsmesser;
+      this.shanarion.baggage.weapons.nkWeapons.dolch           = BaggageService.weapons.nkWeapons.elfisches_jagtmesser;
+      this.shanarion.baggage.weapons.fkWeapons.elfenbogen      = BaggageService.weapons.fkWeapons.elfenbogen;
 
+      // Rüstung (armory)
+      this.shanarion.baggage.armory.components.lederhose                  = BaggageService.armory.lederhose;
+      this.shanarion.baggage.armory.components.lederhelm                  = BaggageService.armory.lederhelm;
     
     return this.shanarion;
   }
@@ -572,7 +362,7 @@ app.service('HeroService', function HeroService(TalentService) {
   this.Heros = function() {
     
     this.heros = {
-      ohaia: this.Ohaia(),
+      // ohaia: this.Ohaia(),
       shanarion: this.Shanarion()
     }
 
@@ -584,6 +374,8 @@ app.service('HeroService', function HeroService(TalentService) {
     this.current = {
       currentHero: this.Heros().shanarion
     }
+    
+    console.log(this.current);
 
     return this.current;
   }

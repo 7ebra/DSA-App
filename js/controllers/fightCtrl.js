@@ -1,7 +1,7 @@
 app.controller('FightCtrl', function($scope, $state, HeroService) {
 
   $scope.current = HeroService.Current();
-  $scope.currentHero = $scope.current.currentHero;
+  $scope.currentHero = HeroService.Current().currentHero;
 
   $scope.lep = $scope.currentHero.basics.lebenspunkte;
   $scope.asp = $scope.currentHero.basics.astralenegrie;
@@ -26,9 +26,10 @@ app.controller('FightCtrl', function($scope, $state, HeroService) {
     $scope.aus.currentValue = $scope.aus.currentValue - 1; 
   }
 
-  $scope.nkWeapons = $scope.currentHero.baggage.nkWeapons
-  $scope.fkWeapons = $scope.currentHero.baggage.fkWeapons
-  $scope.wlWeapons = $scope.currentHero.baggage.wlWeapons
+  $scope.nkWeapons = $scope.currentHero.baggage.weapons.nkWeapons
+  $scope.fkWeapons = $scope.currentHero.baggage.weapons.fkWeapons
+  $scope.wlWeapons = $scope.currentHero.baggage.weapons.wlWeapons
+  $scope.armory = $scope.currentHero.baggage.armory
 
   $scope.weaponChoosed = $scope.nkWeapons.dolch;
 

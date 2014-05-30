@@ -207,8 +207,8 @@
 <div class='weapon-box' ng-if='damage'>
   <h3>
     {{damage}} Schaden
-    <small ng-if='!meister'>{{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}</small>
-    <small ng-if='meister'>({{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}) x 2</small>
+    <small ng-if='!meister'>{{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}} + {{rangeDamage}}</small>
+    <small ng-if='meister'>({{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}} + {{rangeDamage}}) x 2</small>
   </h3>
   <div class='weapon-info'>
     <div class='row'>

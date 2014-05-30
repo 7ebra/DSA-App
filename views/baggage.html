@@ -1,0 +1,80 @@
+<h2>Ausrüstung</h2>
+<div class='row'>
+  <div class='col-sm-6'>
+    <div class='weapon-box'>
+      <h3 ng-class='{disabled: disabled}'>
+        Waffen
+      </h3>
+      <div class='weapon-info'>
+        <div class='row'>
+          <div class='col-sm-8'>
+            <small>Name</small>
+          </div>
+          <div class='col-sm-4'>
+            <small>Stein</small>
+          </div>
+        </div>
+        <div ng-class='{disabled: disabled}' ng-repeat='weapon in fkWeapons'>
+          <div class='row'>
+            <div class='col-sm-8'>
+              {{weapon.name}}
+            </div>
+            <div class='col-sm-4'>
+              <small>{{weapon.weight}}</small>
+            </div>
+          </div>
+        </div>
+        <div ng-class='{disabled: disabled}' ng-repeat='weapon in nkWeapons'>
+          <div class='row'>
+            <div class='col-sm-8'>
+              {{weapon.name}}
+            </div>
+            <div class='col-sm-4'>
+              <small>{{weapon.weight}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div class='weapon-box'>
+      <h3 ng-class='{disabled: disabled}'>
+        Rüstung
+      </h3>
+      <small>{{armory.overall}}</small>
+      <div class='weapon-info'>
+        <div class='row'>
+          <div class='col-sm-5'>
+            <small>Name</small>
+          </div>
+          <div class='col-sm-3'>
+            <small>Stein</small>
+          </div>
+          <div class='col-sm-2'>
+            <small>RS</small>
+          </div>
+          <div class='col-sm-2'>
+            <small>BE</small>
+          </div>
+        </div>
+        <div ng-class='{disabled: disabled}' ng-repeat='armor in armory.components'>
+          <div class='row'>
+            <div class='col-sm-5'>
+              {{armor.name}}
+            </div>
+            <div class='col-sm-3'>
+              <small>{{armor.weight}}</small>
+            </div>
+            <div class='col-sm-2'>
+              <small>{{armor.value}}</small>
+            </div>
+            <div class='col-sm-2'>
+              <small>{{armor.handicap}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

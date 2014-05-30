@@ -136,8 +136,8 @@
 .weapon-box{"ng-if" => "damage"}
   %h3 
     {{damage}} Schaden
-    %small{"ng-if" => "!meister"} {{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}
-    %small{"ng-if" => "meister"} ({{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}}) x 2
+    %small{"ng-if" => "!meister"} {{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}} + {{rangeDamage}}
+    %small{"ng-if" => "meister"} ({{weaponChoosed.damageFunc[0]}} W{{weaponChoosed.damageFunc[1]}} + {{weaponChoosed.damageFunc[2]}} + {{rangeDamage}}) x 2
   .weapon-info
     .row
       .col-sm-12

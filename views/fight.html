@@ -78,10 +78,9 @@
     <div class='weapon-box'>
       <h3 ng-class='{disabled: disabled}'>
         Waffen
-        <Nahkampf></Nahkampf>
       </h3>
-      <button class='btn weapon' ng-class='{disabled: disabled}' ng-click='openWeapon(weapon)' ng-repeat='weapon in nkWeapons'>{{weapon.name}}</button>
       <button class='btn weapon' ng-class='{disabled: disabled}' ng-click='openWeapon(weapon)' ng-repeat='weapon in fkWeapons'>{{weapon.name}}</button>
+      <button class='btn weapon' ng-class='{disabled: disabled}' ng-click='openWeapon(weapon)' ng-repeat='weapon in nkWeapons'>{{weapon.name}}</button>
       <button class='btn weapon' ng-class='{disabled: disabled}' ng-click='openWeapon(weapon)' ng-repeat='weapon in wlWeapons'>{{weapon.name}}</button>
     </div>
   </div>

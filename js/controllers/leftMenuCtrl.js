@@ -9,6 +9,9 @@ app.controller('LeftMenuCtrl', function($scope, $state) {
   $scope.goToFight = function() {
     $state.go('main.fight');
   };
+  $scope.goToBagage = function() {
+    $state.go('main.bagage');
+  };
 
 
   // $scope.lep = $scope.currentHero.basics.lebenspunkte;

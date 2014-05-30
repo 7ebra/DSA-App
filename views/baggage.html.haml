@@ -1,0 +1,50 @@
+%h2 Ausrüstung
+
+.row
+  .col-sm-6
+    .weapon-box
+      %h3{"ng-class" => "{disabled: disabled}"}
+        Waffen
+      .weapon-info
+        .row
+          .col-sm-8
+            %small Name
+          .col-sm-4
+            %small Stein
+        %div{"ng-class" => "{disabled: disabled}", "ng-repeat" => "weapon in fkWeapons"}
+          .row
+            .col-sm-8
+              {{weapon.name}}
+            .col-sm-4
+              %small {{weapon.weight}}
+        %div{"ng-class" => "{disabled: disabled}", "ng-repeat" => "weapon in nkWeapons"} 
+          .row
+            .col-sm-8
+              {{weapon.name}}
+            .col-sm-4
+              %small {{weapon.weight}}
+  .col-sm-6
+    .weapon-box
+      %h3{"ng-class" => "{disabled: disabled}"}
+        Rüstung
+      %small {{armory.overall}}
+      .weapon-info
+        .row
+          .col-sm-5
+            %small Name
+          .col-sm-3
+            %small Stein
+          .col-sm-2
+            %small RS
+          .col-sm-2
+            %small BE
+        %div{"ng-class" => "{disabled: disabled}", "ng-repeat" => "armor in armory.components"}
+          .row
+            .col-sm-5
+              {{armor.name}}
+            .col-sm-3
+              %small {{armor.weight}}
+            .col-sm-2
+              %small {{armor.value}}
+            .col-sm-2
+              %small {{armor.handicap}} 

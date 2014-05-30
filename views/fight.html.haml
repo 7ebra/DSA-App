@@ -62,9 +62,8 @@
     .weapon-box
       %h3{"ng-class" => "{disabled: disabled}"}
         Waffen
-        %Nahkampf
-      %button.btn.weapon{"ng-class" => "{disabled: disabled}", "ng-repeat" => "weapon in nkWeapons", "ng-click" => "openWeapon(weapon)"} {{weapon.name}}
       %button.btn.weapon{"ng-class" => "{disabled: disabled}", "ng-repeat" => "weapon in fkWeapons", "ng-click" => "openWeapon(weapon)"} {{weapon.name}}
+      %button.btn.weapon{"ng-class" => "{disabled: disabled}", "ng-repeat" => "weapon in nkWeapons", "ng-click" => "openWeapon(weapon)"} {{weapon.name}}
       %button.btn.weapon{"ng-class" => "{disabled: disabled}", "ng-repeat" => "weapon in wlWeapons", "ng-click" => "openWeapon(weapon)"} {{weapon.name}}
   .col-sm-6
     .weapon-detail{"ng-if" => "weaponAction", "ui-view" => "weaponDetail"}
