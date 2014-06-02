@@ -1,4 +1,4 @@
-app.controller('FkDetailCtrl', function($scope, $state) {
+app.controller('FkDetailCtrl', function($scope, $state, FightService) {
 
 
   $scope.buff = 0;
@@ -116,6 +116,9 @@ app.controller('FkDetailCtrl', function($scope, $state) {
   }
 
   $scope.fkTest = function() {
+
+    FightService.useAttack();
+    FightService.useParade();
 
     $scope.disableWeaponChoose();
 

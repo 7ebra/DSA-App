@@ -349,6 +349,18 @@ span.currentWeaponRangeThird {
   text-align: left;
   padding-left: 15px;
 }
+
+.outOfActions {
+  width: 70%;
+  height: 1000px;;
+  background-color: $darkbasic;
+  z-index: 1000;
+  opacity: 0.9; 
+  position: fixed;
+  padding: 40px;
+
+
+}
 ////// Choose Weapon Modal ////////////////////////////////
 
 .choose-weapon-modal {

@@ -1,4 +1,4 @@
-app.controller('DodgeCtrl', function($scope, $state) {
+app.controller('DodgeCtrl', function($scope, $state, FightService) {
 
   $scope.ausweichen = $scope.currentHero.basics.ausweichen; 
 
@@ -39,6 +39,7 @@ app.controller('DodgeCtrl', function($scope, $state) {
   }
 
   $scope.dodgeTest = function(geziehlt) {
+    FightService.useFreeAction();
 
     $scope.roll = Math.floor(Math.random() * 20) + 1;
 

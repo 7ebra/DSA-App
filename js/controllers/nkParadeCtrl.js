@@ -1,4 +1,4 @@
-app.controller('NkParadeCtrl', function($scope, $state) {
+app.controller('NkParadeCtrl', function($scope, $state, FightService) {
 
 
   $scope.buff = 0 ;
@@ -11,6 +11,8 @@ app.controller('NkParadeCtrl', function($scope, $state) {
   }
 
   $scope.nkTest = function() {
+
+    FightService.useParade();
 
     $scope.disableWeaponChoose();
 

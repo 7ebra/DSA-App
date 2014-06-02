@@ -1,0 +1,42 @@
+%h2 
+  Kampf
+  %small Runde {{service.round}}
+
+.row
+  .col-sm-3
+    .weapon-box
+      %h3
+        .row
+          .col-sm-4
+            %button.btn.weapon{"ng-click" => "iniSetup()", "ng-if" => "!service.ini.checked"} ?
+            %span{"ng-if" => "service.ini.checked"} {{service.ini.currentValue}}
+          .col-sm-8
+            %small
+              Initiative
+
+  .col-sm-6
+    .weapon-box
+      %h3
+        .row
+          .col-sm-2
+            {{service.actions.attack}}
+          .col-sm-4
+            %small
+              Angriff
+          .col-sm-6
+            %button.btn.weapon{"ng-click" => "chooseAttack()"} 2x Angriff
+        .row
+          .col-sm-2
+            {{service.actions.parade}}
+          .col-sm-4
+            %small
+              Parade
+          .col-sm-6
+            %button.btn.weapon{"ng-click" => "chooseParade()"} 2x Parade
+
+  .col-sm-3
+    .weapon-box
+      %button.btn.weapon{"ng-class" => "{disabled: !service.ini.checked}", "ng-click" => "goToFight()"} 
+        %h3
+          %i.glyphicon.glyphicon-chevron-right
+        %p nächste Runde

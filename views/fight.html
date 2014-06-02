@@ -1,4 +1,8 @@
-<h2>Kampf</h2>
+<h2>
+  Kampf
+  <small ng-if='service.actions.number == 1'>Attacken: {{service.actions.attack}} Paraden: {{service.actions.parade}} Freie: {{service.actions.freeAction}} || 1. Aktion bei {{service.ini.currentValue}}</small>
+  <small ng-if='service.actions.number == 2'>Attacken: {{service.actions.attack}} Paraden: {{service.actions.parade}} Freie: {{service.actions.freeAction}} || 2. Aktion bei {{service.ini.currentValue - 8}}</small>
+</h2>
 <div class='bars-box'>
   <div class='row no-spacing'>
     <div class='col-xs-4 thumbnail'>
@@ -34,13 +38,26 @@
   </div>
 </div>
 <div class='row'>
+  <div class='col-sm-12'>
+    <div class='outOfActions' ng-if='service.actions.amount == 0 &amp;&amp; service.actions.freeAction == 0'>
+      <div class='weapon-box'>
+        <h3>
+          Du hast deine Aktionen für diese Runde verbraucht.
+          <small>Bitte warten bis zum Rundenende.</small>
+        </h3>
+        <button class='btn weapon' ng-click='goToFightRounds()'>Ok!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
   <div class='col-sm-3'>
     <div class='weapon-box'>
       <h3>
         <div class='row'>
           <div class='col-sm-4'>
-            <button class='btn weapon' ng-click='ini()' ng-if='!iniValue'>?</button>
-            <span ng-if='iniValue'>{{currentHero.basics.ini_basis.currentValue}}</span>
+            <button class='btn weapon' ng-click='iniSetup()' ng-if='!service.ini.checked'>?</button>
+            <span ng-if='service.ini.checked'>{{service.ini.currentValue}}</span>
           </div>
           <div class='col-sm-8'>
             <small>
@@ -60,16 +77,26 @@
           Ausweichen
         </small>
       </h3>
-      <button class='btn weapon' ng-click='dodge()'>ausweichen</button>
+      <button class='btn weapon' ng-class='{disabled: service.actions.freeAction == 0}' ng-click='dodge()'>ausweichen</button>
     </div>
     <div class='weapon-box' ng-if='dodgeAction' ui-view='dodge'></div>
   </div>
   <div class='col-sm-3'>
     <div class='weapon-box'>
-      <h3>
-        Rüstung
-      </h3>
-      <div class='weapon-info'></div>
+      <div class='row'>
+        <div class='col-sm-6'>
+          <h3>
+            {{armory.overall}}
+            <small>RS</small>
+          </h3>
+        </div>
+        <div class='col-sm-6'>
+          <h3>
+            {{currentHero.basics.magieresistenz.currentValue}}
+            <small>MR</small>
+          </h3>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -212,10 +239,10 @@
           </div>
           <div class='row'>
             <div class='col-sm-6'>
-              <button class='btn weapon' ng-click='nkAttack()'>Attacke</button>
+              <button class='btn weapon' ng-class='{disabled: service.actions.attack == 0}' ng-click='nkAttack()'>Attacke</button>
             </div>
             <div class='col-sm-6'>
-              <button class='btn weapon' ng-click='nkParade()'>Parade</button>
+              <button class='btn weapon' ng-class='{disabled: service.actions.parade == 0}' ng-click='nkParade()'>Parade</button>
             </div>
           </div>
         </div>
@@ -225,4 +252,7 @@
       </div>
     </div>
   </div>
+</div>
+<div class='weapon-box'>
+  <button class='btn weapon' ng-click='goToFightRounds()'>nächste Runde</button>
 </div>

@@ -1,11 +1,20 @@
-app.controller('FightCtrl', function($scope, $state, HeroService) {
+app.controller('FightCtrl', function($scope, $state, HeroService, FightService, BaggageService) {
 
-  $scope.current = HeroService.Current();
-  $scope.currentHero = HeroService.Current().currentHero;
+  // $scope.current = HeroService.Current();
+  // $scope.currentHero = HeroService.Current().currentHero;
 
-  $scope.lep = $scope.currentHero.basics.lebenspunkte;
-  $scope.asp = $scope.currentHero.basics.astralenegrie;
-  $scope.aus = $scope.currentHero.basics.ausdauer;
+  $scope.lep = HeroService.Current().currentHero.basics.lebenspunkte;
+  $scope.asp = HeroService.Current().currentHero.basics.astralenegrie;
+  $scope.aus = HeroService.Current().currentHero.basics.ausdauer;
+
+  $scope.goToFight = function() {
+    $state.go('main.fight');
+    FightService.addRound();
+  };
+  $scope.goToFightRounds = function() {
+    $state.go('main.fightRounds');
+    FightService.resetActions();
+  };
 
   $scope.lepPlus = function() {
     $scope.lep.currentValue = $scope.lep.currentValue + 1; 
@@ -26,20 +35,18 @@ app.controller('FightCtrl', function($scope, $state, HeroService) {
     $scope.aus.currentValue = $scope.aus.currentValue - 1; 
   }
 
-  $scope.nkWeapons = $scope.currentHero.baggage.weapons.nkWeapons
-  $scope.fkWeapons = $scope.currentHero.baggage.weapons.fkWeapons
-  $scope.wlWeapons = $scope.currentHero.baggage.weapons.wlWeapons
-  $scope.armory = $scope.currentHero.baggage.armory
+  $scope.nkWeapons    = HeroService.Current().currentHero.baggage.weapons.nkWeapons;
+  $scope.fkWeapons    = HeroService.Current().currentHero.baggage.weapons.fkWeapons;
+  $scope.wlWeapons    = HeroService.Current().currentHero.baggage.weapons.wlWeapons;
+  $scope.armory       = HeroService.Current().currentHero.baggage.armory;
+  $scope.stuffBaggage = HeroService.Current().currentHero.baggage.stuffBaggage;
+  $scope.money        = HeroService.Current().currentHero.baggage.money;
+  console.log($scope.money);
+
+$scope.currentHero = HeroService.Current().currentHero;
 
   $scope.weaponChoosed = $scope.nkWeapons.dolch;
 
-  $scope.ini = function() {
-    $scope.currentHero.basics.ini_basis.currentValue = $scope.currentHero.basics.ini_basis.actual + Math.floor(Math.random() * 6) + 1;
-    $scope.iniValue = true;
-  }
-  $scope.orientaion = function() {
-    $scope.currentHero.basics.ini_basis.currentValue = $scope.currentHero.basics.ini_basis.actual + 6;
-  }
   $scope.dodge = function() {
     $state.go('.dodge');
     $scope.dodgeAction = true;
@@ -85,4 +92,23 @@ app.controller('FightCtrl', function($scope, $state, HeroService) {
     $scope.dodgeAction = false; 
   }
   console.log($scope.weaponChoosed);
+
+  $scope.service = FightService.service;
+  console.log($scope.service);
+
+  $scope.chooseAttack =  function() {
+    FightService.chooseAttack();
+  }
+  $scope.chooseParade =  function() {
+    FightService.chooseParade();
+  }
+  $scope.iniSetup = function() {
+    FightService.iniSetup();
+  }
+
+  $scope.orientaion = function() {
+    FightService.orientaion();
+    console.log($scope.service);
+  }
+
 });

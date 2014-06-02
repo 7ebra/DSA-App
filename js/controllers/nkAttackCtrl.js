@@ -1,4 +1,6 @@
-app.controller('NkAttackCtrl', function($scope, $state) {
+app.controller('NkAttackCtrl', function($scope, $state, FightService) {
+
+
 
 
   $scope.buff = 0 ;
@@ -22,6 +24,9 @@ app.controller('NkAttackCtrl', function($scope, $state) {
   }
 
   $scope.nkTest = function() {
+
+    FightService.useAttack();
+    FightService.secondAction();
 
     $scope.disableWeaponChoose();
 

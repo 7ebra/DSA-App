@@ -1,8 +1,8 @@
-<h2>Ausrüstung</h2>
+<h2>Besitz</h2>
 <div class='row'>
   <div class='col-sm-6'>
     <div class='weapon-box'>
-      <h3 ng-class='{disabled: disabled}'>
+      <h3>
         Waffen
       </h3>
       <div class='weapon-info'>
@@ -39,10 +39,10 @@
   </div>
   <div class='col-sm-6'>
     <div class='weapon-box'>
-      <h3 ng-class='{disabled: disabled}'>
+      <h3>
         Rüstung
+        <small>gesammt: {{armory.overall}}</small>
       </h3>
-      <small>{{armory.overall}}</small>
       <div class='weapon-info'>
         <div class='row'>
           <div class='col-sm-5'>
@@ -58,7 +58,7 @@
             <small>BE</small>
           </div>
         </div>
-        <div ng-class='{disabled: disabled}' ng-repeat='armor in armory.components'>
+        <div ng-repeat='armor in armory.components'>
           <div class='row'>
             <div class='col-sm-5'>
               {{armor.name}}
@@ -71,6 +71,69 @@
             </div>
             <div class='col-sm-2'>
               <small>{{armor.handicap}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-sm-8'>
+    <div class='weapon-box'>
+      <h3>
+        Ausrüstung
+        <small>
+          getragen
+        </small>
+      </h3>
+      <div class='weapon-info'>
+        <div class='row'>
+          <div class='col-sm-7'>
+            <small>Name</small>
+          </div>
+          <div class='col-sm-1'>
+            <small>Stein</small>
+          </div>
+          <div class='col-sm-1'>
+            <small>Anz.</small>
+          </div>
+          <div class='col-sm-3'>
+            <small>Type</small>
+          </div>
+        </div>
+        <div ng-repeat='stuff in stuffBaggage'>
+          <div class='row'>
+            <div class='col-sm-7'>
+              {{stuff.name}}
+            </div>
+            <div class='col-sm-1'>
+              <small>{{stuff.weight}}</small>
+            </div>
+            <div class='col-sm-1'>
+              <small>{{stuff.amount}}</small>
+            </div>
+            <div class='col-sm-3'>
+              <small>{{stuff.type}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-4'>
+    <div class='weapon-box'>
+      <h3>
+        Geld
+      </h3>
+      <div class='weapon-info'>
+        <div ng-repeat='(couns, value) in money'>
+          <div class='row'>
+            <div class='col-sm-6'>
+              {{couns}}
+            </div>
+            <div class='col-sm-6'>
+              {{value}}
             </div>
           </div>
         </div>

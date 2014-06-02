@@ -23,8 +23,8 @@ app.service('HeroService', function HeroService(TalentService, BaggageService) {
     this.titel = "";
     this.sozialstatus = "";
     this.hintergrund = "";
-    this.vorteile = "";
-    this.nachteile = "";
+    this.vorteile = [];
+    this.nachteile = [];
   }
 
   function Attribute(name, short) {
@@ -156,41 +156,29 @@ app.service('HeroService', function HeroService(TalentService, BaggageService) {
   function HeroArmory() {
     this.shields = {};
     this.components = {};
+    this.overall = 0;
   }
 
+
   function HeroBaggage() {
-    this.weapons = new HeroWeapons();
-    this.armory = new HeroArmory();  
+    this.weapons      = new HeroWeapons();
+    this.armory       = new HeroArmory();
+    this.stuffBaggage = {};
+    this.money        = new BaggageService.Money(0, 0, 0, 0)
   }
 
   function Hero(name) {
-    this.profile = new Profile(name);
+    this.profile    = new Profile(name);
     this.attributes = new Attributes();
-    this.basics = new BasicValues();
-    this.talents = new HeroTalents();
-    this.baggage = new HeroBaggage();
+    this.basics     = new BasicValues();
+    this.talents    = new HeroTalents();
+    this.baggage    = new HeroBaggage();
 
     this.setup = function() {
       // first set all attributes
       this.basics.setup(this.attributes);
     }
   };
-
-  // Gilion = function() {
-  //   gilion = new Hero("Gilion Nebelsucher");    
-  //   gilion.attributes.mut.value = 11;
-  //   gilion.attributes.charisma.value = 9;
-  //   gilion.attributes.fingerfertigkeit.value = 14;
-  //   gilion.attributes.gewandtheit.value = 12;
-  //   gilion.attributes.koerperkraft.value = 14;
-  //   gilion.attributes.klugheit.value = 14;
-  //   gilion.attributes.intuition.value = 10;
-  //   gilion.attributes.konstitution.value = 11;
-  //   gilion.attributes.geschwindigkeit.value = 9;
-
-  //   gilion.setup();
-  //   return gilion;
-  // }
 
   this.Shanarion = function() {
 
@@ -343,19 +331,37 @@ app.service('HeroService', function HeroService(TalentService, BaggageService) {
     this.shanarion.talents.handwerk.schneidern.value             = 2;
 
 
-    // Gepäck (baggage)
+  // Gepäck (baggage)
 
-      // Waffen (weapons)
-      this.shanarion.baggage.weapons.wlWeapons.raufen          = BaggageService.weapons.wlWeapons.raufen;
-      this.shanarion.baggage.weapons.wlWeapons.ringen          = BaggageService.weapons.wlWeapons.ringen;
-      this.shanarion.baggage.weapons.nkWeapons.wolfsmesser     = BaggageService.weapons.nkWeapons.wolfsmesser;
-      this.shanarion.baggage.weapons.nkWeapons.dolch           = BaggageService.weapons.nkWeapons.elfisches_jagtmesser;
-      this.shanarion.baggage.weapons.fkWeapons.elfenbogen      = BaggageService.weapons.fkWeapons.elfenbogen;
+    // Waffen (weapons)
+    this.shanarion.baggage.weapons.wlWeapons.raufen          = BaggageService.weapons.wlWeapons.raufen;
+    this.shanarion.baggage.weapons.wlWeapons.ringen          = BaggageService.weapons.wlWeapons.ringen;
+    this.shanarion.baggage.weapons.nkWeapons.wolfsmesser     = BaggageService.weapons.nkWeapons.wolfsmesser;
+    this.shanarion.baggage.weapons.nkWeapons.dolch           = BaggageService.weapons.nkWeapons.elfisches_jagtmesser;
+    this.shanarion.baggage.weapons.fkWeapons.elfenbogen      = BaggageService.weapons.fkWeapons.elfenbogen;
 
-      // Rüstung (armory)
-      this.shanarion.baggage.armory.components.lederhose                  = BaggageService.armory.lederhose;
-      this.shanarion.baggage.armory.components.lederhelm                  = BaggageService.armory.lederhelm;
-    
+    // Rüstung (armory)
+    this.shanarion.baggage.armory.components.lederhose                  = BaggageService.armory.lederhose;
+    this.shanarion.baggage.armory.components.lederhelm                  = BaggageService.armory.lederhelm;
+
+    var self = this;
+    angular.forEach(self.shanarion.baggage.armory.components, function(armory){
+      self.shanarion.baggage.armory.overall += armory.value;
+    })
+
+    // Zeug (stuff)
+    this.shanarion.baggage.stuffBaggage.alraune                         = new BaggageService.Stuff('Alraune', 10, 2, 'Pflanze');
+    this.shanarion.baggage.stuffBaggage.fesselseil                      = new BaggageService.Stuff('Fesselseil, Leder (1 Schritt)', 10, 1, 'Seil');
+    this.shanarion.baggage.stuffBaggage.halskette                       = new BaggageService.Stuff('Halskette', 1, 1, 'Schmuck');
+    this.shanarion.baggage.stuffBaggage.holzflöte                       = new BaggageService.Stuff('Holzflöte', 8, 1, 'Musikintrument');
+    this.shanarion.baggage.stuffBaggage.kaputzenumhang                  = new BaggageService.Stuff('Kaputzenumhang', 80, 1, 'Kleidung');
+    this.shanarion.baggage.stuffBaggage.lederschuhe                     = new BaggageService.Stuff('Lederschuhe', 40, 1, 'Kleidung');
+    this.shanarion.baggage.stuffBaggage.pfeile                          = new BaggageService.Stuff('Pfeile', 60, 20, 'Munition');
+
+    // Geld (money)
+    this.shanarion.baggage.money                                        = new BaggageService.Money(6, 4, 9, 3);
+
+
     return this.shanarion;
   }
 
@@ -374,9 +380,8 @@ app.service('HeroService', function HeroService(TalentService, BaggageService) {
     this.current = {
       currentHero: this.Heros().shanarion
     }
-    
-    console.log(this.current);
 
+    console.log(this.current);
     return this.current;
   }
 

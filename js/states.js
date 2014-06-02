@@ -43,6 +43,24 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
           }
         },
         {
+          name: 'fightRounds',
+          url: '/',
+          views: {
+           leftMenu:{
+              templateUrl: 'views/left-menu.html',
+              controller: 'LeftMenuCtrl'
+            },
+            content: {
+              templateUrl: 'views/fight-rounds.html',
+              controller: 'FightCtrl' 
+            },
+            topbar: {
+              templateUrl: 'views/topbar.html',
+              controller: 'TopbarCtrl'
+            }
+          }
+        },
+        {
           name: 'fight',
           views: {
            leftMenu:{
@@ -99,7 +117,6 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
         },
         {
           name: 'bagage',
-          url: '/',
           views: {
             leftMenu:{
               templateUrl: 'views/left-menu.html',

@@ -1,9 +1,9 @@
-%h2 Ausrüstung
+%h2 Besitz
 
 .row
   .col-sm-6
     .weapon-box
-      %h3{"ng-class" => "{disabled: disabled}"}
+      %h3
         Waffen
       .weapon-info
         .row
@@ -25,9 +25,9 @@
               %small {{weapon.weight}}
   .col-sm-6
     .weapon-box
-      %h3{"ng-class" => "{disabled: disabled}"}
+      %h3
         Rüstung
-      %small {{armory.overall}}
+        %small gesammt: {{armory.overall}}
       .weapon-info
         .row
           .col-sm-5
@@ -38,7 +38,7 @@
             %small RS
           .col-sm-2
             %small BE
-        %div{"ng-class" => "{disabled: disabled}", "ng-repeat" => "armor in armory.components"}
+        %div{"ng-repeat" => "armor in armory.components"}
           .row
             .col-sm-5
               {{armor.name}}
@@ -47,4 +47,44 @@
             .col-sm-2
               %small {{armor.value}}
             .col-sm-2
-              %small {{armor.handicap}} 
+              %small {{armor.handicap}}
+
+.row
+  .col-sm-8
+    .weapon-box
+      %h3
+        Ausrüstung
+        %small
+          getragen
+      .weapon-info
+        .row
+          .col-sm-7
+            %small Name
+          .col-sm-1
+            %small Stein
+          .col-sm-1
+            %small Anz.
+          .col-sm-3
+            %small Type
+        %div{"ng-repeat" => "stuff in stuffBaggage"}
+          .row
+            .col-sm-7
+              {{stuff.name}}
+            .col-sm-1
+              %small {{stuff.weight}}
+            .col-sm-1
+              %small {{stuff.amount}}
+            .col-sm-3
+              %small {{stuff.type}}
+  .col-sm-4
+    .weapon-box
+      %h3
+        Geld
+      .weapon-info
+        %div{"ng-repeat" => "(couns, value) in money"}
+          .row
+            .col-sm-6
+              {{couns}}
+            .col-sm-6
+              {{value}}
+

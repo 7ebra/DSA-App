@@ -1,4 +1,7 @@
-%h2 Kampf
+%h2 
+  Kampf
+  %small{'ng-if' => 'service.actions.number == 1'} Attacken: {{service.actions.attack}} Paraden: {{service.actions.parade}} Freie: {{service.actions.freeAction}} || 1. Aktion bei {{service.ini.currentValue}}
+  %small{'ng-if' => 'service.actions.number == 2'} Attacken: {{service.actions.attack}} Paraden: {{service.actions.parade}} Freie: {{service.actions.freeAction}} || 2. Aktion bei {{service.ini.currentValue - 8}}
 
 .bars-box
   .row.no-spacing
@@ -29,6 +32,14 @@
       
         %button.btn.bars{ng_click: "ausMinus()"} -
         %button.btn.bars{ng_click: "ausPlus()"} +
+.row
+  .col-sm-12
+    .outOfActions{'ng-if' => 'service.actions.amount == 0 && service.actions.freeAction == 0'}
+      .weapon-box
+        %h3
+          Du hast deine Aktionen für diese Runde verbraucht.
+          %small Bitte warten bis zum Rundenende.
+        %button.btn.weapon{'ng-click' => 'goToFightRounds()'} Ok!
 
 .row
   .col-sm-3
@@ -36,8 +47,8 @@
       %h3
         .row
           .col-sm-4
-            %button.btn.weapon{"ng-click" => "ini()", "ng-if" => "!iniValue"} ?
-            %span{"ng-if" => "iniValue"} {{currentHero.basics.ini_basis.currentValue}}
+            %button.btn.weapon{"ng-click" => "iniSetup()", "ng-if" => "!service.ini.checked"} ?
+            %span{"ng-if" => "service.ini.checked"} {{service.ini.currentValue}}
           .col-sm-8
             %small
               Initiative
@@ -48,13 +59,19 @@
         {{currentHero.basics.ausweichen.actual}}
         %small
           Ausweichen
-      %button.btn.weapon{"ng-click" => "dodge()"} ausweichen
+      %button.btn.weapon{"ng-click" => "dodge()", "ng-class" => "{disabled: service.actions.freeAction == 0}"} ausweichen
     .weapon-box{"ng-if" => "dodgeAction", "ui-view" => "dodge"}
   .col-sm-3
     .weapon-box
-      %h3
-        Rüstung
-      .weapon-info
+      .row
+        .col-sm-6
+          %h3
+            {{armory.overall}}
+            %small RS
+        .col-sm-6
+          %h3
+            {{currentHero.basics.magieresistenz.currentValue}}
+            %small MR
         
 
 .row
@@ -151,9 +168,12 @@
               {{weaponChoosed.eINI}}
           .row
             .col-sm-6
-              %button.btn.weapon{"ng-click" => "nkAttack()"} Attacke
+              %button.btn.weapon{"ng-click" => "nkAttack()", "ng-class" => "{disabled: service.actions.attack == 0}"} Attacke
             .col-sm-6
-              %button.btn.weapon{"ng-click" => "nkParade()"} Parade
+              %button.btn.weapon{"ng-click" => "nkParade()", "ng-class" => "{disabled: service.actions.parade == 0}"} Parade
 
         .weapon-info{"ng-if" => "weaponChoosed.weaponType == 'Waffenloser Kampf'"}
           Attacke: {{weaponChoosed.AT}} 
+
+.weapon-box
+  %button.btn.weapon{'ng-click' => 'goToFightRounds()'} nächste Runde

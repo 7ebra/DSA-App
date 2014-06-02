@@ -1,0 +1,65 @@
+<h2>
+  Kampf
+  <small>Runde {{service.round}}</small>
+</h2>
+<div class='row'>
+  <div class='col-sm-3'>
+    <div class='weapon-box'>
+      <h3>
+        <div class='row'>
+          <div class='col-sm-4'>
+            <button class='btn weapon' ng-click='iniSetup()' ng-if='!service.ini.checked'>?</button>
+            <span ng-if='service.ini.checked'>{{service.ini.currentValue}}</span>
+          </div>
+          <div class='col-sm-8'>
+            <small>
+              Initiative
+            </small>
+          </div>
+        </div>
+      </h3>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div class='weapon-box'>
+      <h3>
+        <div class='row'>
+          <div class='col-sm-2'>
+            {{service.actions.attack}}
+          </div>
+          <div class='col-sm-4'>
+            <small>
+              Angriff
+            </small>
+          </div>
+          <div class='col-sm-6'>
+            <button class='btn weapon' ng-click='chooseAttack()'>2x Angriff</button>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-2'>
+            {{service.actions.parade}}
+          </div>
+          <div class='col-sm-4'>
+            <small>
+              Parade
+            </small>
+          </div>
+          <div class='col-sm-6'>
+            <button class='btn weapon' ng-click='chooseParade()'>2x Parade</button>
+          </div>
+        </div>
+      </h3>
+    </div>
+  </div>
+  <div class='col-sm-3'>
+    <div class='weapon-box'>
+      <button class='btn weapon' ng-class='{disabled: !service.ini.checked}' ng-click='goToFight()'>
+        <h3>
+          <i class='glyphicon glyphicon-chevron-right'></i>
+        </h3>
+        <p>nächste Runde</p>
+      </button>
+    </div>
+  </div>
+</div>
