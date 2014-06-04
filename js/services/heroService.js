@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('HeroService', function HeroService(TalentService, BaggageService) {
+app.service('HeroService', function HeroService(TalentService, BaggageService, AttributeService) {
 
   console.log(BaggageService);
   console.log(TalentService);
@@ -25,24 +25,6 @@ app.service('HeroService', function HeroService(TalentService, BaggageService) {
     this.hintergrund = "";
     this.vorteile = [];
     this.nachteile = [];
-  }
-
-  function Attribute(name, short) {
-    this.value = 0;
-    this.name = name;
-    this.short = short;
-  };
-
-  function Attributes() {
-    this.mut = new Attribute("Mut", "MU");
-    this.charisma = new Attribute("Charisma", "CH");
-    this.fingerfertigkeit = new Attribute("Fingerfertigkeit", "FF");
-    this.gewandtheit = new Attribute("Gewandtheit", "GE");
-    this.koerperkraft = new Attribute("Körperkraft", "KK");
-    this.klugheit = new Attribute("Klugheit", "KL");
-    this.intuition = new Attribute("Intuition", "IN");
-    this.konstitution = new Attribute("Konstitution", "KO");
-    this.geschwindigkeit = new Attribute("Geschwindigkeit", "GS");
   }
 
   function BasicValue(startfunc) {
@@ -169,7 +151,7 @@ app.service('HeroService', function HeroService(TalentService, BaggageService) {
 
   function Hero(name) {
     this.profile    = new Profile(name);
-    this.attributes = new Attributes();
+    this.attributes = new AttributeService;
     this.basics     = new BasicValues();
     this.talents    = new HeroTalents();
     this.baggage    = new HeroBaggage();

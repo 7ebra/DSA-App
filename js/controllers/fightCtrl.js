@@ -57,7 +57,7 @@ $scope.currentHero = HeroService.Current().currentHero;
     $scope.weaponChoosed = weapon;
     $scope.weaponAction = false;
     console.log($scope.weaponChoosed);
-    $state.go('main.fight');
+    // $state.go('main.fight');
   }
     
   $scope.fkShut = function() {

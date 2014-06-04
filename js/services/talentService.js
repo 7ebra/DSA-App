@@ -10,8 +10,13 @@ app.service('TalentService', function TalentService() {
   //   }
   // ]
 
-  function Talent(name) {
+  function Talent(name, proofAttribute1, proofAttribute2, proofAttribute3) {
     this.name = name;
+    // this.proofAttributes = [
+    //   proofAttribute1,
+    //   proofAttributes,
+    //   proofAttribute3,
+    // ];
     this.category = "";
     this.talentType = "";
     this.value = 0;
@@ -46,6 +51,7 @@ app.service('TalentService', function TalentService() {
     zweihandflegel: new Talent("Zweihandflegel"),
     zweihand_hiebwaffen: new Talent("Zweihand Hiebwaffen"),
     zweihandschwerter_saebel: new Talent("Zweihandschwerter Säbel"),
+
     athletik: new Talent("Athletik"),
     klettern: new Talent("Klettern"),
     koerperbeherrschung: new Talent("Körperbeherrschung"),
@@ -64,6 +70,7 @@ app.service('TalentService', function TalentService() {
     skifahren: new Talent("Skifahren"),
     stimmen_imitieren: new Talent("Stimmen Imitieren"),
     taschendiebstahl: new Talent("Taschendiebstahl"),
+
     menschenkenntnis: new Talent("Menschenkenntnis"),
     ueberreden: new Talent("Überreden"),
     betoeren: new Talent("Betören"),
@@ -74,6 +81,7 @@ app.service('TalentService', function TalentService() {
     schriftlicher_ausdruck: new Talent("Schriftlicher Ausdruck"),
     sich_verkleiden: new Talent("Sich Verkleiden"),
     ueberzeugen: new Talent("Überzeugen"),
+
     faehrtensuchen: new Talent("Fährtensuchen"),
     orientierung: new Talent("Orientierung"),
     wildnisleben: new Talent("Wildnisleben"),
@@ -81,6 +89,7 @@ app.service('TalentService', function TalentService() {
     fesseln_entfesseln: new Talent("Fesseln/ Entfesseln"),
     fischen_angeln: new Talent("Fischen/ Angeln"),
     wettervorhersage: new Talent("Wettervorhersage"),
+
     goetter_kulte: new Talent("Götter/ Kulte"),
     rechnen: new Talent("Rechnen"),
     sagen_legenden: new Talent("Sagen/ Legenden"),
@@ -104,9 +113,11 @@ app.service('TalentService', function TalentService() {
     staatskunst: new Talent("Staatskunst"),
     sternkunde: new Talent("Sternkunde"),
     tierkunde: new Talent("Tierkunde"),
+
     sprachen_kennen_m: new Talent("Sprachen kennen: Muttersprache"),
     lesen_schreiben_s: new Talent("Lesen Schreiben: Schrift"),
     sprachen_kennen_f: new Talent("Sprachen kennen: Fremdsprache"),
+
     heilkunde_wunden: new Talent("Heilkunde: Wunden"),
     holzbearbeitung: new Talent("Holzbearbeitung"),
     kochen: new Talent("Kochen"),
