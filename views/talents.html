@@ -1,18 +1,72 @@
 <h2>Talente</h2>
+<div class='talent-box' id='proof' ng-if='choosedTalent'>
+  <div class='row'>
+    <div class='col-sm-12'>
+      <h3>
+        Probe auf {{choosedTalent.name}}: {{choosedTalent.value}}
+        <small>({{choosedTalent.proofAttr1.short}}: {{choosedTalent.proofAttr1.value}}/ {{choosedTalent.proofAttr2.short}}: {{choosedTalent.proofAttr2.value}}/ {{choosedTalent.proofAttr3.short}}: {{choosedTalent.proofAttr3.value}})</small>
+      </h3>
+    </div>
+  </div>
+  <div class='row' ng-if='!rollOne'>
+    <div class='col-sm-6'>
+      <div class='row'>
+        <div class='col-sm-6'>
+          <span ng-if='buff &gt;= 0'>erschwert um</span>
+          <span ng-if='buff &lt; 0'>erleichtert um</span>
+        </div>
+        <div class='col-sm-2'>
+          {{buff}}
+        </div>
+        <div class='col-sm-1'>
+          <button class='btn' ng-click='buffMinus()'>-</button>
+        </div>
+        <div class='col-sm-2'>
+          <button class='btn' ng-click='buffPlus()'>+</button>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-3'>
+      <button class='btn' ng-click='talentProof()'>
+        <i class='glyphicon glyphicon-chevron-right'></i>
+        Würfeln
+      </button>
+    </div>
+  </div>
+  <div class='row' ng-if='rollOne'>
+    <div class='col-sm-3'>
+      Wurf auf {{choosedTalent.proofAttr1.short}} = {{rollOne}}
+    </div>
+    <div class='col-sm-3'>
+      Wurf auf {{choosedTalent.proofAttr2.short}} = {{rollTwo}}
+    </div>
+    <div class='col-sm-3'>
+      Wurf auf {{choosedTalent.proofAttr3.short}} = {{rollThree}}
+    </div>
+    <div class='col-sm-3'>
+      Ergebinss: {{result}}
+    </div>
+  </div>
+</div>
 <div class='row'>
   <div class='col-sm-6'>
     <div class='talent-box' ng-if='$odd == true' ng-repeat='(label,category) in talents'>
       <h3>{{label}}</h3>
       <ul>
         <li ng-repeat='talent in category'>
-          <div class='row'>
-            <div class='col-sm-2'>
-              <div class='talent-value' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.value}}</div>
+          <button class='btn weapon' ng-click='TalentChoose(talent)'>
+            <div class='row'>
+              <div class='col-sm-2'>
+                <div class='talent-value' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.value}}</div>
+              </div>
+              <div class='col-sm-10'>
+                <div class='talent-name' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>
+                  {{talent.name}}
+                  <small>({{talent.proofAttr1.short}}/ {{talent.proofAttr2.short}}/ {{talent.proofAttr3.short}})</small>
+                </div>
+              </div>
             </div>
-            <div class='col-sm-10'>
-              <div class='talent-name' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.name}}</div>
-            </div>
-          </div>
+          </button>
         </li>
       </ul>
     </div>
@@ -22,14 +76,19 @@
       <h3>{{label}}</h3>
       <ul>
         <li ng-repeat='talent in category'>
-          <div class='row'>
-            <div class='col-sm-2'>
-              <div class='talent-value' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.value}}</div>
+          <button class='btn weapon' ng-click='TalentChoose(talent)'>
+            <div class='row'>
+              <div class='col-sm-2'>
+                <div class='talent-value' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.value}}</div>
+              </div>
+              <div class='col-sm-10'>
+                <div class='talent-name' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>
+                  {{talent.name}}
+                  <small>({{talent.proofAttr1.short}}/ {{talent.proofAttr2.short}}/ {{talent.proofAttr3.short}})</small>
+                </div>
+              </div>
             </div>
-            <div class='col-sm-10'>
-              <div class='talent-name' ng-class='{high: talent.value &gt;= 8, middle: talent.value &gt;= 3 &amp;&amp; talent.value &lt; 8}'>{{talent.name}}</div>
-            </div>
-          </div>
+          </button>
         </li>
       </ul>
     </div>

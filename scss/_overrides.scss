@@ -384,16 +384,31 @@ span.currentWeaponRangeThird {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 
+  button {
+    background-color: $darkbasic;
+    width: 100%;
+    text-align: left;
+    border-bottom: solid 1px lighten($darkbasic, 10%);
+    border-radius: 0;
+    color: $lightbasic;
+
+    &:hover {
+      border: solid 1px $highlight;
+      border-radius: 5px;
+      color: $lightbasic;
+    }  
+  }
   ul {
     list-style: none;
     padding: 0;
-  }
+    }
 }
 
 .talent-value {
   font-weight: 300;
   line-height: 24px;
   text-align: center;
+  color: $lightbasic;
 
   display: inline-block;  
   width: 100%;
@@ -408,11 +423,15 @@ span.currentWeaponRangeThird {
 .talent-name {
   font-weight: 100;
   line-height: 24px;
+  color: $lightbasic;
   &.high {
     color: $highlight;
   }
   &.middle {
     color: yellow;
+  }
+  small {
+    color: lighten($darkbasic, 20%);
   }
 }
 

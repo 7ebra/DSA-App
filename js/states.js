@@ -27,6 +27,7 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
         },
         {
           name: 'talents',
+          url: '/',
           views: {
            leftMenu:{
               templateUrl: 'views/left-menu.html',
@@ -44,7 +45,6 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
         },
         {
           name: 'spells',
-          url: '/',
           views: {
            leftMenu:{
               templateUrl: 'views/left-menu.html',

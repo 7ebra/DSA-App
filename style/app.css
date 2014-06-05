@@ -7984,53 +7984,74 @@ span.currentWeaponRangeThird {
   font-weight: 300;
 }
 /* line 387, ../scss/_overrides.scss */
+.talent-box button {
+  background-color: #333333;
+  width: 100%;
+  text-align: left;
+  border-bottom: solid 1px #4d4d4d;
+  border-radius: 0;
+  color: white;
+}
+/* line 395, ../scss/_overrides.scss */
+.talent-box button:hover {
+  border: solid 1px #00ff48;
+  border-radius: 5px;
+  color: white;
+}
+/* line 401, ../scss/_overrides.scss */
 .talent-box ul {
   list-style: none;
   padding: 0;
 }
 
-/* line 393, ../scss/_overrides.scss */
+/* line 407, ../scss/_overrides.scss */
 .talent-value {
   font-weight: 300;
   line-height: 24px;
   text-align: center;
+  color: white;
   display: inline-block;
   width: 100%;
 }
-/* line 400, ../scss/_overrides.scss */
+/* line 415, ../scss/_overrides.scss */
 .talent-value.high {
   color: #00ff48;
 }
-/* line 403, ../scss/_overrides.scss */
+/* line 418, ../scss/_overrides.scss */
 .talent-value.middle {
   color: yellow;
 }
 
-/* line 408, ../scss/_overrides.scss */
+/* line 423, ../scss/_overrides.scss */
 .talent-name {
   font-weight: 100;
   line-height: 24px;
+  color: white;
 }
-/* line 411, ../scss/_overrides.scss */
+/* line 427, ../scss/_overrides.scss */
 .talent-name.high {
   color: #00ff48;
 }
-/* line 414, ../scss/_overrides.scss */
+/* line 430, ../scss/_overrides.scss */
 .talent-name.middle {
   color: yellow;
 }
+/* line 433, ../scss/_overrides.scss */
+.talent-name small {
+  color: #666666;
+}
 
-/* line 419, ../scss/_overrides.scss */
+/* line 438, ../scss/_overrides.scss */
 .option {
   width: 100%;
   cursor: pointer;
 }
-/* line 422, ../scss/_overrides.scss */
+/* line 441, ../scss/_overrides.scss */
 .option.active {
   color: #00ff48;
 }
 
-/* line 431, ../scss/_overrides.scss */
+/* line 450, ../scss/_overrides.scss */
 .profile-box {
   display: block;
   padding: 15px;
@@ -8042,49 +8063,49 @@ span.currentWeaponRangeThird {
   font-weight: 300;
 }
 
-/* line 442, ../scss/_overrides.scss */
+/* line 461, ../scss/_overrides.scss */
 .profile-head {
   border-bottom: solid 1px #4d4d4d;
   margin-bottom: 30px;
 }
 
-/* line 446, ../scss/_overrides.scss */
+/* line 465, ../scss/_overrides.scss */
 .profile-text {
   font-weight: 100;
   line-height: 24px;
 }
 
-/* line 454, ../scss/_overrides.scss */
+/* line 473, ../scss/_overrides.scss */
 .panel-default {
   border: solid 1px #4d4d4d;
   background-color: transparent;
   font-weight: 300;
 }
-/* line 459, ../scss/_overrides.scss */
+/* line 478, ../scss/_overrides.scss */
 .panel-default h4 {
   color: #333333;
 }
 
-/* line 463, ../scss/_overrides.scss */
+/* line 482, ../scss/_overrides.scss */
 .panel-default > .panel-heading {
   background-color: #333333;
 }
-/* line 466, ../scss/_overrides.scss */
+/* line 485, ../scss/_overrides.scss */
 .panel-default > .panel-heading h3 {
   color: white;
   margin: 0;
   font-weight: 100;
 }
-/* line 470, ../scss/_overrides.scss */
+/* line 489, ../scss/_overrides.scss */
 .panel-default > .panel-heading h3.high {
   color: #00ff48;
 }
-/* line 473, ../scss/_overrides.scss */
+/* line 492, ../scss/_overrides.scss */
 .panel-default > .panel-heading h3.middle {
   color: yellow;
 }
 
-/* line 478, ../scss/_overrides.scss */
+/* line 497, ../scss/_overrides.scss */
 .panel-default > .panel-heading + .panel-collapse .panel-body {
   background-color: #4d4d4d;
   border: none;

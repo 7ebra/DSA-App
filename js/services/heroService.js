@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('HeroService', function HeroService(TalentService, BaggageService, AttributeService, SpellService) {
+app.service('HeroService', function HeroService(TalentService, BaggageService, AttributeService, SpellService, RollService) {
 
   console.log(BaggageService);
   console.log(TalentService);
@@ -245,25 +245,41 @@ app.service('HeroService', function HeroService(TalentService, BaggageService, A
     this.shanarion.talents.koerper.zechen = TalentService.talents.zechen;
      
     this.shanarion.talents.koerper.athletik.value                    = 11; 
+    this.shanarion.talents.koerper.athletik.setProofAttrs(this.shanarion.attributes.gewandtheit, this.shanarion.attributes.konstitution, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.koerper.klettern.value                    = 5; 
+    this.shanarion.talents.koerper.klettern.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.gewandtheit, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.koerper.koerperbeherrschung.value         = 10; 
+    this.shanarion.talents.koerper.koerperbeherrschung.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.intuition, this.shanarion.attributes.gewandtheit);
     this.shanarion.talents.koerper.reiten.value                      = 12; 
+    this.shanarion.talents.koerper.reiten.setProofAttrs(this.shanarion.attributes.charisma, this.shanarion.attributes.gewandtheit, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.koerper.schleichen.value                  = 12; 
+    this.shanarion.talents.koerper.schleichen.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.intuition, this.shanarion.attributes.gewandtheit);
     this.shanarion.talents.koerper.schwimmen.value                   = 2; 
+    this.shanarion.talents.koerper.schwimmen.setProofAttrs(this.shanarion.attributes.gewandtheit, this.shanarion.attributes.konstitution, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.koerper.selbstbeherrschung.value          = 4;   
+    this.shanarion.talents.koerper.selbstbeherrschung.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.konstitution, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.koerper.sich_verstecken.value             = 5; 
+    this.shanarion.talents.koerper.sich_verstecken.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.intuition, this.shanarion.attributes.gewandtheit);
     this.shanarion.talents.koerper.singen.value                      = 8; 
+    this.shanarion.talents.koerper.singen.setProofAttrs(this.shanarion.attributes.intuition, this.shanarion.attributes.charisma, this.shanarion.attributes.charisma);
     this.shanarion.talents.koerper.sinnenschaerfe.value              = 14; 
+    this.shanarion.talents.koerper.sinnenschaerfe.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.intuition);
     this.shanarion.talents.koerper.stimmen_imitieren.value           = 3; 
+    this.shanarion.talents.koerper.stimmen_imitieren.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.charisma);
     this.shanarion.talents.koerper.tanzen.value                      = 3; 
+    this.shanarion.talents.koerper.tanzen.setProofAttrs(this.shanarion.attributes.charisma, this.shanarion.attributes.gewandtheit, this.shanarion.attributes.gewandtheit);
     this.shanarion.talents.koerper.zechen.value                      = -2; 
+    this.shanarion.talents.koerper.zechen.setProofAttrs(this.shanarion.attributes.intuition, this.shanarion.attributes.konstitution, this.shanarion.attributes.koerperkraft);
 
 
     this.shanarion.talents.gesellschaft.gassenwissen = TalentService.talents.gassenwissen;
      
     this.shanarion.talents.gesellschaft.gassenwissen.value            = -2; 
+    this.shanarion.talents.gesellschaft.gassenwissen.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.charisma);
     this.shanarion.talents.gesellschaft.menschenkenntnis.value        = 1; 
+    this.shanarion.talents.gesellschaft.menschenkenntnis.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.charisma);
     this.shanarion.talents.gesellschaft.ueberreden.value              = 0; 
+    this.shanarion.talents.gesellschaft.ueberreden.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.intuition, this.shanarion.attributes.charisma);
 
 
     this.shanarion.talents.natur.fallenstellen = TalentService.talents.fallenstellen;
@@ -272,12 +288,19 @@ app.service('HeroService', function HeroService(TalentService, BaggageService, A
     this.shanarion.talents.natur.wettervorhersage = TalentService.talents.wettervorhersage;
      
     this.shanarion.talents.natur.faehrtensuchen.value           = 11; 
+    this.shanarion.talents.natur.faehrtensuchen.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.konstitution);
     this.shanarion.talents.natur.fallenstellen.value             = 6; 
+    this.shanarion.talents.natur.fallenstellen.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.fingerfertigkeit, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.natur.fesseln_entfesseln.value        = 3; 
+    this.shanarion.talents.natur.fesseln_entfesseln.setProofAttrs(this.shanarion.attributes.fingerfertigkeit, this.shanarion.attributes.gewandtheit, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.natur.fischen_angeln.value            = 2; 
+    this.shanarion.talents.natur.fischen_angeln.setProofAttrs(this.shanarion.attributes.intuition, this.shanarion.attributes.fingerfertigkeit, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.natur.orientierung.value              = 9; 
+    this.shanarion.talents.natur.orientierung.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.intuition);
     this.shanarion.talents.natur.wettervorhersage.value          = 5; 
+    this.shanarion.talents.natur.wettervorhersage.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.intuition);
     this.shanarion.talents.natur.wildnisleben.value              = 12;   
+    this.shanarion.talents.natur.wildnisleben.setProofAttrs(this.shanarion.attributes.intuition, this.shanarion.attributes.gewandtheit, this.shanarion.attributes.koerperkraft);
 
 
     this.shanarion.talents.wissen.magiekunde = TalentService.talents.magiekunde;
@@ -287,15 +310,23 @@ app.service('HeroService', function HeroService(TalentService, BaggageService, A
     this.shanarion.talents.wissen.tierkunde = TalentService.talents.tierkunde;
      
     this.shanarion.talents.wissen.goetter_kulte.value        = 0; 
+    this.shanarion.talents.wissen.goetter_kulte.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition);
     this.shanarion.talents.wissen.magiekunde.value           = 2; 
+    this.shanarion.talents.wissen.magiekunde.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition);
     this.shanarion.talents.wissen.pflanzenkunde.value        = 11; 
+    this.shanarion.talents.wissen.pflanzenkunde.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.fingerfertigkeit);
     this.shanarion.talents.wissen.rechnen.value              = 0; 
+    this.shanarion.talents.wissen.rechnen.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition);
     this.shanarion.talents.wissen.rechtskunde.value          = -2; 
+    this.shanarion.talents.wissen.rechtskunde.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition);
     this.shanarion.talents.wissen.sagen_legenden.value       = 2; 
+    this.shanarion.talents.wissen.sagen_legenden.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.charisma);
     this.shanarion.talents.wissen.sternkunde.value           = 6; 
+    this.shanarion.talents.wissen.sternkunde.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition);
     this.shanarion.talents.wissen.tierkunde.value            = 9; 
+    this.shanarion.talents.wissen.tierkunde.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition);
 
-    // this.shanarion.talents.sprache.sprachen_kennen_m.value             = 7;
+    this.shanarion.talents.sprache.sprachen_kennen_m.value             = 7;
 
     this.shanarion.talents.handwerk.abrichten = TalentService.talents.abrichten;
     this.shanarion.talents.handwerk.bogenbau = TalentService.talents.bogenbau;
@@ -303,15 +334,25 @@ app.service('HeroService', function HeroService(TalentService, BaggageService, A
     this.shanarion.talents.handwerk.musizieren = TalentService.talents.musizieren;
 
     this.shanarion.talents.handwerk.abrichten.value              = 2;
+    this.shanarion.talents.handwerk.abrichten.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.intuition, this.shanarion.attributes.charisma);
     this.shanarion.talents.handwerk.bogenbau.value               = 6;
+    this.shanarion.talents.handwerk.bogenbau.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.fingerfertigkeit);
     this.shanarion.talents.handwerk.heilkunde_gift.value         = 7;
+    this.shanarion.talents.handwerk.heilkunde_gift.setProofAttrs(this.shanarion.attributes.mut, this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition);
     this.shanarion.talents.handwerk.heilkunde_wunden.value       = 10;
+    this.shanarion.talents.handwerk.heilkunde_wunden.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.charisma, this.shanarion.attributes.fingerfertigkeit);
     this.shanarion.talents.handwerk.holzbearbeitung.value        = 25;
+    this.shanarion.talents.handwerk.holzbearbeitung.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.fingerfertigkeit, this.shanarion.attributes.koerperkraft);
     this.shanarion.talents.handwerk.kochen.value                 = 0;
+    this.shanarion.talents.handwerk.kochen.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.fingerfertigkeit);
     this.shanarion.talents.handwerk.lederarbeiten.value          = 3;
+    this.shanarion.talents.handwerk.lederarbeiten.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.fingerfertigkeit, this.shanarion.attributes.fingerfertigkeit);
     this.shanarion.talents.handwerk.malen_zeichnen.value         = 0;
+    this.shanarion.talents.handwerk.malen_zeichnen.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.intuition, this.shanarion.attributes.fingerfertigkeit);
     this.shanarion.talents.handwerk.musizieren.value             = 9;
+    this.shanarion.talents.handwerk.musizieren.setProofAttrs(this.shanarion.attributes.intuition, this.shanarion.attributes.charisma, this.shanarion.attributes.fingerfertigkeit);
     this.shanarion.talents.handwerk.schneidern.value             = 2;
+    this.shanarion.talents.handwerk.schneidern.setProofAttrs(this.shanarion.attributes.klugheit, this.shanarion.attributes.fingerfertigkeit, this.shanarion.attributes.fingerfertigkeit);
 
 
   // Gepäck (baggage)

@@ -1,22 +1,59 @@
 %h2 Talente
+.talent-box{'ng-if' => 'choosedTalent', id: 'proof'}
+  .row
+    .col-sm-12
+      %h3 
+        Probe auf {{choosedTalent.name}}: {{choosedTalent.value}} 
+        %small ({{choosedTalent.proofAttr1.short}}: {{choosedTalent.proofAttr1.value}}/ {{choosedTalent.proofAttr2.short}}: {{choosedTalent.proofAttr2.value}}/ {{choosedTalent.proofAttr3.short}}: {{choosedTalent.proofAttr3.value}})
+  .row{'ng-if' => '!rollOne'}
+    .col-sm-6
+      .row
+        .col-sm-6
+          %span{"ng-if" => "buff >= 0"} erschwert um
+          %span{"ng-if" => "buff < 0"} erleichtert um
+        .col-sm-2
+          {{buff}}
+        .col-sm-1
+          %button.btn{"ng-click" => "buffMinus()"} -
+        .col-sm-2
+          %button.btn{"ng-click" => "buffPlus()"} +
+    .col-sm-3
+      %button.btn{"ng-click" => "talentProof()"} 
+        %i.glyphicon.glyphicon-chevron-right
+        Würfeln
+  .row{'ng-if' => 'rollOne'}
+    .col-sm-3
+      Wurf auf {{choosedTalent.proofAttr1.short}} = {{rollOne}}
+    .col-sm-3
+      Wurf auf {{choosedTalent.proofAttr2.short}} = {{rollTwo}}
+    .col-sm-3
+      Wurf auf {{choosedTalent.proofAttr3.short}} = {{rollThree}}
+    .col-sm-3
+      Ergebinss: {{result}}
 .row
   .col-sm-6
     .talent-box{"ng-repeat" => "(label,category) in talents", "ng-if" => "$odd == true"} 
       %h3 {{label}}
       %ul
         %li{"ng-repeat" => "talent in category"} 
-          .row
-            .col-sm-2
-              .talent-value{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.value}}  
-            .col-sm-10  
-              .talent-name{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.name}} 
+          %button.btn.weapon{"ng-click" => "TalentChoose(talent)"}
+            .row
+              .col-sm-2
+                .talent-value{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.value}}  
+              .col-sm-10  
+                .talent-name{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} 
+                  {{talent.name}} 
+                  %small ({{talent.proofAttr1.short}}/ {{talent.proofAttr2.short}}/ {{talent.proofAttr3.short}})
   .col-sm-6
     .talent-box{"ng-repeat" => "(label,category) in talents", "ng-if" => "$even == true"} 
       %h3 {{label}}
       %ul
         %li{"ng-repeat" => "talent in category"}
-          .row
-            .col-sm-2
-              .talent-value{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.value}}  
-            .col-sm-10  
-              .talent-name{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.name}} 
+          %button.btn.weapon{"ng-click" => "TalentChoose(talent)"}
+            .row
+              .col-sm-2
+                .talent-value{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} {{talent.value}}  
+              .col-sm-10  
+                .talent-name{"ng-class" => "{high: talent.value >= 8, middle: talent.value >= 3 && talent.value < 8}"} 
+                  {{talent.name}} 
+                  %small ({{talent.proofAttr1.short}}/ {{talent.proofAttr2.short}}/ {{talent.proofAttr3.short}})

@@ -10,13 +10,13 @@ app.service('TalentService', function TalentService() {
   //   }
   // ]
 
-  function Talent(name, proofAttribute1, proofAttribute2, proofAttribute3) {
+  function Talent(name) {
     this.name = name;
-    // this.proofAttributes = [
-    //   proofAttribute1,
-    //   proofAttributes,
-    //   proofAttribute3,
-    // ];
+    this.setProofAttrs = function(attr1, attr2, attr3){
+      this.proofAttr1 = attr1;
+      this.proofAttr2 = attr2;
+      this.proofAttr3 = attr3;
+    };
     this.category = "";
     this.talentType = "";
     this.value = 0;
