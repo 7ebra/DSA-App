@@ -43,8 +43,25 @@ app.config(['stateHelperProvider', '$urlRouterProvider',
           }
         },
         {
-          name: 'fightRounds',
+          name: 'spells',
           url: '/',
+          views: {
+           leftMenu:{
+              templateUrl: 'views/left-menu.html',
+              controller: 'LeftMenuCtrl'
+            },
+            content: {
+              templateUrl: 'views/spells.html',
+              controller: 'MainCtrl' 
+            },
+            topbar: {
+              templateUrl: 'views/topbar.html',
+              controller: 'TopbarCtrl'
+            }
+          }
+        },
+        {
+          name: 'fightRounds',
           views: {
            leftMenu:{
               templateUrl: 'views/left-menu.html',

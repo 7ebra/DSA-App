@@ -1,6 +1,6 @@
-app.controller('MainCtrl', function($scope) {
+app.controller('MainCtrl', function($scope, HeroService) {
 
-  // $scope.gilion = Gilion();
-
+  
+  $scope.spells = HeroService.Current().currentHero.spells;
 
 });

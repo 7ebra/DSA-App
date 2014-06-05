@@ -1,0 +1,58 @@
+%h2 Zaubersprüche
+
+.row
+  .col-sm-12
+    %accordion
+      %accordion-group{'ng-repeat' => 'spell in spells'}
+        %accordion-heading
+          %h3{"ng-class" => "{high: spell.value >= 8, middle: spell.value >= 3 && spell.value < 8}"}
+            {{spell.value}} {{spell.name}}
+            %small {{spell.proof}}
+
+        .row
+          .col-sm-3
+            %h4 // Zauberdauer
+          .col-sm-3
+            %h4 // Wirkungsdauer
+          .col-sm-3
+            %h4 // Kosten
+          .col-sm-3
+            %h4 // Reichweite
+        .row
+          .col-sm-3
+            %p {{spell.castDuration}}
+          .col-sm-3
+            %p {{spell.spellDuration}}
+          .col-sm-3
+            %p {{spell.costs}}
+          .col-sm-3
+            %p {{spell.range}}
+        .row
+          .col-sm-3
+            %h4 // Zielobjekt
+          .col-sm-3
+            %h4 // Merkmal
+          .col-sm-3
+            %h4 // Komplexität
+          .col-sm-3
+            %h4 // Representation
+        .row
+          .col-sm-3
+            %p {{spell.target}}
+          .col-sm-3
+            %p {{spell.element}}
+          .col-sm-3
+            %p {{spell.complexity}}
+          .col-sm-3
+            %p {{spell.representation}}
+        .row
+          .col-sm-6
+            %h4 // Wirkung
+            {{spell.effect}}
+          .col-sm-6
+            %h4 // Technik
+            {{spell.technic}}
+            %h4 // Reversalis
+            {{spell.reversalis}}
+            %h4 // Antimagie
+            {{spell.antiMagic}}

@@ -1,0 +1,85 @@
+<h2>Zaubersprüche</h2>
+<div class='row'>
+  <div class='col-sm-12'>
+    <accordion>
+      <accordion-group ng-repeat='spell in spells'>
+        <accordion-heading>
+          <h3 ng-class='{high: spell.value &gt;= 8, middle: spell.value &gt;= 3 &amp;&amp; spell.value &lt; 8}'>
+            {{spell.value}} {{spell.name}}
+            <small>{{spell.proof}}</small>
+          </h3>
+        </accordion-heading>
+        <div class='row'>
+          <div class='col-sm-3'>
+            <h4>// Zauberdauer</h4>
+          </div>
+          <div class='col-sm-3'>
+            <h4>// Wirkungsdauer</h4>
+          </div>
+          <div class='col-sm-3'>
+            <h4>// Kosten</h4>
+          </div>
+          <div class='col-sm-3'>
+            <h4>// Reichweite</h4>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-3'>
+            <p>{{spell.castDuration}}</p>
+          </div>
+          <div class='col-sm-3'>
+            <p>{{spell.spellDuration}}</p>
+          </div>
+          <div class='col-sm-3'>
+            <p>{{spell.costs}}</p>
+          </div>
+          <div class='col-sm-3'>
+            <p>{{spell.range}}</p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-3'>
+            <h4>// Zielobjekt</h4>
+          </div>
+          <div class='col-sm-3'>
+            <h4>// Merkmal</h4>
+          </div>
+          <div class='col-sm-3'>
+            <h4>// Komplexität</h4>
+          </div>
+          <div class='col-sm-3'>
+            <h4>// Representation</h4>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-3'>
+            <p>{{spell.target}}</p>
+          </div>
+          <div class='col-sm-3'>
+            <p>{{spell.element}}</p>
+          </div>
+          <div class='col-sm-3'>
+            <p>{{spell.complexity}}</p>
+          </div>
+          <div class='col-sm-3'>
+            <p>{{spell.representation}}</p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-6'>
+            <h4>// Wirkung</h4>
+            {{spell.effect}}
+          </div>
+          <div class='col-sm-6'>
+            <h4>// Technik</h4>
+            {{spell.technic}}
+            <h4>// Reversalis</h4>
+            {{spell.reversalis}}
+            <h4>// Antimagie</h4>
+            {{spell.antiMagic}}
+          </div>
+        </div>
+      </accordion-group>
+    </accordion>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('HeroService', function HeroService(TalentService, BaggageService, AttributeService) {
+app.service('HeroService', function HeroService(TalentService, BaggageService, AttributeService, SpellService) {
 
   console.log(BaggageService);
   console.log(TalentService);
@@ -155,6 +155,7 @@ app.service('HeroService', function HeroService(TalentService, BaggageService, A
     this.basics     = new BasicValues();
     this.talents    = new HeroTalents();
     this.baggage    = new HeroBaggage();
+    this.spells     = {};
 
     this.setup = function() {
       // first set all attributes
@@ -342,6 +343,12 @@ app.service('HeroService', function HeroService(TalentService, BaggageService, A
 
     // Geld (money)
     this.shanarion.baggage.money                                        = new BaggageService.Money(6, 4, 9, 3);
+
+  // Zauber (spells)
+    this.shanarion.spells.balsam                   = SpellService.spells.balsam;
+    this.shanarion.spells.balsam.value             = 9;
+    this.shanarion.spells.seidenzunge              = SpellService.spells.seidenzunge;
+    this.shanarion.spells.seidenzunge.value        = 6;
 
 
     return this.shanarion;

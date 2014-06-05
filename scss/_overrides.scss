@@ -47,7 +47,6 @@ h3 {
 #left-menu-container {
   background-color: lighten($darkbasic, 10%);
   color: $lightbasic;
-  height: 100vh;
 
   button.btn {
     font-size: 24px;
@@ -447,4 +446,36 @@ span.currentWeaponRangeThird {
 .profile-text {
   font-weight: 100;
   line-height: 24px;
+}
+
+//// Spells ////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+.panel-default {
+  border: solid 1px lighten($darkbasic, 10%);
+  background-color: transparent;
+  font-weight: 300;
+
+  h4 {
+    color: $darkbasic
+  }
+}
+.panel-default > .panel-heading {
+  background-color: $darkbasic;
+
+  h3 {
+    color: $lightbasic;
+    margin: 0;
+    font-weight: 100;
+    &.high {
+    color: $highlight;
+    }
+    &.middle {
+      color: yellow;
+    }
+  }
+}
+.panel-default > .panel-heading + .panel-collapse .panel-body {
+  background-color: lighten($darkbasic, 10%);
+  border: none;
 }

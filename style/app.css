@@ -7628,9 +7628,8 @@ h3 small {
 #left-menu-container {
   background-color: #4d4d4d;
   color: white;
-  height: 100vh;
 }
-/* line 52, ../scss/_overrides.scss */
+/* line 51, ../scss/_overrides.scss */
 #left-menu-container button.btn {
   font-size: 24px;
   font-weight: 300;
@@ -7639,43 +7638,43 @@ h3 small {
   border-radius: 0;
   background-color: #333333;
 }
-/* line 62, ../scss/_overrides.scss */
+/* line 61, ../scss/_overrides.scss */
 #left-menu-container button.btn:hover {
   background-color: #00ff48;
 }
 
-/* line 68, ../scss/_overrides.scss */
+/* line 67, ../scss/_overrides.scss */
 .logo {
   padding: 15px;
   text-align: center;
   width: 100%;
 }
-/* line 74, ../scss/_overrides.scss */
+/* line 73, ../scss/_overrides.scss */
 .logo i {
   font-size: 100px;
   text-align: center;
   width: 100%;
 }
 
-/* line 84, ../scss/_overrides.scss */
+/* line 83, ../scss/_overrides.scss */
 body {
   background-color: #333333;
   color: white;
   font-family: 'Roboto', sans-serif;
 }
 
-/* line 90, ../scss/_overrides.scss */
+/* line 89, ../scss/_overrides.scss */
 .container {
   width: 100%;
 }
 
-/* line 94, ../scss/_overrides.scss */
+/* line 93, ../scss/_overrides.scss */
 .content-container {
   background-color: #333333;
   color: white;
 }
 
-/* line 99, ../scss/_overrides.scss */
+/* line 98, ../scss/_overrides.scss */
 [ui-view].content-container.ng-enter, [ui-view].content-container.ng-leave {
   -webkit-transition: all .5s ease-in-out;
   -moz-transition: all .5s ease-in-out;
@@ -7683,13 +7682,13 @@ body {
   transition: all .5s ease-in-out;
 }
 
-/* line 109, ../scss/_overrides.scss */
+/* line 108, ../scss/_overrides.scss */
 [ui-view].content-container.ng-enter {
   opacity: 0;
   top: -100px;
 }
 
-/* line 118, ../scss/_overrides.scss */
+/* line 117, ../scss/_overrides.scss */
 [ui-view].content-container.ng-enter-active {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
@@ -7697,13 +7696,13 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 128, ../scss/_overrides.scss */
+/* line 127, ../scss/_overrides.scss */
 [ui-view].content-container.ng-leave {
   opacity: 1;
   top: -100px;
 }
 
-/* line 136, ../scss/_overrides.scss */
+/* line 135, ../scss/_overrides.scss */
 [ui-view].content-container.ng-leave-active {
   opacity: 0;
   -webkit-transform: translate3d(0, 100px, 0);
@@ -7711,12 +7710,12 @@ body {
   transform: translate3d(0, 100px, 0);
 }
 
-/* line 147, ../scss/_overrides.scss */
+/* line 146, ../scss/_overrides.scss */
 .bars-box {
   padding: 15px;
 }
 
-/* line 151, ../scss/_overrides.scss */
+/* line 150, ../scss/_overrides.scss */
 .weapon-box {
   display: block;
   background-color: none;
@@ -7726,53 +7725,53 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
-/* line 161, ../scss/_overrides.scss */
+/* line 160, ../scss/_overrides.scss */
 .weapon-box h3 {
   padding: 15px 15px 0 15px;
 }
-/* line 163, ../scss/_overrides.scss */
+/* line 162, ../scss/_overrides.scss */
 .weapon-box h3.disabled {
   color: #4d4d4d;
 }
-/* line 165, ../scss/_overrides.scss */
+/* line 164, ../scss/_overrides.scss */
 .weapon-box h3.disabled:hover {
   background-color: #333333;
   color: #4d4d4d;
 }
-/* line 171, ../scss/_overrides.scss */
+/* line 170, ../scss/_overrides.scss */
 .weapon-box button.btn.weapon {
   width: 100%;
   border-radius: 0;
   background-color: #333333;
   border-top: solid 1px #4d4d4d;
 }
-/* line 177, ../scss/_overrides.scss */
+/* line 176, ../scss/_overrides.scss */
 .weapon-box button.btn.weapon small {
   font-size: 100%;
   font-weight: normal;
   color: #4d4d4d;
 }
-/* line 183, ../scss/_overrides.scss */
+/* line 182, ../scss/_overrides.scss */
 .weapon-box button.btn.weapon:hover {
   background-color: #00ff48;
   color: #333333;
 }
-/* line 187, ../scss/_overrides.scss */
+/* line 186, ../scss/_overrides.scss */
 .weapon-box button.btn.weapon.disabled {
   color: #4d4d4d;
 }
-/* line 189, ../scss/_overrides.scss */
+/* line 188, ../scss/_overrides.scss */
 .weapon-box button.btn.weapon.disabled:hover {
   background-color: #333333;
   color: #4d4d4d;
 }
 
-/* line 197, ../scss/_overrides.scss */
+/* line 196, ../scss/_overrides.scss */
 .weapon-info {
   padding: 15px;
 }
 
-/* line 201, ../scss/_overrides.scss */
+/* line 200, ../scss/_overrides.scss */
 button.btn.bars {
   width: 49%;
   background-color: #333333;
@@ -7780,7 +7779,7 @@ button.btn.bars {
   border: solid 1px #4d4d4d;
 }
 
-/* line 208, ../scss/_overrides.scss */
+/* line 207, ../scss/_overrides.scss */
 .dropdown-toggle {
   color: #333333;
   font-size: 16px;
@@ -7790,18 +7789,18 @@ button.btn.bars {
   padding: 12px;
   display: block;
 }
-/* line 217, ../scss/_overrides.scss */
+/* line 216, ../scss/_overrides.scss */
 .dropdown-toggle:hover {
   color: #333333;
 }
 
-/* line 221, ../scss/_overrides.scss */
+/* line 220, ../scss/_overrides.scss */
 .dropdown-menu {
   width: 100%;
   opacity: 0.9;
 }
 
-/* line 225, ../scss/_overrides.scss */
+/* line 224, ../scss/_overrides.scss */
 .stats-value {
   text-align: center;
   color: black;
@@ -7810,7 +7809,7 @@ button.btn.bars {
   font-family: "Roboto", sans-serif;
 }
 
-/* line 232, ../scss/_overrides.scss */
+/* line 231, ../scss/_overrides.scss */
 .stats-text {
   text-align: center;
   display: block;
@@ -7818,49 +7817,49 @@ button.btn.bars {
   font-family: "Roboto", sans-serif;
 }
 
-/* line 239, ../scss/_overrides.scss */
+/* line 238, ../scss/_overrides.scss */
 .lep-slider, .asp-slider, .aup-slider {
   padding: 0;
 }
 
-/* line 244, ../scss/_overrides.scss */
+/* line 243, ../scss/_overrides.scss */
 .ui-slider-vertical {
   width: 100%;
   height: 200px;
 }
 
-/* line 250, ../scss/_overrides.scss */
+/* line 249, ../scss/_overrides.scss */
 .lep-slider .ui-slider-range {
   background-color: red;
   background-image: none;
   opacity: 0.7;
 }
 
-/* line 257, ../scss/_overrides.scss */
+/* line 256, ../scss/_overrides.scss */
 .asp-slider .ui-slider-range {
   background-color: blue;
   background-image: none;
   opacity: 0.7;
 }
 
-/* line 264, ../scss/_overrides.scss */
+/* line 263, ../scss/_overrides.scss */
 .aup-slider .ui-slider-range {
   background-color: green;
   background-image: none;
   opacity: 0.7;
 }
 
-/* line 271, ../scss/_overrides.scss */
+/* line 270, ../scss/_overrides.scss */
 .animate .ui-slider-range {
   transition: height 1s ease;
 }
 
-/* line 276, ../scss/_overrides.scss */
+/* line 275, ../scss/_overrides.scss */
 .animate .ui-slider-handle {
   transition: bottom 1s ease;
 }
 
-/* line 280, ../scss/_overrides.scss */
+/* line 279, ../scss/_overrides.scss */
 .lep-slider .ui-slider-handle, .asp-slider .ui-slider-handle, .aup-slider .ui-slider-handle {
   left: 0;
   width: 100%;
@@ -7871,42 +7870,42 @@ button.btn.bars {
   border: 0;
 }
 
-/* line 289, ../scss/_overrides.scss */
+/* line 288, ../scss/_overrides.scss */
 .lep-slider .ui-slider-handle {
   background-color: red;
   opacity: 0;
 }
 
-/* line 293, ../scss/_overrides.scss */
+/* line 292, ../scss/_overrides.scss */
 .asp-slider .ui-slider-handle {
   background-color: blue;
   opacity: 0;
 }
 
-/* line 297, ../scss/_overrides.scss */
+/* line 296, ../scss/_overrides.scss */
 .aup-slider .ui-slider-handle {
   background-color: green;
   opacity: 0;
 }
 
-/* line 301, ../scss/_overrides.scss */
+/* line 300, ../scss/_overrides.scss */
 .ui-widget-content {
   border: 0;
   background-image: none;
 }
 
-/* line 305, ../scss/_overrides.scss */
+/* line 304, ../scss/_overrides.scss */
 .ui-corner-all {
   border-radius: 0;
 }
 
-/* line 308, ../scss/_overrides.scss */
+/* line 307, ../scss/_overrides.scss */
 .row.no-spacing div[class*='col-'] {
   padding-left: 0;
   padding-right: 0;
 }
 
-/* line 313, ../scss/_overrides.scss */
+/* line 312, ../scss/_overrides.scss */
 .row.no-spacing .thumbnail {
   margin-bottom: 0;
   padding: 0;
@@ -7916,7 +7915,7 @@ button.btn.bars {
   background-color: transparent;
 }
 
-/* line 323, ../scss/_overrides.scss */
+/* line 322, ../scss/_overrides.scss */
 a#ini {
   display: block;
   padding: 12px;
@@ -7927,7 +7926,7 @@ a#ini {
   margin-top: 5px;
 }
 
-/* line 333, ../scss/_overrides.scss */
+/* line 332, ../scss/_overrides.scss */
 span.currentWeaponFirst {
   display: block;
   font-size: 24px;
@@ -7936,7 +7935,7 @@ span.currentWeaponFirst {
   text-align: left;
 }
 
-/* line 340, ../scss/_overrides.scss */
+/* line 339, ../scss/_overrides.scss */
 span.currentWeaponSecond {
   display: block;
   font-size: 12px;
@@ -7944,7 +7943,7 @@ span.currentWeaponSecond {
   padding-left: 15px;
 }
 
-/* line 346, ../scss/_overrides.scss */
+/* line 345, ../scss/_overrides.scss */
 span.currentWeaponRangeThird {
   display: block;
   font-size: 12px;
@@ -7952,7 +7951,7 @@ span.currentWeaponRangeThird {
   padding-left: 15px;
 }
 
-/* line 353, ../scss/_overrides.scss */
+/* line 352, ../scss/_overrides.scss */
 .outOfActions {
   width: 70%;
   height: 1000px;
@@ -7963,17 +7962,17 @@ span.currentWeaponRangeThird {
   padding: 40px;
 }
 
-/* line 366, ../scss/_overrides.scss */
+/* line 365, ../scss/_overrides.scss */
 .choose-weapon-modal {
   background-color: #333333;
 }
 
-/* line 370, ../scss/_overrides.scss */
+/* line 369, ../scss/_overrides.scss */
 .modal-header {
   background-color: #333333;
 }
 
-/* line 377, ../scss/_overrides.scss */
+/* line 376, ../scss/_overrides.scss */
 .talent-box {
   display: block;
   padding: 15px;
@@ -7984,13 +7983,13 @@ span.currentWeaponRangeThird {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
-/* line 388, ../scss/_overrides.scss */
+/* line 387, ../scss/_overrides.scss */
 .talent-box ul {
   list-style: none;
   padding: 0;
 }
 
-/* line 394, ../scss/_overrides.scss */
+/* line 393, ../scss/_overrides.scss */
 .talent-value {
   font-weight: 300;
   line-height: 24px;
@@ -7998,40 +7997,40 @@ span.currentWeaponRangeThird {
   display: inline-block;
   width: 100%;
 }
-/* line 401, ../scss/_overrides.scss */
+/* line 400, ../scss/_overrides.scss */
 .talent-value.high {
   color: #00ff48;
 }
-/* line 404, ../scss/_overrides.scss */
+/* line 403, ../scss/_overrides.scss */
 .talent-value.middle {
   color: yellow;
 }
 
-/* line 409, ../scss/_overrides.scss */
+/* line 408, ../scss/_overrides.scss */
 .talent-name {
   font-weight: 100;
   line-height: 24px;
 }
-/* line 412, ../scss/_overrides.scss */
+/* line 411, ../scss/_overrides.scss */
 .talent-name.high {
   color: #00ff48;
 }
-/* line 415, ../scss/_overrides.scss */
+/* line 414, ../scss/_overrides.scss */
 .talent-name.middle {
   color: yellow;
 }
 
-/* line 420, ../scss/_overrides.scss */
+/* line 419, ../scss/_overrides.scss */
 .option {
   width: 100%;
   cursor: pointer;
 }
-/* line 423, ../scss/_overrides.scss */
+/* line 422, ../scss/_overrides.scss */
 .option.active {
   color: #00ff48;
 }
 
-/* line 432, ../scss/_overrides.scss */
+/* line 431, ../scss/_overrides.scss */
 .profile-box {
   display: block;
   padding: 15px;
@@ -8043,14 +8042,50 @@ span.currentWeaponRangeThird {
   font-weight: 300;
 }
 
-/* line 443, ../scss/_overrides.scss */
+/* line 442, ../scss/_overrides.scss */
 .profile-head {
   border-bottom: solid 1px #4d4d4d;
   margin-bottom: 30px;
 }
 
-/* line 447, ../scss/_overrides.scss */
+/* line 446, ../scss/_overrides.scss */
 .profile-text {
   font-weight: 100;
   line-height: 24px;
+}
+
+/* line 454, ../scss/_overrides.scss */
+.panel-default {
+  border: solid 1px #4d4d4d;
+  background-color: transparent;
+  font-weight: 300;
+}
+/* line 459, ../scss/_overrides.scss */
+.panel-default h4 {
+  color: #333333;
+}
+
+/* line 463, ../scss/_overrides.scss */
+.panel-default > .panel-heading {
+  background-color: #333333;
+}
+/* line 466, ../scss/_overrides.scss */
+.panel-default > .panel-heading h3 {
+  color: white;
+  margin: 0;
+  font-weight: 100;
+}
+/* line 470, ../scss/_overrides.scss */
+.panel-default > .panel-heading h3.high {
+  color: #00ff48;
+}
+/* line 473, ../scss/_overrides.scss */
+.panel-default > .panel-heading h3.middle {
+  color: yellow;
+}
+
+/* line 478, ../scss/_overrides.scss */
+.panel-default > .panel-heading + .panel-collapse .panel-body {
+  background-color: #4d4d4d;
+  border: none;
 }
